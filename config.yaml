@@ -1,0 +1,46 @@
+# Flight Price Tracker configuration
+
+origin: YYZ
+currency: cad
+
+destinations:
+  - code: LHR
+    name: London
+  - code: CDG
+    name: Paris
+  - code: FCO
+    name: Rome
+  - code: AMS
+    name: Amsterdam
+  - code: MAD
+    name: Madrid
+  - code: BCN
+    name: Barcelona
+  - code: FRA
+    name: Frankfurt
+  - code: MUC
+    name: Munich
+  - code: DUB
+    name: Dublin
+  - code: ZRH
+    name: Zurich
+  - code: VIE
+    name: Vienna
+  - code: LIS
+    name: Lisbon
+  - code: ATH
+    name: Athens
+  - code: CPH
+    name: Copenhagen
+  - code: ARN
+    name: Stockholm
+
+deal_rules:
+  floor_price_cad: 700
+  statistical_discount_pct: 15
+  min_history_points: 5
+  rolling_window_days: 90
+
+email:
+  recipient: abhish05@gmail.com
+  subject_prefix: "[Flight Deal]"
