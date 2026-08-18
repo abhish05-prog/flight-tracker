@@ -58,10 +58,18 @@ repository secret**. Add:
 | `TRAVELPAYOUTS_TOKEN` | Your Travelpayouts API token |
 | `EMAIL_ADDRESS` | The Gmail address to send from |
 | `EMAIL_APP_PASSWORD` | The 16-character App Password from step 2 |
+| `EMAIL_RECIPIENT` | Where deal alerts should be sent |
 
 ### 5. (Optional) Enable GitHub Pages for a bookmarkable history URL
 
-**Settings → Pages → Source: Deploy from a branch → Branch: `main`,
+Free GitHub Pages requires a **public** repo (private-repo Pages needs a paid
+plan). If you want the public URL, make the repo public first (**Settings →
+General → Danger Zone → Change visibility**) — note that everything else in
+the repo (code, config, price history) becomes publicly visible too. The
+recipient email lives only in the `EMAIL_RECIPIENT` secret, never in a
+committed file, so it stays private either way.
+
+Then: **Settings → Pages → Source: Deploy from a branch → Branch: `main`,
 folder: `/docs`**. After the next Action run, your history page will be at
 `https://<your-username>.github.io/<your-repo>/history.html`.
 
@@ -81,7 +89,9 @@ Edit `config.yaml` to change:
 - `deal_rules.min_history_points` — minimum data points before the
   statistical trigger is active
 - `deal_rules.rolling_window_days` — lookback window for the average
-- `email.recipient` — where deal alerts are sent
+
+The alert recipient is set via the `EMAIL_RECIPIENT` secret/env var, not
+`config.yaml`, so it isn't exposed if the repo is public.
 
 ## Local development
 
@@ -90,6 +100,7 @@ pip install -r requirements.txt
 export TRAVELPAYOUTS_TOKEN=your_token
 export EMAIL_ADDRESS=you@gmail.com
 export EMAIL_APP_PASSWORD=your_app_password
+export EMAIL_RECIPIENT=you@gmail.com
 python track_prices.py
 python generate_html.py
 open docs/history.html

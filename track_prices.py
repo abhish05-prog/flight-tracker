@@ -136,6 +136,7 @@ def send_deal_email(config, deals):
     email_cfg = config["email"]
     sender = os.environ["EMAIL_ADDRESS"]
     app_password = os.environ["EMAIL_APP_PASSWORD"]
+    recipient = os.environ["EMAIL_RECIPIENT"]
 
     lines = ["Flight deals found:\n"]
     for deal in deals:
@@ -151,11 +152,11 @@ def send_deal_email(config, deals):
     msg = MIMEText(body)
     msg["Subject"] = f"{email_cfg['subject_prefix']} {len(deals)} route(s) found"
     msg["From"] = sender
-    msg["To"] = email_cfg["recipient"]
+    msg["To"] = recipient
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
         server.login(sender, app_password)
-        server.sendmail(sender, [email_cfg["recipient"]], msg.as_string())
+        server.sendmail(sender, [recipient], msg.as_string())
 
 
 def main():

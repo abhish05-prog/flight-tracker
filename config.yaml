@@ -42,5 +42,6 @@ deal_rules:
   rolling_window_days: 90
 
 email:
-  recipient: abhish05@gmail.com
+  # Recipient address comes from the EMAIL_RECIPIENT secret/env var, not here,
+  # so this file can be committed to a public repo without exposing it.
   subject_prefix: "[Flight Deal]"
