@@ -23,6 +23,8 @@ CSV_FIELDS = [
     "currency",
     "depart_date",
     "return_date",
+    "airline",
+    "flight_number",
 ]
 
 
@@ -59,6 +61,8 @@ def fetch_cheapest_fare(origin, destination, currency, token):
         "price": cheapest["price"],
         "depart_date": (cheapest.get("departure_at") or "")[:10],
         "return_date": (cheapest.get("return_at") or "")[:10],
+        "airline": cheapest.get("airline", ""),
+        "flight_number": cheapest.get("flight_number", ""),
     }
 
 
@@ -126,7 +130,8 @@ def send_deal_email(config, deals):
         lines.append(
             f"- {deal['destination_name']} ({deal['destination']}): "
             f"${deal['price']} {deal['currency'].upper()} "
-            f"(depart {deal['depart_date']}, return {deal['return_date']})\n"
+            f"(depart {deal['depart_date']}, return {deal['return_date']}) "
+            f"[{deal['airline']} {deal['flight_number']}]\n"
             f"  Reason: {', '.join(deal['reasons'])}"
         )
     body = "\n".join(lines)
@@ -178,6 +183,8 @@ def main():
             "currency": currency,
             "depart_date": fare["depart_date"],
             "return_date": fare["return_date"],
+            "airline": fare["airline"],
+            "flight_number": fare["flight_number"],
         }
         new_rows.append(row)
         print(f"  {code}: ${fare['price']} {currency.upper()}")

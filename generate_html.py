@@ -52,7 +52,7 @@ CARD_TEMPLATE = """<div class="card">
   <details>
     <summary>Full history ({count} checks)</summary>
     <table>
-      <tr><th>Checked</th><th>Price</th><th>Depart</th><th>Return</th></tr>
+      <tr><th>Checked</th><th>Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr>
       {rows}
     </table>
   </details>
@@ -77,11 +77,15 @@ def build_card(code, name, rows):
     table_rows = []
     for r in reversed(rows_sorted):
         cls = ' class="cheapest"' if float(r["price"]) == lowest else ""
+        airline = (r.get("airline") or "").strip()
+        flight_number = (r.get("flight_number") or "").strip()
+        flight = f"{airline} {flight_number}".strip() or "—"
         table_rows.append(
             f"<tr{cls}><td>{html.escape(r['checked_at'][:10])}</td>"
             f"<td>${float(r['price']):.0f}</td>"
             f"<td>{html.escape(r['depart_date'])}</td>"
-            f"<td>{html.escape(r['return_date'])}</td></tr>"
+            f"<td>{html.escape(r['return_date'])}</td>"
+            f"<td>{html.escape(flight)}</td></tr>"
         )
 
     return CARD_TEMPLATE.format(
