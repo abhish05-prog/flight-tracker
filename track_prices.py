@@ -12,6 +12,7 @@ import requests
 import yaml
 
 API_URL = "https://api.travelpayouts.com/v1/prices/cheap"
+AIRLINES_URL = "https://api.travelpayouts.com/data/en/airlines.json"
 CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.yaml")
 HISTORY_PATH = os.path.join(os.path.dirname(__file__), "data", "history.csv")
 CSV_FIELDS = [
@@ -24,6 +25,7 @@ CSV_FIELDS = [
     "depart_date",
     "return_date",
     "airline",
+    "airline_name",
     "flight_number",
 ]
 
@@ -31,6 +33,16 @@ CSV_FIELDS = [
 def load_config():
     with open(CONFIG_PATH) as f:
         return yaml.safe_load(f)
+
+
+def fetch_airline_names():
+    try:
+        resp = requests.get(AIRLINES_URL, timeout=30)
+        resp.raise_for_status()
+        return {a["code"]: a["name"] for a in resp.json() if a.get("code")}
+    except requests.RequestException as e:
+        print(f"Warning: couldn't fetch airline names ({e})", file=sys.stderr)
+        return {}
 
 
 def fetch_cheapest_fare(origin, destination, currency, token):
@@ -131,7 +143,7 @@ def send_deal_email(config, deals):
             f"- {deal['destination_name']} ({deal['destination']}): "
             f"${deal['price']} {deal['currency'].upper()} "
             f"(depart {deal['depart_date']}, return {deal['return_date']}) "
-            f"[{deal['airline']} {deal['flight_number']}]\n"
+            f"[{deal['airline_name']} {deal['flight_number']}]\n"
             f"  Reason: {', '.join(deal['reasons'])}"
         )
     body = "\n".join(lines)
@@ -156,6 +168,7 @@ def main():
     currency = config["currency"]
     rules = config["deal_rules"]
 
+    airline_names = fetch_airline_names()
     history = read_history()
     now = datetime.now(timezone.utc).isoformat()
 
@@ -184,6 +197,7 @@ def main():
             "depart_date": fare["depart_date"],
             "return_date": fare["return_date"],
             "airline": fare["airline"],
+            "airline_name": airline_names.get(fare["airline"], fare["airline"]),
             "flight_number": fare["flight_number"],
         }
         new_rows.append(row)

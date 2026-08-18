@@ -77,7 +77,7 @@ def build_card(code, name, rows):
     table_rows = []
     for r in reversed(rows_sorted):
         cls = ' class="cheapest"' if float(r["price"]) == lowest else ""
-        airline = (r.get("airline") or "").strip()
+        airline = (r.get("airline_name") or r.get("airline") or "").strip()
         flight_number = (r.get("flight_number") or "").strip()
         flight = f"{airline} {flight_number}".strip() or "—"
         table_rows.append(
