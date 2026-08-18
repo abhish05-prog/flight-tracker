@@ -47,7 +47,10 @@ def fetch_cheapest_fare(origin, destination, currency, token):
     if not payload.get("success"):
         return None
 
-    offers = payload.get("data", {}).get(destination)
+    # The API keys results by resolved city code (e.g. LHR -> "LON"), not the
+    # requested airport code, so grab the single value instead of indexing by key.
+    data = payload.get("data", {})
+    offers = next(iter(data.values()), None)
     if not offers:
         return None
 
