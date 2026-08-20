@@ -36,7 +36,7 @@ destinations:
     name: Stockholm
 
 deal_rules:
-  floor_price_cad: 700
+  floor_price_cad: 600
   statistical_discount_pct: 15
   min_history_points: 5
   rolling_window_days: 90
