@@ -34,6 +34,26 @@ destinations:
     name: Copenhagen
   - code: ARN
     name: Stockholm
+  - code: BER
+    name: Berlin
+  - code: WAW
+    name: Warsaw
+  - code: PRG
+    name: Prague
+  - code: BUD
+    name: Budapest
+  - code: BRU
+    name: Brussels
+  - code: MXP
+    name: Milan
+  - code: OSL
+    name: Oslo
+  - code: HEL
+    name: Helsinki
+  - code: EDI
+    name: Edinburgh
+  - code: KEF
+    name: Reykjavik
 
 deal_rules:
   floor_price_cad: 600
