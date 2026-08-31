@@ -208,11 +208,12 @@ def main():
         new_rows.append(row)
         print(f"  {code}: ${fare['price']} {currency.upper()}")
 
-        reasons = evaluate_deal(
-            fare["price"], code, history, rules, floor_price_cad=dest.get("floor_price_cad")
-        )
-        if reasons:
-            deals.append({**row, "reasons": reasons})
+        if dest.get("alerts", True):
+            reasons = evaluate_deal(
+                fare["price"], code, history, rules, floor_price_cad=dest.get("floor_price_cad")
+            )
+            if reasons:
+                deals.append({**row, "reasons": reasons})
 
     if new_rows:
         append_history(new_rows)

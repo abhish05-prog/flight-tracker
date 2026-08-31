@@ -12,6 +12,11 @@ HISTORY_PATH = os.path.join(os.path.dirname(__file__), "data", "history.csv")
 CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.yaml")
 OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "docs", "history.html")
 
+# Bands for color-coding "tracked only" routes (no floor/deal alerts) against
+# their own all-time average: >=10% below avg is a green day, >=10% above is
+# red, everything in between is orange.
+COLOR_BAND_PCT = 10
+
 PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,12 +41,20 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
            font-size: 0.9rem; }}
   .stats div {{ background: #f0f4ff; border-radius: 6px; padding: 0.4rem 0.75rem; }}
   .card.priority .stats div {{ background: #fdf0d5; }}
+  .stats div.stat-green {{ background: #d9f2e3; }}
+  .stats div.stat-orange {{ background: #fde8c8; }}
+  .stats div.stat-red {{ background: #fbdbd9; }}
   .stats b {{ display: block; font-size: 1.1rem; }}
   table {{ width: 100%; border-collapse: collapse; font-size: 0.85rem; }}
   th, td {{ text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid #eee; }}
   tr.cheapest {{ background: #e6f9ec; font-weight: 600; }}
+  td.price-green {{ background: #d9f2e3; font-weight: 600; }}
+  td.price-orange {{ background: #fde8c8; }}
+  td.price-red {{ background: #fbdbd9; }}
   details summary {{ cursor: pointer; color: #444; font-size: 0.9rem; margin-top: 0.5rem; }}
   .no-data {{ color: #888; font-style: italic; }}
+  .legend {{ font-size: 0.8rem; color: #666; margin-top: 0.5rem; }}
+  .legend span {{ padding: 0.1rem 0.4rem; border-radius: 3px; margin-right: 0.3rem; }}
 </style>
 </head>
 <body>
@@ -58,10 +71,11 @@ CARD_TEMPLATE = """<div class="card{priority_class}">
   <h2>{name} ({code})</h2>
   <div class="stats">
     <div><b>${lowest:.0f}</b>lowest ever</div>
-    <div><b>${latest:.0f}</b>latest</div>
+    <div{latest_class}><b>${latest:.0f}</b>latest</div>
     <div><b>${avg:.0f}</b>all-time avg</div>
     <div><b>{count}</b>checks</div>
   </div>
+  {legend}
   <details>
     <summary>Full history ({count} checks)</summary>
     <table>
@@ -72,12 +86,19 @@ CARD_TEMPLATE = """<div class="card{priority_class}">
 </div>
 """
 
+LEGEND_HTML = (
+    '<p class="legend">'
+    f'<span class="price-green">green</span> = 10%+ below its own all-time average, '
+    f'<span class="price-red">red</span> = 10%+ above, '
+    f'<span class="price-orange">orange</span> = in between. No deal alerts on this route.'
+    "</p>"
+)
+
 NO_DATA_CARD_TEMPLATE = """<div class="card priority">
   <span class="priority-badge">Priority route</span>
   <h2>{name} ({code})</h2>
   <p class="no-data">No fare data cached yet for this route — it'll appear
-  here once Travelpayouts has a price to report. Floor price is set to
-  ${floor:.0f} CAD.</p>
+  here once Travelpayouts has a price to report.{extra}</p>
 </div>
 """
 
@@ -94,7 +115,18 @@ def load_rows():
         return list(csv.DictReader(f))
 
 
-def build_card(code, name, rows, is_priority):
+def classify_price(price, avg):
+    if avg <= 0:
+        return "orange"
+    diff_pct = (price - avg) / avg * 100
+    if diff_pct <= -COLOR_BAND_PCT:
+        return "green"
+    if diff_pct >= COLOR_BAND_PCT:
+        return "red"
+    return "orange"
+
+
+def build_card(code, name, rows, is_priority, color_coded):
     rows_sorted = sorted(rows, key=lambda r: r["checked_at"])
     prices = [float(r["price"]) for r in rows_sorted]
     lowest = min(prices)
@@ -103,17 +135,25 @@ def build_card(code, name, rows, is_priority):
 
     table_rows = []
     for r in reversed(rows_sorted):
-        cls = ' class="cheapest"' if float(r["price"]) == lowest else ""
+        price = float(r["price"])
+        if color_coded:
+            price_cls = f' class="price-{classify_price(price, avg)}"'
+            row_cls = ""
+        else:
+            price_cls = ""
+            row_cls = ' class="cheapest"' if price == lowest else ""
         airline = (r.get("airline_name") or r.get("airline") or "").strip()
         flight_number = (r.get("flight_number") or "").strip()
         flight = f"{airline} {flight_number}".strip() or "—"
         table_rows.append(
-            f"<tr{cls}><td>{html.escape(r['checked_at'][:10])}</td>"
-            f"<td>${float(r['price']):.0f}</td>"
+            f"<tr{row_cls}><td>{html.escape(r['checked_at'][:10])}</td>"
+            f"<td{price_cls}>${price:.0f}</td>"
             f"<td>{html.escape(r['depart_date'])}</td>"
             f"<td>{html.escape(r['return_date'])}</td>"
             f"<td>{html.escape(flight)}</td></tr>"
         )
+
+    latest_class = f' class="stat-{classify_price(latest, avg)}"' if color_coded else ""
 
     return CARD_TEMPLATE.format(
         name=html.escape(name),
@@ -125,17 +165,15 @@ def build_card(code, name, rows, is_priority):
         rows="\n      ".join(table_rows),
         priority_class=" priority" if is_priority else "",
         badge='<span class="priority-badge">Priority route</span>' if is_priority else "",
+        latest_class=latest_class,
+        legend=LEGEND_HTML if color_coded else "",
     )
 
 
 def main():
     config = load_config()
-    priority = {
-        d["code"]: d
-        for d in config.get("destinations", [])
-        if d.get("priority")
-    }
-    default_floor = config.get("deal_rules", {}).get("floor_price_cad", 0)
+    destinations = {d["code"]: d for d in config.get("destinations", [])}
+    priority_codes = {code for code, d in destinations.items() if d.get("priority")}
 
     rows = load_rows()
     by_destination = defaultdict(list)
@@ -145,19 +183,24 @@ def main():
         names[r["destination"]] = r["destination_name"]
 
     priority_cards = []
-    for code, dest in priority.items():
+    for code in priority_codes:
+        dest = destinations[code]
         if code in by_destination:
-            priority_cards.append(build_card(code, names[code], by_destination[code], True))
-        else:
-            floor = dest.get("floor_price_cad", default_floor)
+            color_coded = not dest.get("alerts", True)
             priority_cards.append(
-                NO_DATA_CARD_TEMPLATE.format(name=html.escape(dest["name"]), code=code, floor=floor)
+                build_card(code, names[code], by_destination[code], True, color_coded)
+            )
+        else:
+            floor = dest.get("floor_price_cad")
+            extra = f" Floor price is set to ${floor:.0f} CAD." if floor else ""
+            priority_cards.append(
+                NO_DATA_CARD_TEMPLATE.format(name=html.escape(dest["name"]), code=code, extra=extra)
             )
 
-    other_codes = [c for c in by_destination if c not in priority]
+    other_codes = [c for c in by_destination if c not in priority_codes]
     if other_codes:
         other_cards_html = "\n".join(
-            build_card(code, names[code], by_destination[code], False)
+            build_card(code, names[code], by_destination[code], False, False)
             for code in sorted(other_codes)
         )
     else:
