@@ -55,16 +55,27 @@ destinations:
   - code: KEF
     name: Reykjavik
 
-  # Priority route: shown in its own highlighted section on the history page,
-  # with a custom floor price since long-haul India fares run far above the
-  # $600 floor used for Europe. $1200 is a starting estimate based on
-  # comparable live fares (Mumbai ~$1227, Delhi ~$1501 CAD as of 2026-08-30) —
-  # HYD itself had no cached price to compute a real average from yet.
-  # Revisit this once a few weeks of real Hyderabad history accumulate.
-  - code: HYD
-    name: Hyderabad
+  # Priority routes: shown in their own highlighted section on the history
+  # page, each with a custom floor price since long-haul India fares run far
+  # above the $600 floor used for Europe.
+  #
+  # Delhi is direct_only (nonstop-only, via /v1/prices/direct) since Air
+  # India flies YYZ-DEL nonstop. Floor of $1700 is a starting estimate below
+  # today's live nonstop sample (~$1969 CAD) — revisit once real history
+  # accumulates.
+  #
+  # Mumbai has no scheduled nonstop from YYZ, so it's tracked like the
+  # European routes (any fare, connections included). Floor of $1100 is a
+  # starting estimate below today's live sample (~$1227 CAD).
+  - code: DEL
+    name: Delhi
     priority: true
-    floor_price_cad: 1200
+    direct_only: true
+    floor_price_cad: 1700
+  - code: BOM
+    name: Mumbai
+    priority: true
+    floor_price_cad: 1100
 
 deal_rules:
   floor_price_cad: 600

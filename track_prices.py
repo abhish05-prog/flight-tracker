@@ -12,6 +12,7 @@ import requests
 import yaml
 
 API_URL = "https://api.travelpayouts.com/v1/prices/cheap"
+DIRECT_API_URL = "https://api.travelpayouts.com/v1/prices/direct"
 AIRLINES_URL = "https://api.travelpayouts.com/data/en/airlines.json"
 CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.yaml")
 HISTORY_PATH = os.path.join(os.path.dirname(__file__), "data", "history.csv")
@@ -45,9 +46,9 @@ def fetch_airline_names():
         return {}
 
 
-def fetch_cheapest_fare(origin, destination, currency, token):
+def fetch_cheapest_fare(origin, destination, currency, token, direct_only=False):
     resp = requests.get(
-        API_URL,
+        DIRECT_API_URL if direct_only else API_URL,
         params={
             "origin": origin,
             "destination": destination,
@@ -180,7 +181,9 @@ def main():
     for dest in config["destinations"]:
         code, name = dest["code"], dest["name"]
         try:
-            fare = fetch_cheapest_fare(origin, code, currency, token)
+            fare = fetch_cheapest_fare(
+                origin, code, currency, token, direct_only=dest.get("direct_only", False)
+            )
         except requests.RequestException as e:
             print(f"  {code}: request failed ({e})", file=sys.stderr)
             continue
