@@ -55,6 +55,17 @@ destinations:
   - code: KEF
     name: Reykjavik
 
+  # Priority route: shown in its own highlighted section on the history page,
+  # with a custom floor price since long-haul India fares run far above the
+  # $600 floor used for Europe. $1200 is a starting estimate based on
+  # comparable live fares (Mumbai ~$1227, Delhi ~$1501 CAD as of 2026-08-30) —
+  # HYD itself had no cached price to compute a real average from yet.
+  # Revisit this once a few weeks of real Hyderabad history accumulate.
+  - code: HYD
+    name: Hyderabad
+    priority: true
+    floor_price_cad: 1200
+
 deal_rules:
   floor_price_cad: 600
   statistical_discount_pct: 15

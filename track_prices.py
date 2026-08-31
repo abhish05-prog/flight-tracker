@@ -112,11 +112,12 @@ def rolling_average(history, destination, window_days):
     return prices
 
 
-def evaluate_deal(price, destination, history, rules):
+def evaluate_deal(price, destination, history, rules, floor_price_cad=None):
     reasons = []
 
-    if price <= rules["floor_price_cad"]:
-        reasons.append(f"at or below floor price of ${rules['floor_price_cad']} CAD")
+    floor = floor_price_cad if floor_price_cad is not None else rules["floor_price_cad"]
+    if price <= floor:
+        reasons.append(f"at or below floor price of ${floor} CAD")
 
     past_prices = rolling_average(history, destination, rules["rolling_window_days"])
     if len(past_prices) >= rules["min_history_points"]:
@@ -204,7 +205,9 @@ def main():
         new_rows.append(row)
         print(f"  {code}: ${fare['price']} {currency.upper()}")
 
-        reasons = evaluate_deal(fare["price"], code, history, rules)
+        reasons = evaluate_deal(
+            fare["price"], code, history, rules, floor_price_cad=dest.get("floor_price_cad")
+        )
         if reasons:
             deals.append({**row, "reasons": reasons})
 

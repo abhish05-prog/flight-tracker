@@ -2,30 +2,49 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Flight Price History — YYZ to Europe</title>
+<title>Flight Price History — YYZ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; max-width: 960px;
          margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; background: #fafafa; }
   h1 { font-size: 1.5rem; }
+  h2.section { font-size: 1.1rem; color: #444; margin: 2rem 0 1rem; }
   .updated { color: #666; font-size: 0.9rem; margin-bottom: 2rem; }
   .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px;
           padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
   .card h2 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+  .card.priority { background: #fffaf0; border: 2px solid #e0a030; }
+  .priority-badge { display: inline-block; background: #e0a030; color: #fff;
+                     font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em;
+                     text-transform: uppercase; padding: 0.2rem 0.5rem;
+                     border-radius: 4px; margin-bottom: 0.5rem; }
   .stats { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 0.75rem;
            font-size: 0.9rem; }
   .stats div { background: #f0f4ff; border-radius: 6px; padding: 0.4rem 0.75rem; }
+  .card.priority .stats div { background: #fdf0d5; }
   .stats b { display: block; font-size: 1.1rem; }
   table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
   th, td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid #eee; }
   tr.cheapest { background: #e6f9ec; font-weight: 600; }
   details summary { cursor: pointer; color: #444; font-size: 0.9rem; margin-top: 0.5rem; }
+  .no-data { color: #888; font-style: italic; }
 </style>
 </head>
 <body>
-<h1>Flight Price History — YYZ to Europe</h1>
+<h1>Flight Price History — YYZ</h1>
 <p class="updated">Last updated: 2026-08-30T13:04:12.737587+00:00</p>
+<h2 class="section">Priority routes</h2>
+<div class="card priority">
+  <span class="priority-badge">Priority route</span>
+  <h2>Hyderabad (HYD)</h2>
+  <p class="no-data">No fare data cached yet for this route — it'll appear
+  here once Travelpayouts has a price to report. Floor price is set to
+  $1200 CAD.</p>
+</div>
+
+<h2 class="section">All destinations</h2>
 <div class="card">
+  
   <h2>Amsterdam (AMS)</h2>
   <div class="stats">
     <div><b>$588</b>lowest ever</div>
@@ -55,6 +74,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Stockholm (ARN)</h2>
   <div class="stats">
     <div><b>$828</b>lowest ever</div>
@@ -77,6 +97,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Athens (ATH)</h2>
   <div class="stats">
     <div><b>$735</b>lowest ever</div>
@@ -106,6 +127,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Barcelona (BCN)</h2>
   <div class="stats">
     <div><b>$598</b>lowest ever</div>
@@ -135,6 +157,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Berlin (BER)</h2>
   <div class="stats">
     <div><b>$733</b>lowest ever</div>
@@ -160,6 +183,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Brussels (BRU)</h2>
   <div class="stats">
     <div><b>$996</b>lowest ever</div>
@@ -179,6 +203,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Budapest (BUD)</h2>
   <div class="stats">
     <div><b>$759</b>lowest ever</div>
@@ -204,6 +229,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Paris (CDG)</h2>
   <div class="stats">
     <div><b>$588</b>lowest ever</div>
@@ -233,6 +259,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Dublin (DUB)</h2>
   <div class="stats">
     <div><b>$621</b>lowest ever</div>
@@ -262,6 +289,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Edinburgh (EDI)</h2>
   <div class="stats">
     <div><b>$731</b>lowest ever</div>
@@ -287,6 +315,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Rome (FCO)</h2>
   <div class="stats">
     <div><b>$630</b>lowest ever</div>
@@ -316,6 +345,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Frankfurt (FRA)</h2>
   <div class="stats">
     <div><b>$576</b>lowest ever</div>
@@ -345,6 +375,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Reykjavik (KEF)</h2>
   <div class="stats">
     <div><b>$609</b>lowest ever</div>
@@ -370,6 +401,7 @@
 </div>
 
 <div class="card">
+  
   <h2>London (LHR)</h2>
   <div class="stats">
     <div><b>$717</b>lowest ever</div>
@@ -399,6 +431,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Lisbon (LIS)</h2>
   <div class="stats">
     <div><b>$594</b>lowest ever</div>
@@ -428,6 +461,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Madrid (MAD)</h2>
   <div class="stats">
     <div><b>$658</b>lowest ever</div>
@@ -457,6 +491,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Munich (MUC)</h2>
   <div class="stats">
     <div><b>$779</b>lowest ever</div>
@@ -486,6 +521,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Milan (MXP)</h2>
   <div class="stats">
     <div><b>$732</b>lowest ever</div>
@@ -511,6 +547,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Oslo (OSL)</h2>
   <div class="stats">
     <div><b>$858</b>lowest ever</div>
@@ -536,6 +573,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Prague (PRG)</h2>
   <div class="stats">
     <div><b>$794</b>lowest ever</div>
@@ -561,6 +599,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Vienna (VIE)</h2>
   <div class="stats">
     <div><b>$810</b>lowest ever</div>
@@ -590,6 +629,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Warsaw (WAW)</h2>
   <div class="stats">
     <div><b>$692</b>lowest ever</div>
@@ -615,6 +655,7 @@
 </div>
 
 <div class="card">
+  
   <h2>Zurich (ZRH)</h2>
   <div class="stats">
     <div><b>$842</b>lowest ever</div>
