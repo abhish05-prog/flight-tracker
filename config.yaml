@@ -105,6 +105,10 @@ deal_rules:
 # back, or a day was missed entirely -- so silent failures aren't invisible.
 run_health:
   enabled: true
+  # Travelpayouts has nothing cached for a few routes on any given day, so a
+  # healthy run returns roughly 21-24 of 27. Warn only below this fraction of
+  # the configured routes (or set `min_routes:` for an absolute count).
+  min_routes_fraction: 0.75
 
 email:
   # Recipient address comes from the EMAIL_RECIPIENT secret/env var, not here,

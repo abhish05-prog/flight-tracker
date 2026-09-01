@@ -2,6 +2,7 @@
 """Fetch cheap-fare data from Travelpayouts, log it to CSV, and email deal alerts."""
 
 import csv
+import math
 import os
 import smtplib
 import sys
@@ -334,15 +335,20 @@ def check_run_health(config, new_rows, history, today):
     problems = []
     expected = len(config.get("destinations") or [])
     got = len({r["destination"] for r in new_rows})
-    threshold = config.get("run_health", {}).get("min_routes", expected)
+    # Travelpayouts routinely has nothing cached for a handful of routes, so a
+    # normal day returns roughly 21-24 of 27. Demanding all of them would mail
+    # a warning daily; alert only on a real shortfall.
+    health_cfg = config.get("run_health") or {}
+    ratio = float(health_cfg.get("min_routes_fraction", 0.75))
+    threshold = health_cfg.get("min_routes") or math.ceil(expected * ratio)
     if expected and got < threshold:
         missing = sorted(
             {d["code"] for d in config["destinations"]}
             - {r["destination"] for r in new_rows}
         )
         problems.append(
-            f"only {got} of {expected} routes returned a fare "
-            f"(missing: {', '.join(missing)})"
+            f"only {got} of {expected} routes returned a fare, below the "
+            f"{threshold} expected (missing: {', '.join(missing)})"
         )
 
     days = sorted({r["checked_at"][:10] for r in history})
