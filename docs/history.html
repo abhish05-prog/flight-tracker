@@ -251,7 +251,7 @@
 <header class="masthead">
   <h1>Flight Price History</h1>
   <p>Cheapest return fares from Toronto (YYZ), checked daily.</p>
-  <p class="meta">Last updated August 31, 2026 at 13:04 UTC &middot; 25 routes &middot; 296 checks over 13 days since Aug 18</p>
+  <p class="meta">Last updated September 1, 2026 at 05:14 UTC &middot; 25 routes &middot; 320 checks over 14 days since Aug 18</p>
 </header>
 <nav class="sortbar" aria-label="Sort routes">
   <span class="label">Sort</span>
@@ -260,23 +260,54 @@
   <button type="button" data-sort="change" aria-pressed="false">Biggest drop</button>
   <button type="button" data-sort="name" aria-pressed="false">A-Z</button>
 </nav>
+<nav class="sortbar monthbar" aria-label="Filter by travel month">
+  <span class="label">Travel month</span>
+  <button type="button" data-month="all" aria-pressed="true">All months</button>
+  <button type="button" data-month="2026-09" aria-pressed="false">Sep 2026</button>
+  <button type="button" data-month="2026-10" aria-pressed="false">Oct 2026</button>
+  <button type="button" data-month="2026-11" aria-pressed="false">Nov 2026</button>
+  <button type="button" data-month="2026-12" aria-pressed="false">Dec 2026</button>
+  <button type="button" data-month="2027-01" aria-pressed="false">Jan 2027</button>
+  <button type="button" data-month="2027-02" aria-pressed="false">Feb 2027</button>
+  <button type="button" data-month="2027-03" aria-pressed="false">Mar 2027</button>
+  <button type="button" data-month="2027-04" aria-pressed="false">Apr 2027</button>
+  <button type="button" data-month="2027-05" aria-pressed="false">May 2027</button>
+  <button type="button" data-month="2027-06" aria-pressed="false">Jun 2027</button>
+  <button type="button" data-month="2027-07" aria-pressed="false">Jul 2027</button>
+  <button type="button" data-month="2027-08" aria-pressed="false">Aug 2027</button>
+</nav>
+<nav class="sortbar seasonbar" aria-label="Filter by season">
+  <span class="label">Season</span>
+  <button type="button" data-season="winter" aria-pressed="false">Winter</button>
+  <button type="button" data-season="spring" aria-pressed="false">Spring</button>
+  <button type="button" data-season="summer" aria-pressed="false">Summer</button>
+  <button type="button" data-season="fall" aria-pressed="false">Fall</button>
+</nav>
 
 <h2 class="section">Priority routes</h2>
 <div class="card-list" id="priority-list">
-<article class="card priority" data-rank="50.00" data-price="1969" data-change="0" data-name="Delhi" data-months='{}'>
+<article class="card priority" data-rank="50.00" data-price="1969" data-change="0" data-name="Delhi" data-months='{&quot;2026-09&quot;: 1501, &quot;2026-10&quot;: 1679, &quot;2026-11&quot;: 1522, &quot;2026-12&quot;: 1776}'>
   <div class="card-head">
     <h3>Delhi<span class="code">DEL</span><span class="badge">Priority</span></h3>
     <span class="verdict verdict-fair">Middle of its range</span>
   </div>
-  <p class="signal"><span class="lead">Unchanged at $1,969 across all 2 checks</span><span class="provisional">Based on 2 checks &mdash; the read firms up as history builds.</span></p>
-  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Delhi price trend over 2 checks, $1969 to $1969, latest $1969"><defs><linearGradient id="fill-DEL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="52.0" x2="713.0" y2="52.0"/><path d="M7.0,52.0 L713.0,52.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-DEL)"/><path class="spark-line" d="M7.0,52.0 L713.0,52.0"/><circle class="spark-min" cx="7.0" cy="52.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="52.0" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Unchanged at $1,969 across all 3 checks</span><span class="provisional">Based on 3 checks &mdash; the read firms up as history builds.</span></p>
+  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Delhi price trend over 3 checks, $1969 to $1969, latest $1969"><defs><linearGradient id="fill-DEL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="52.0" x2="713.0" y2="52.0"/><path d="M7.0,52.0 L360.0,52.0 L713.0,52.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-DEL)"/><path class="spark-line" d="M7.0,52.0 L360.0,52.0 L713.0,52.0"/><circle class="spark-min" cx="7.0" cy="52.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="52.0" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Dec 2026</span>
+      <span class="months-summary">cheapest Sep at $1,501, $275 spread &middot; includes connections</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for DEL"><g class="month-group" data-month="2026-09"><rect class="bar bar-low" x="46.0" y="84.0" width="88.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="90.0" y="78.0" text-anchor="middle">$1,501</text><text class="bar-label bar-label-low" x="90.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar" x="226.0" y="42.6" width="88.0" height="55.4" rx="3"/><text class="bar-price" x="270.0" y="36.6" text-anchor="middle">$1,679</text><text class="bar-label" x="270.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-11"><rect class="bar" x="406.0" y="79.1" width="88.0" height="18.9" rx="3"/><text class="bar-price" x="450.0" y="73.1" text-anchor="middle">$1,522</text><text class="bar-label" x="450.0" y="112.0" text-anchor="middle">Nov</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="586.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="630.0" y="14.0" text-anchor="middle">$1,776</text><text class="bar-label" x="630.0" y="112.0" text-anchor="middle">Dec</text></g></svg>
+  </div>
+
   <dl class="stats">
     <div><dd>$1,969</dd><dt>Latest</dt></div>
     <div><dd class="">no change</dd><dt>Change</dt></div>
     <div><dd>$1,969</dd><dt>Lowest seen</dt></div>
     <div><dd>$1,969</dd><dt>Average</dt></div>
-    <div><dd>2</dd><dt>Checks</dt></div>
+    <div><dd>3</dd><dt>Checks</dt></div>
   </dl>
   <p class="legend">Prices in the history below are shaded by percentile: <b class="k-good">cheap</b> (bottom 20% of days seen), <b class="k-fair">middling</b>, <b class="k-high">pricey</b> (top 40%). No deal alerts on this route.</p>
   <details>
@@ -285,7 +316,8 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
-        <tr class="cheapest"><td>Aug 31</td><td class="num price-fair">$1,969</td><td>Sep 2</td><td>Sep 23</td><td>Air India 188</td></tr>
+        <tr class="cheapest"><td>Sep 1</td><td class="num price-fair">$1,969</td><td>Sep 2</td><td>Sep 23</td><td>Air India 188</td></tr>
+        <tr><td>Aug 31</td><td class="num price-fair">$1,969</td><td>Sep 2</td><td>Sep 23</td><td>Air India 188</td></tr>
         <tr><td>Aug 31</td><td class="num price-fair">$1,969</td><td>Sep 2</td><td>Sep 23</td><td>Air India 188</td></tr>
         </tbody>
       </table>
@@ -293,20 +325,28 @@
   </details>
 </article>
 
-<article class="card priority" data-rank="50.00" data-price="1227" data-change="0" data-name="Mumbai" data-months='{}'>
+<article class="card priority" data-rank="50.00" data-price="1227" data-change="0" data-name="Mumbai" data-months='{&quot;2026-09&quot;: 1227, &quot;2026-10&quot;: 1303, &quot;2026-11&quot;: 1527, &quot;2026-12&quot;: 2011, &quot;2027-02&quot;: 1439}'>
   <div class="card-head">
     <h3>Mumbai<span class="code">BOM</span><span class="badge">Priority</span></h3>
     <span class="verdict verdict-fair">Middle of its range</span>
   </div>
-  <p class="signal"><span class="lead">Unchanged at $1,227 across all 2 checks</span><span class="provisional">Based on 2 checks &mdash; the read firms up as history builds.</span></p>
-  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Mumbai price trend over 2 checks, $1227 to $1227, latest $1227"><defs><linearGradient id="fill-BOM" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="52.0" x2="713.0" y2="52.0"/><path d="M7.0,52.0 L713.0,52.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-BOM)"/><path class="spark-line" d="M7.0,52.0 L713.0,52.0"/><circle class="spark-min" cx="7.0" cy="52.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="52.0" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Unchanged at $1,227 across all 3 checks</span><span class="provisional">Based on 3 checks &mdash; the read firms up as history builds.</span></p>
+  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Mumbai price trend over 3 checks, $1227 to $1227, latest $1227"><defs><linearGradient id="fill-BOM" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="52.0" x2="713.0" y2="52.0"/><path d="M7.0,52.0 L360.0,52.0 L713.0,52.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-BOM)"/><path class="spark-line" d="M7.0,52.0 L360.0,52.0 L713.0,52.0"/><circle class="spark-min" cx="7.0" cy="52.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="52.0" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Feb 2027</span>
+      <span class="months-summary">cheapest Sep at $1,227, $784 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for BOM"><g class="month-group" data-month="2026-09"><rect class="bar bar-low" x="32.4" y="84.0" width="79.2" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="72.0" y="78.0" text-anchor="middle">$1,227</text><text class="bar-label bar-label-low" x="72.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar" x="176.4" y="77.8" width="79.2" height="20.2" rx="3"/><text class="bar-price" x="216.0" y="71.8" text-anchor="middle">$1,303</text><text class="bar-label" x="216.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-11"><rect class="bar" x="320.4" y="59.5" width="79.2" height="38.5" rx="3"/><text class="bar-price" x="360.0" y="53.5" text-anchor="middle">$1,527</text><text class="bar-label" x="360.0" y="112.0" text-anchor="middle">Nov</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="464.4" y="20.0" width="79.2" height="78.0" rx="3"/><text class="bar-price" x="504.0" y="14.0" text-anchor="middle">$2,011</text><text class="bar-label" x="504.0" y="112.0" text-anchor="middle">Dec</text></g><g class="month-group" data-month="2027-02"><rect class="bar" x="608.4" y="66.7" width="79.2" height="31.3" rx="3"/><text class="bar-price" x="648.0" y="60.7" text-anchor="middle">$1,439</text><text class="bar-label" x="648.0" y="112.0" text-anchor="middle">Feb</text></g></svg>
+  </div>
+
   <dl class="stats">
     <div><dd>$1,227</dd><dt>Latest</dt></div>
     <div><dd class="">no change</dd><dt>Change</dt></div>
     <div><dd>$1,227</dd><dt>Lowest seen</dt></div>
     <div><dd>$1,227</dd><dt>Average</dt></div>
-    <div><dd>2</dd><dt>Checks</dt></div>
+    <div><dd>3</dd><dt>Checks</dt></div>
   </dl>
   <p class="legend">Prices in the history below are shaded by percentile: <b class="k-good">cheap</b> (bottom 20% of days seen), <b class="k-fair">middling</b>, <b class="k-high">pricey</b> (top 40%). No deal alerts on this route.</p>
   <details>
@@ -315,7 +355,8 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
-        <tr class="cheapest"><td>Aug 31</td><td class="num price-fair">$1,227</td><td>Sep 11</td><td>Oct 25</td><td>Ethiopian Airlines 553</td></tr>
+        <tr class="cheapest"><td>Sep 1</td><td class="num price-fair">$1,227</td><td>Sep 11</td><td>Oct 25</td><td>Ethiopian Airlines 553</td></tr>
+        <tr><td>Aug 31</td><td class="num price-fair">$1,227</td><td>Sep 11</td><td>Oct 25</td><td>Ethiopian Airlines 553</td></tr>
         <tr><td>Aug 31</td><td class="num price-fair">$1,227</td><td>Sep 11</td><td>Oct 25</td><td>Ethiopian Airlines 553</td></tr>
         </tbody>
       </table>
@@ -326,63 +367,28 @@
 </div>
 <h2 class="section">All destinations</h2>
 <div class="card-list" id="all-list">
-<article class="card" data-rank="3.33" data-price="708" data-change="-39" data-name="London" data-months='{}'>
-  <div class="card-head">
-    <h3>London<span class="code">LHR</span></h3>
-    <span class="verdict verdict-good">Good time to book</span>
-  </div>
-  <p class="signal"><span class="lead">Lowest fare recorded in 15 checks · $41 below its $749 average</span></p>
-  <svg class="spark spark-good" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="London price trend over 15 checks, $708 to $851, latest $708"><defs><linearGradient id="fill-LHR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="68.1" x2="713.0" y2="68.1"/><path d="M7.0,85.2 L57.4,85.2 L107.9,85.2 L158.3,80.4 L208.7,14.0 L259.1,14.0 L309.6,71.4 L360.0,71.4 L410.4,71.4 L460.9,71.4 L511.3,71.4 L561.7,71.4 L612.1,69.3 L662.6,69.3 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-LHR)"/><path class="spark-line" d="M7.0,85.2 L57.4,85.2 L107.9,85.2 L158.3,80.4 L208.7,14.0 L259.1,14.0 L309.6,71.4 L360.0,71.4 L410.4,71.4 L460.9,71.4 L511.3,71.4 L561.7,71.4 L612.1,69.3 L662.6,69.3 L713.0,90.0"/><circle class="spark-min" cx="713.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
-  
-  <dl class="stats">
-    <div><dd>$708</dd><dt>Latest</dt></div>
-    <div><dd class="down">-$39</dd><dt>Change</dt></div>
-    <div><dd>$708</dd><dt>Lowest seen</dt></div>
-    <div><dd>$749</dd><dt>Average</dt></div>
-    <div><dd>15</dd><dt>Checks</dt></div>
-  </dl>
-  
-  <details>
-    <summary>Full history</summary>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
-        <tbody>
-        <tr class="cheapest"><td>Aug 31</td><td class="num">$708</td><td>Jan 15, 2027</td><td>Jan 24, 2027</td><td>Icelandair 602</td></tr>
-        <tr><td>Aug 31</td><td class="num">$747</td><td>Dec 1</td><td>Dec 8</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 30</td><td class="num">$747</td><td>Dec 1</td><td>Dec 8</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 29</td><td class="num">$743</td><td>Oct 6</td><td>Oct 14</td><td>Icelandair 602</td></tr>
-        <tr><td>Aug 28</td><td class="num">$743</td><td>Oct 6</td><td>Oct 14</td><td>Icelandair 602</td></tr>
-        <tr><td>Aug 26</td><td class="num">$743</td><td>Oct 6</td><td>Oct 14</td><td>Icelandair 602</td></tr>
-        <tr><td>Aug 25</td><td class="num">$743</td><td>Oct 6</td><td>Oct 14</td><td>Icelandair 602</td></tr>
-        <tr><td>Aug 24</td><td class="num">$743</td><td>Oct 6</td><td>Oct 14</td><td>Icelandair 602</td></tr>
-        <tr><td>Aug 23</td><td class="num">$743</td><td>Oct 6</td><td>Oct 14</td><td>Icelandair 602</td></tr>
-        <tr><td>Aug 22</td><td class="num">$851</td><td>Oct 8</td><td>Oct 18</td><td>Air Canada 858</td></tr>
-        <tr><td>Aug 21</td><td class="num">$851</td><td>Oct 8</td><td>Oct 18</td><td>Air Canada 858</td></tr>
-        <tr><td>Aug 20</td><td class="num">$726</td><td>Nov 17</td><td>Nov 19</td><td>Lufthansa 6791</td></tr>
-        <tr><td>Aug 19</td><td class="num">$717</td><td>Nov 16</td><td>Nov 19</td><td>SWISS 4641</td></tr>
-        <tr><td>Aug 18</td><td class="num">$717</td><td>Nov 16</td><td>Nov 19</td><td>SWISS 4641</td></tr>
-        <tr><td>Aug 18</td><td class="num">$717</td><td>Nov 16</td><td>Nov 19</td><td>-</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </details>
-</article>
-
-<article class="card" data-rank="13.33" data-price="621" data-change="0" data-name="Dublin" data-months='{}'>
+<article class="card" data-rank="3.12" data-price="549" data-change="-72" data-name="Dublin" data-months='{&quot;2026-09&quot;: 549, &quot;2026-10&quot;: 706, &quot;2026-11&quot;: 619, &quot;2026-12&quot;: 938}'>
   <div class="card-head">
     <h3>Dublin<span class="code">DUB</span></h3>
     <span class="verdict verdict-good">Good time to book</span>
   </div>
-  <p class="signal"><span class="lead">Lowest fare recorded in 15 checks · $51 below its $672 average</span></p>
-  <svg class="spark spark-good" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Dublin price trend over 15 checks, $621 to $744, latest $621"><defs><linearGradient id="fill-DUB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="58.7" x2="713.0" y2="58.7"/><path d="M7.0,14.0 L57.4,14.0 L107.9,23.9 L158.3,23.9 L208.7,23.9 L259.1,23.9 L309.6,88.8 L360.0,87.5 L410.4,89.4 L460.9,43.7 L511.3,88.1 L561.7,90.0 L612.1,90.0 L662.6,90.0 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-DUB)"/><path class="spark-line" d="M7.0,14.0 L57.4,14.0 L107.9,23.9 L158.3,23.9 L208.7,23.9 L259.1,23.9 L309.6,88.8 L360.0,87.5 L410.4,89.4 L460.9,43.7 L511.3,88.1 L561.7,90.0 L612.1,90.0 L662.6,90.0 L713.0,90.0"/><circle class="spark-min" cx="561.7" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Lowest fare recorded in 16 checks · $115 below its $664 average</span></p>
+  <svg class="spark spark-good" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Dublin price trend over 16 checks, $549 to $744, latest $549"><defs><linearGradient id="fill-DUB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="45.2" x2="713.0" y2="45.2"/><path d="M7.0,14.0 L54.1,14.0 L101.1,20.2 L148.2,20.2 L195.3,20.2 L242.3,20.2 L289.4,61.2 L336.5,60.4 L383.5,61.5 L430.6,32.7 L477.7,60.8 L524.7,61.9 L571.8,61.9 L618.9,61.9 L665.9,61.9 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-DUB)"/><path class="spark-line" d="M7.0,14.0 L54.1,14.0 L101.1,20.2 L148.2,20.2 L195.3,20.2 L242.3,20.2 L289.4,61.2 L336.5,60.4 L383.5,61.5 L430.6,32.7 L477.7,60.8 L524.7,61.9 L571.8,61.9 L618.9,61.9 L665.9,61.9 L713.0,90.0"/><circle class="spark-min" cx="713.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Dec 2026</span>
+      <span class="months-summary">cheapest Sep at $549, $389 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for DUB"><g class="month-group" data-month="2026-09"><rect class="bar bar-low" x="46.0" y="84.0" width="88.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="90.0" y="78.0" text-anchor="middle">$549</text><text class="bar-label bar-label-low" x="90.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar" x="226.0" y="58.1" width="88.0" height="39.9" rx="3"/><text class="bar-price" x="270.0" y="52.1" text-anchor="middle">$706</text><text class="bar-label" x="270.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-11"><rect class="bar" x="406.0" y="72.5" width="88.0" height="25.5" rx="3"/><text class="bar-price" x="450.0" y="66.5" text-anchor="middle">$619</text><text class="bar-label" x="450.0" y="112.0" text-anchor="middle">Nov</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="586.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="630.0" y="14.0" text-anchor="middle">$938</text><text class="bar-label" x="630.0" y="112.0" text-anchor="middle">Dec</text></g></svg>
+  </div>
+
   <dl class="stats">
-    <div><dd>$621</dd><dt>Latest</dt></div>
-    <div><dd class="">no change</dd><dt>Change</dt></div>
-    <div><dd>$621</dd><dt>Lowest seen</dt></div>
-    <div><dd>$672</dd><dt>Average</dt></div>
-    <div><dd>15</dd><dt>Checks</dt></div>
+    <div><dd>$549</dd><dt>Latest</dt></div>
+    <div><dd class="down">-$72</dd><dt>Change</dt></div>
+    <div><dd>$549</dd><dt>Lowest seen</dt></div>
+    <div><dd>$664</dd><dt>Average</dt></div>
+    <div><dd>16</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -391,7 +397,8 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
-        <tr class="cheapest"><td>Aug 31</td><td class="num">$621</td><td>Nov 17</td><td>Nov 23</td><td>SAS Scandinavian 950</td></tr>
+        <tr class="cheapest"><td>Sep 1</td><td class="num">$549</td><td>Sep 15</td><td>Sep 17</td><td>Porter Airlines Canada 7230</td></tr>
+        <tr><td>Aug 31</td><td class="num">$621</td><td>Nov 17</td><td>Nov 23</td><td>SAS Scandinavian 950</td></tr>
         <tr><td>Aug 31</td><td class="num">$621</td><td>Nov 17</td><td>Nov 23</td><td>SAS Scandinavian 950</td></tr>
         <tr><td>Aug 30</td><td class="num">$621</td><td>Nov 17</td><td>Nov 23</td><td>SAS Scandinavian 950</td></tr>
         <tr><td>Aug 29</td><td class="num">$621</td><td>Nov 17</td><td>Nov 23</td><td>SAS Scandinavian 950</td></tr>
@@ -412,20 +419,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="16.67" data-price="736" data-change="0" data-name="Athens" data-months='{}'>
+<article class="card" data-rank="3.12" data-price="706" data-change="-2" data-name="London" data-months='{&quot;2026-09&quot;: 779, &quot;2026-10&quot;: 762, &quot;2026-11&quot;: 858, &quot;2026-12&quot;: 747, &quot;2027-01&quot;: 706, &quot;2027-06&quot;: 965}'>
   <div class="card-head">
-    <h3>Athens<span class="code">ATH</span></h3>
+    <h3>London<span class="code">LHR</span></h3>
     <span class="verdict verdict-good">Good time to book</span>
   </div>
-  <p class="signal"><span class="lead">Cheaper than 83% of the 15 checks so far · $73 below its $809 average</span></p>
-  <svg class="spark spark-good" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Athens price trend over 15 checks, $735 to $923, latest $736"><defs><linearGradient id="fill-ATH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="59.9" x2="713.0" y2="59.9"/><path d="M7.0,14.0 L57.4,14.0 L107.9,30.2 L158.3,79.1 L208.7,79.1 L259.1,79.1 L309.6,35.0 L360.0,34.2 L410.4,57.7 L460.9,58.1 L511.3,59.7 L561.7,90.0 L612.1,89.6 L662.6,89.6 L713.0,89.6 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-ATH)"/><path class="spark-line" d="M7.0,14.0 L57.4,14.0 L107.9,30.2 L158.3,79.1 L208.7,79.1 L259.1,79.1 L309.6,35.0 L360.0,34.2 L410.4,57.7 L460.9,58.1 L511.3,59.7 L561.7,90.0 L612.1,89.6 L662.6,89.6 L713.0,89.6"/><circle class="spark-min" cx="561.7" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="89.6" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Lowest fare recorded in 16 checks · $41 below its $747 average</span></p>
+  <svg class="spark spark-good" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="London price trend over 16 checks, $706 to $851, latest $706"><defs><linearGradient id="fill-LHR" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="68.7" x2="713.0" y2="68.7"/><path d="M7.0,84.2 L54.1,84.2 L101.1,84.2 L148.2,79.5 L195.3,14.0 L242.3,14.0 L289.4,70.6 L336.5,70.6 L383.5,70.6 L430.6,70.6 L477.7,70.6 L524.7,70.6 L571.8,68.5 L618.9,68.5 L665.9,89.0 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-LHR)"/><path class="spark-line" d="M7.0,84.2 L54.1,84.2 L101.1,84.2 L148.2,79.5 L195.3,14.0 L242.3,14.0 L289.4,70.6 L336.5,70.6 L383.5,70.6 L430.6,70.6 L477.7,70.6 L524.7,70.6 L571.8,68.5 L618.9,68.5 L665.9,89.0 L713.0,90.0"/><circle class="spark-min" cx="713.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Jun 2027</span>
+      <span class="months-summary">cheapest Jan at $706, $259 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for LHR"><g class="month-group" data-month="2026-09"><rect class="bar" x="27.0" y="65.9" width="66.0" height="32.1" rx="3"/><text class="bar-price" x="60.0" y="59.9" text-anchor="middle">$779</text><text class="bar-label" x="60.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar" x="147.0" y="70.1" width="66.0" height="27.9" rx="3"/><text class="bar-price" x="180.0" y="64.1" text-anchor="middle">$762</text><text class="bar-label" x="180.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-11"><rect class="bar" x="267.0" y="46.4" width="66.0" height="51.6" rx="3"/><text class="bar-price" x="300.0" y="40.4" text-anchor="middle">$858</text><text class="bar-label" x="300.0" y="112.0" text-anchor="middle">Nov</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="387.0" y="73.8" width="66.0" height="24.2" rx="3"/><text class="bar-price" x="420.0" y="67.8" text-anchor="middle">$747</text><text class="bar-label" x="420.0" y="112.0" text-anchor="middle">Dec</text></g><g class="month-group" data-month="2027-01"><rect class="bar bar-low" x="507.0" y="84.0" width="66.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="540.0" y="78.0" text-anchor="middle">$706</text><text class="bar-label bar-label-low" x="540.0" y="112.0" text-anchor="middle">Jan</text></g><g class="month-group" data-month="2027-06"><rect class="bar" x="627.0" y="20.0" width="66.0" height="78.0" rx="3"/><text class="bar-price" x="660.0" y="14.0" text-anchor="middle">$965</text><text class="bar-label" x="660.0" y="112.0" text-anchor="middle">Jun</text></g></svg>
+  </div>
+
   <dl class="stats">
-    <div><dd>$736</dd><dt>Latest</dt></div>
-    <div><dd class="">no change</dd><dt>Change</dt></div>
-    <div><dd>$735</dd><dt>Lowest seen</dt></div>
-    <div><dd>$809</dd><dt>Average</dt></div>
-    <div><dd>15</dd><dt>Checks</dt></div>
+    <div><dd>$706</dd><dt>Latest</dt></div>
+    <div><dd class="down">-$2</dd><dt>Change</dt></div>
+    <div><dd>$706</dd><dt>Lowest seen</dt></div>
+    <div><dd>$747</dd><dt>Average</dt></div>
+    <div><dd>16</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -434,6 +449,107 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
+        <tr class="cheapest"><td>Sep 1</td><td class="num">$706</td><td>Jan 15, 2027</td><td>Jan 24, 2027</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 31</td><td class="num">$708</td><td>Jan 15, 2027</td><td>Jan 24, 2027</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 31</td><td class="num">$747</td><td>Dec 1</td><td>Dec 8</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 30</td><td class="num">$747</td><td>Dec 1</td><td>Dec 8</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 29</td><td class="num">$743</td><td>Oct 6</td><td>Oct 14</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 28</td><td class="num">$743</td><td>Oct 6</td><td>Oct 14</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 26</td><td class="num">$743</td><td>Oct 6</td><td>Oct 14</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 25</td><td class="num">$743</td><td>Oct 6</td><td>Oct 14</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 24</td><td class="num">$743</td><td>Oct 6</td><td>Oct 14</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 23</td><td class="num">$743</td><td>Oct 6</td><td>Oct 14</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 22</td><td class="num">$851</td><td>Oct 8</td><td>Oct 18</td><td>Air Canada 858</td></tr>
+        <tr><td>Aug 21</td><td class="num">$851</td><td>Oct 8</td><td>Oct 18</td><td>Air Canada 858</td></tr>
+        <tr><td>Aug 20</td><td class="num">$726</td><td>Nov 17</td><td>Nov 19</td><td>Lufthansa 6791</td></tr>
+        <tr><td>Aug 19</td><td class="num">$717</td><td>Nov 16</td><td>Nov 19</td><td>SWISS 4641</td></tr>
+        <tr><td>Aug 18</td><td class="num">$717</td><td>Nov 16</td><td>Nov 19</td><td>SWISS 4641</td></tr>
+        <tr><td>Aug 18</td><td class="num">$717</td><td>Nov 16</td><td>Nov 19</td><td>-</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</article>
+
+<article class="card" data-rank="4.17" data-price="691" data-change="-2" data-name="Warsaw" data-months='{&quot;2026-09&quot;: 936, &quot;2026-10&quot;: 842, &quot;2026-12&quot;: 1163, &quot;2027-01&quot;: 1022, &quot;2027-02&quot;: 1031, &quot;2027-03&quot;: 709, &quot;2027-04&quot;: 691, &quot;2027-05&quot;: 970, &quot;2027-07&quot;: 1178}'>
+  <div class="card-head">
+    <h3>Warsaw<span class="code">WAW</span></h3>
+    <span class="verdict verdict-good">Good time to book</span>
+  </div>
+  <p class="signal"><span class="lead">Lowest fare recorded in 12 checks · $8 below its $699 average</span><span class="provisional">Based on 12 checks &mdash; the read firms up as history builds.</span></p>
+  <svg class="spark spark-good" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Warsaw price trend over 12 checks, $691 to $722, latest $691"><defs><linearGradient id="fill-WAW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="69.8" x2="713.0" y2="69.8"/><path d="M7.0,53.2 L71.2,48.3 L135.4,38.5 L199.5,14.0 L263.7,85.1 L327.9,80.2 L392.1,80.2 L456.3,87.5 L520.5,87.5 L584.6,87.5 L648.8,85.1 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-WAW)"/><path class="spark-line" d="M7.0,53.2 L71.2,48.3 L135.4,38.5 L199.5,14.0 L263.7,85.1 L327.9,80.2 L392.1,80.2 L456.3,87.5 L520.5,87.5 L584.6,87.5 L648.8,85.1 L713.0,90.0"/><circle class="spark-min" cx="713.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Jul 2027</span>
+      <span class="months-summary">cheapest Apr at $691, $487 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for WAW"><g class="month-group" data-month="2026-09"><rect class="bar" x="18.0" y="51.8" width="44.0" height="46.2" rx="3"/><text class="bar-price" x="40.0" y="45.8" text-anchor="middle">$936</text><text class="bar-label" x="40.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar" x="98.0" y="64.1" width="44.0" height="33.9" rx="3"/><text class="bar-price" x="120.0" y="58.1" text-anchor="middle">$842</text><text class="bar-label" x="120.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="178.0" y="22.0" width="44.0" height="76.0" rx="3"/><text class="bar-price" x="200.0" y="16.0" text-anchor="middle">$1,163</text><text class="bar-label" x="200.0" y="112.0" text-anchor="middle">Dec</text></g><g class="month-group" data-month="2027-01"><rect class="bar" x="258.0" y="40.5" width="44.0" height="57.5" rx="3"/><text class="bar-price" x="280.0" y="34.5" text-anchor="middle">$1,022</text><text class="bar-label" x="280.0" y="112.0" text-anchor="middle">Jan</text></g><g class="month-group" data-month="2027-02"><rect class="bar" x="338.0" y="39.3" width="44.0" height="58.7" rx="3"/><text class="bar-price" x="360.0" y="33.3" text-anchor="middle">$1,031</text><text class="bar-label" x="360.0" y="112.0" text-anchor="middle">Feb</text></g><g class="month-group" data-month="2027-03"><rect class="bar" x="418.0" y="81.6" width="44.0" height="16.4" rx="3"/><text class="bar-price" x="440.0" y="75.6" text-anchor="middle">$709</text><text class="bar-label" x="440.0" y="112.0" text-anchor="middle">Mar</text></g><g class="month-group" data-month="2027-04"><rect class="bar bar-low" x="498.0" y="84.0" width="44.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="520.0" y="78.0" text-anchor="middle">$691</text><text class="bar-label bar-label-low" x="520.0" y="112.0" text-anchor="middle">Apr</text></g><g class="month-group" data-month="2027-05"><rect class="bar" x="578.0" y="47.3" width="44.0" height="50.7" rx="3"/><text class="bar-price" x="600.0" y="41.3" text-anchor="middle">$970</text><text class="bar-label" x="600.0" y="112.0" text-anchor="middle">May</text></g><g class="month-group" data-month="2027-07"><rect class="bar" x="658.0" y="20.0" width="44.0" height="78.0" rx="3"/><text class="bar-price" x="680.0" y="14.0" text-anchor="middle">$1,178</text><text class="bar-label" x="680.0" y="112.0" text-anchor="middle">Jul</text></g></svg>
+  </div>
+
+  <dl class="stats">
+    <div><dd>$691</dd><dt>Latest</dt></div>
+    <div><dd class="down">-$2</dd><dt>Change</dt></div>
+    <div><dd>$691</dd><dt>Lowest seen</dt></div>
+    <div><dd>$699</dd><dt>Average</dt></div>
+    <div><dd>12</dd><dt>Checks</dt></div>
+  </dl>
+  
+  <details>
+    <summary>Full history</summary>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
+        <tbody>
+        <tr class="cheapest"><td>Sep 1</td><td class="num">$691</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
+        <tr><td>Aug 31</td><td class="num">$693</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
+        <tr><td>Aug 31</td><td class="num">$692</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
+        <tr><td>Aug 30</td><td class="num">$692</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
+        <tr><td>Aug 29</td><td class="num">$692</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
+        <tr><td>Aug 28</td><td class="num">$695</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
+        <tr><td>Aug 26</td><td class="num">$695</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
+        <tr><td>Aug 25</td><td class="num">$693</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
+        <tr><td>Aug 24</td><td class="num">$722</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
+        <tr><td>Aug 23</td><td class="num">$712</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
+        <tr><td>Aug 22</td><td class="num">$708</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
+        <tr><td>Aug 21</td><td class="num">$706</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</article>
+
+<article class="card" data-rank="18.75" data-price="736" data-change="0" data-name="Athens" data-months='{&quot;2026-09&quot;: 833, &quot;2026-10&quot;: 800, &quot;2026-11&quot;: 736, &quot;2026-12&quot;: 1319}'>
+  <div class="card-head">
+    <h3>Athens<span class="code">ATH</span></h3>
+    <span class="verdict verdict-good">Good time to book</span>
+  </div>
+  <p class="signal"><span class="lead">Cheaper than 81% of the 16 checks so far · $69 below its $805 average</span></p>
+  <svg class="spark spark-good" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Athens price trend over 16 checks, $735 to $923, latest $736"><defs><linearGradient id="fill-ATH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="61.8" x2="713.0" y2="61.8"/><path d="M7.0,14.0 L54.1,14.0 L101.1,30.2 L148.2,79.1 L195.3,79.1 L242.3,79.1 L289.4,35.0 L336.5,34.2 L383.5,57.7 L430.6,58.1 L477.7,59.7 L524.7,90.0 L571.8,89.6 L618.9,89.6 L665.9,89.6 L713.0,89.6 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-ATH)"/><path class="spark-line" d="M7.0,14.0 L54.1,14.0 L101.1,30.2 L148.2,79.1 L195.3,79.1 L242.3,79.1 L289.4,35.0 L336.5,34.2 L383.5,57.7 L430.6,58.1 L477.7,59.7 L524.7,90.0 L571.8,89.6 L618.9,89.6 L665.9,89.6 L713.0,89.6"/><circle class="spark-min" cx="524.7" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="89.6" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Dec 2026</span>
+      <span class="months-summary">cheapest Nov at $736, $583 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for ATH"><g class="month-group" data-month="2026-09"><rect class="bar" x="46.0" y="73.3" width="88.0" height="24.7" rx="3"/><text class="bar-price" x="90.0" y="67.3" text-anchor="middle">$833</text><text class="bar-label" x="90.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar" x="226.0" y="76.9" width="88.0" height="21.1" rx="3"/><text class="bar-price" x="270.0" y="70.9" text-anchor="middle">$800</text><text class="bar-label" x="270.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-11"><rect class="bar bar-low" x="406.0" y="84.0" width="88.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="450.0" y="78.0" text-anchor="middle">$736</text><text class="bar-label bar-label-low" x="450.0" y="112.0" text-anchor="middle">Nov</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="586.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="630.0" y="14.0" text-anchor="middle">$1,319</text><text class="bar-label" x="630.0" y="112.0" text-anchor="middle">Dec</text></g></svg>
+  </div>
+
+  <dl class="stats">
+    <div><dd>$736</dd><dt>Latest</dt></div>
+    <div><dd class="">no change</dd><dt>Change</dt></div>
+    <div><dd>$735</dd><dt>Lowest seen</dt></div>
+    <div><dd>$805</dd><dt>Average</dt></div>
+    <div><dd>16</dd><dt>Checks</dt></div>
+  </dl>
+  
+  <details>
+    <summary>Full history</summary>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
+        <tbody>
+        <tr><td>Sep 1</td><td class="num">$736</td><td>Nov 22</td><td>Dec 6</td><td>SAS Scandinavian 950</td></tr>
         <tr><td>Aug 31</td><td class="num">$736</td><td>Nov 22</td><td>Dec 6</td><td>SAS Scandinavian 950</td></tr>
         <tr><td>Aug 31</td><td class="num">$736</td><td>Nov 22</td><td>Dec 6</td><td>SAS Scandinavian 950</td></tr>
         <tr><td>Aug 30</td><td class="num">$736</td><td>Nov 22</td><td>Dec 6</td><td>SAS Scandinavian 950</td></tr>
@@ -455,20 +571,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="20.00" data-price="779" data-change="0" data-name="Munich" data-months='{}'>
+<article class="card" data-rank="21.88" data-price="779" data-change="0" data-name="Munich" data-months='{&quot;2026-09&quot;: 1257, &quot;2026-10&quot;: 779, &quot;2026-11&quot;: 1031, &quot;2026-12&quot;: 1198, &quot;2027-01&quot;: 1138}'>
   <div class="card-head">
     <h3>Munich<span class="code">MUC</span></h3>
-    <span class="verdict verdict-good">Good time to book</span>
+    <span class="verdict verdict-fair">Middle of its range</span>
   </div>
-  <p class="signal"><span class="lead">Lowest fare recorded in 15 checks · $64 below its $843 average</span></p>
-  <svg class="spark spark-good" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Munich price trend over 15 checks, $779 to $1069, latest $779"><defs><linearGradient id="fill-MUC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="73.2" x2="713.0" y2="73.2"/><path d="M7.0,75.3 L57.4,75.3 L107.9,75.3 L158.3,75.3 L208.7,60.6 L259.1,60.6 L309.6,60.6 L360.0,60.6 L410.4,14.0 L460.9,90.0 L511.3,90.0 L561.7,90.0 L612.1,90.0 L662.6,90.0 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-MUC)"/><path class="spark-line" d="M7.0,75.3 L57.4,75.3 L107.9,75.3 L158.3,75.3 L208.7,60.6 L259.1,60.6 L309.6,60.6 L360.0,60.6 L410.4,14.0 L460.9,90.0 L511.3,90.0 L561.7,90.0 L612.1,90.0 L662.6,90.0 L713.0,90.0"/><circle class="spark-min" cx="460.9" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Lowest fare recorded in 16 checks · $60 below its $839 average</span></p>
+  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Munich price trend over 16 checks, $779 to $1069, latest $779"><defs><linearGradient id="fill-MUC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="74.2" x2="713.0" y2="74.2"/><path d="M7.0,75.3 L54.1,75.3 L101.1,75.3 L148.2,75.3 L195.3,60.6 L242.3,60.6 L289.4,60.6 L336.5,60.6 L383.5,14.0 L430.6,90.0 L477.7,90.0 L524.7,90.0 L571.8,90.0 L618.9,90.0 L665.9,90.0 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-MUC)"/><path class="spark-line" d="M7.0,75.3 L54.1,75.3 L101.1,75.3 L148.2,75.3 L195.3,60.6 L242.3,60.6 L289.4,60.6 L336.5,60.6 L383.5,14.0 L430.6,90.0 L477.7,90.0 L524.7,90.0 L571.8,90.0 L618.9,90.0 L665.9,90.0 L713.0,90.0"/><circle class="spark-min" cx="430.6" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Jan 2027</span>
+      <span class="months-summary">cheapest Oct at $779, $478 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for MUC"><g class="month-group" data-month="2026-09"><rect class="bar" x="32.4" y="20.0" width="79.2" height="78.0" rx="3"/><text class="bar-price" x="72.0" y="14.0" text-anchor="middle">$1,257</text><text class="bar-label" x="72.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar bar-low" x="176.4" y="84.0" width="79.2" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="216.0" y="78.0" text-anchor="middle">$779</text><text class="bar-label bar-label-low" x="216.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-11"><rect class="bar" x="320.4" y="50.2" width="79.2" height="47.8" rx="3"/><text class="bar-price" x="360.0" y="44.2" text-anchor="middle">$1,031</text><text class="bar-label" x="360.0" y="112.0" text-anchor="middle">Nov</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="464.4" y="27.9" width="79.2" height="70.1" rx="3"/><text class="bar-price" x="504.0" y="21.9" text-anchor="middle">$1,198</text><text class="bar-label" x="504.0" y="112.0" text-anchor="middle">Dec</text></g><g class="month-group" data-month="2027-01"><rect class="bar" x="608.4" y="35.9" width="79.2" height="62.1" rx="3"/><text class="bar-price" x="648.0" y="29.9" text-anchor="middle">$1,138</text><text class="bar-label" x="648.0" y="112.0" text-anchor="middle">Jan</text></g></svg>
+  </div>
+
   <dl class="stats">
     <div><dd>$779</dd><dt>Latest</dt></div>
     <div><dd class="">no change</dd><dt>Change</dt></div>
     <div><dd>$779</dd><dt>Lowest seen</dt></div>
-    <div><dd>$843</dd><dt>Average</dt></div>
-    <div><dd>15</dd><dt>Checks</dt></div>
+    <div><dd>$839</dd><dt>Average</dt></div>
+    <div><dd>16</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -477,7 +601,8 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
-        <tr class="cheapest"><td>Aug 31</td><td class="num">$779</td><td>Oct 11</td><td>Oct 16</td><td>Condor 2403</td></tr>
+        <tr class="cheapest"><td>Sep 1</td><td class="num">$779</td><td>Oct 11</td><td>Oct 16</td><td>Condor 2403</td></tr>
+        <tr><td>Aug 31</td><td class="num">$779</td><td>Oct 11</td><td>Oct 16</td><td>Condor 2403</td></tr>
         <tr><td>Aug 31</td><td class="num">$779</td><td>Oct 11</td><td>Oct 16</td><td>Condor 2403</td></tr>
         <tr><td>Aug 30</td><td class="num">$779</td><td>Oct 11</td><td>Oct 16</td><td>Condor 2403</td></tr>
         <tr><td>Aug 29</td><td class="num">$779</td><td>Oct 11</td><td>Oct 16</td><td>Condor 2403</td></tr>
@@ -498,20 +623,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="20.00" data-price="588" data-change="0" data-name="Paris" data-months='{}'>
+<article class="card" data-rank="21.88" data-price="588" data-change="0" data-name="Paris" data-months='{&quot;2026-09&quot;: 712, &quot;2026-10&quot;: 717, &quot;2026-11&quot;: 599, &quot;2026-12&quot;: 850, &quot;2027-01&quot;: 630, &quot;2027-03&quot;: 588, &quot;2027-05&quot;: 836}'>
   <div class="card-head">
     <h3>Paris<span class="code">CDG</span></h3>
-    <span class="verdict verdict-good">Good time to book</span>
+    <span class="verdict verdict-fair">Middle of its range</span>
   </div>
-  <p class="signal"><span class="lead">Lowest fare recorded in 15 checks · $24 below its $612 average</span></p>
-  <svg class="spark spark-good" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Paris price trend over 15 checks, $588 to $641, latest $588"><defs><linearGradient id="fill-CDG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="55.8" x2="713.0" y2="55.8"/><path d="M7.0,21.2 L57.4,21.2 L107.9,21.2 L158.3,21.2 L208.7,14.0 L259.1,36.9 L309.6,36.9 L360.0,35.5 L410.4,88.6 L460.9,90.0 L511.3,90.0 L561.7,90.0 L612.1,90.0 L662.6,90.0 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-CDG)"/><path class="spark-line" d="M7.0,21.2 L57.4,21.2 L107.9,21.2 L158.3,21.2 L208.7,14.0 L259.1,36.9 L309.6,36.9 L360.0,35.5 L410.4,88.6 L460.9,90.0 L511.3,90.0 L561.7,90.0 L612.1,90.0 L662.6,90.0 L713.0,90.0"/><circle class="spark-min" cx="460.9" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Lowest fare recorded in 16 checks · $22 below its $610 average</span></p>
+  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Paris price trend over 16 checks, $588 to $641, latest $588"><defs><linearGradient id="fill-CDG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="57.9" x2="713.0" y2="57.9"/><path d="M7.0,21.2 L54.1,21.2 L101.1,21.2 L148.2,21.2 L195.3,14.0 L242.3,36.9 L289.4,36.9 L336.5,35.5 L383.5,88.6 L430.6,90.0 L477.7,90.0 L524.7,90.0 L571.8,90.0 L618.9,90.0 L665.9,90.0 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-CDG)"/><path class="spark-line" d="M7.0,21.2 L54.1,21.2 L101.1,21.2 L148.2,21.2 L195.3,14.0 L242.3,36.9 L289.4,36.9 L336.5,35.5 L383.5,88.6 L430.6,90.0 L477.7,90.0 L524.7,90.0 L571.8,90.0 L618.9,90.0 L665.9,90.0 L713.0,90.0"/><circle class="spark-min" cx="430.6" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - May 2027</span>
+      <span class="months-summary">cheapest Mar at $588, $262 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for CDG"><g class="month-group" data-month="2026-09"><rect class="bar" x="23.1" y="53.7" width="56.6" height="44.3" rx="3"/><text class="bar-price" x="51.4" y="47.7" text-anchor="middle">$712</text><text class="bar-label" x="51.4" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar" x="126.0" y="52.5" width="56.6" height="45.5" rx="3"/><text class="bar-price" x="154.3" y="46.5" text-anchor="middle">$717</text><text class="bar-label" x="154.3" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-11"><rect class="bar" x="228.9" y="81.3" width="56.6" height="16.7" rx="3"/><text class="bar-price" x="257.1" y="75.3" text-anchor="middle">$599</text><text class="bar-label" x="257.1" y="112.0" text-anchor="middle">Nov</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="331.7" y="20.0" width="56.6" height="78.0" rx="3"/><text class="bar-price" x="360.0" y="14.0" text-anchor="middle">$850</text><text class="bar-label" x="360.0" y="112.0" text-anchor="middle">Dec</text></g><g class="month-group" data-month="2027-01"><rect class="bar" x="434.6" y="73.7" width="56.6" height="24.3" rx="3"/><text class="bar-price" x="462.9" y="67.7" text-anchor="middle">$630</text><text class="bar-label" x="462.9" y="112.0" text-anchor="middle">Jan</text></g><g class="month-group" data-month="2027-03"><rect class="bar bar-low" x="537.4" y="84.0" width="56.6" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="565.7" y="78.0" text-anchor="middle">$588</text><text class="bar-label bar-label-low" x="565.7" y="112.0" text-anchor="middle">Mar</text></g><g class="month-group" data-month="2027-05"><rect class="bar" x="640.3" y="23.4" width="56.6" height="74.6" rx="3"/><text class="bar-price" x="668.6" y="17.4" text-anchor="middle">$836</text><text class="bar-label" x="668.6" y="112.0" text-anchor="middle">May</text></g></svg>
+  </div>
+
   <dl class="stats">
     <div><dd>$588</dd><dt>Latest</dt></div>
     <div><dd class="">no change</dd><dt>Change</dt></div>
     <div><dd>$588</dd><dt>Lowest seen</dt></div>
-    <div><dd>$612</dd><dt>Average</dt></div>
-    <div><dd>15</dd><dt>Checks</dt></div>
+    <div><dd>$610</dd><dt>Average</dt></div>
+    <div><dd>16</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -520,7 +653,8 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
-        <tr class="cheapest"><td>Aug 31</td><td class="num">$588</td><td>Mar 2, 2027</td><td>Mar 8, 2027</td><td>Icelandair 602</td></tr>
+        <tr class="cheapest"><td>Sep 1</td><td class="num">$588</td><td>Mar 2, 2027</td><td>Mar 8, 2027</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 31</td><td class="num">$588</td><td>Mar 2, 2027</td><td>Mar 8, 2027</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 31</td><td class="num">$588</td><td>Mar 2, 2027</td><td>Mar 8, 2027</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 30</td><td class="num">$588</td><td>Mar 2, 2027</td><td>Mar 8, 2027</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 29</td><td class="num">$588</td><td>Mar 2, 2027</td><td>Mar 8, 2027</td><td>Icelandair 602</td></tr>
@@ -541,20 +675,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="22.73" data-price="733" data-change="0" data-name="Berlin" data-months='{}'>
+<article class="card" data-rank="25.00" data-price="733" data-change="0" data-name="Berlin" data-months='{&quot;2026-09&quot;: 923, &quot;2026-10&quot;: 733, &quot;2026-11&quot;: 737}'>
   <div class="card-head">
     <h3>Berlin<span class="code">BER</span></h3>
     <span class="verdict verdict-fair">Middle of its range</span>
   </div>
-  <p class="signal"><span class="lead">Lowest fare recorded in 11 checks · $248 below its $981 average</span><span class="provisional">Based on 11 checks &mdash; the read firms up as history builds.</span></p>
-  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Berlin price trend over 11 checks, $733 to $1350, latest $733"><defs><linearGradient id="fill-BER" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="59.4" x2="713.0" y2="59.4"/><path d="M7.0,76.1 L77.6,71.8 L148.2,14.0 L218.8,14.0 L289.4,14.0 L360.0,14.0 L430.6,90.0 L501.2,90.0 L571.8,90.0 L642.4,90.0 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-BER)"/><path class="spark-line" d="M7.0,76.1 L77.6,71.8 L148.2,14.0 L218.8,14.0 L289.4,14.0 L360.0,14.0 L430.6,90.0 L501.2,90.0 L571.8,90.0 L642.4,90.0 L713.0,90.0"/><circle class="spark-min" cx="430.6" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Lowest fare recorded in 12 checks · $227 below its $960 average</span><span class="provisional">Based on 12 checks &mdash; the read firms up as history builds.</span></p>
+  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Berlin price trend over 12 checks, $733 to $1350, latest $733"><defs><linearGradient id="fill-BER" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="62.0" x2="713.0" y2="62.0"/><path d="M7.0,76.1 L71.2,71.8 L135.4,14.0 L199.5,14.0 L263.7,14.0 L327.9,14.0 L392.1,90.0 L456.3,90.0 L520.5,90.0 L584.6,90.0 L648.8,90.0 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-BER)"/><path class="spark-line" d="M7.0,76.1 L71.2,71.8 L135.4,14.0 L199.5,14.0 L263.7,14.0 L327.9,14.0 L392.1,90.0 L456.3,90.0 L520.5,90.0 L584.6,90.0 L648.8,90.0 L713.0,90.0"/><circle class="spark-min" cx="392.1" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Nov 2026</span>
+      <span class="months-summary">cheapest Oct at $733, $190 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for BER"><g class="month-group" data-month="2026-09"><rect class="bar" x="76.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="120.0" y="14.0" text-anchor="middle">$923</text><text class="bar-label" x="120.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar bar-low" x="316.0" y="84.0" width="88.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="360.0" y="78.0" text-anchor="middle">$733</text><text class="bar-label bar-label-low" x="360.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-11"><rect class="bar" x="556.0" y="82.6" width="88.0" height="15.4" rx="3"/><text class="bar-price" x="600.0" y="76.6" text-anchor="middle">$737</text><text class="bar-label" x="600.0" y="112.0" text-anchor="middle">Nov</text></g></svg>
+  </div>
+
   <dl class="stats">
     <div><dd>$733</dd><dt>Latest</dt></div>
     <div><dd class="">no change</dd><dt>Change</dt></div>
     <div><dd>$733</dd><dt>Lowest seen</dt></div>
-    <div><dd>$981</dd><dt>Average</dt></div>
-    <div><dd>11</dd><dt>Checks</dt></div>
+    <div><dd>$960</dd><dt>Average</dt></div>
+    <div><dd>12</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -563,7 +705,8 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
-        <tr class="cheapest"><td>Aug 31</td><td class="num">$733</td><td>Oct 15</td><td>Oct 23</td><td>Condor 2403</td></tr>
+        <tr class="cheapest"><td>Sep 1</td><td class="num">$733</td><td>Oct 15</td><td>Oct 23</td><td>Condor 2403</td></tr>
+        <tr><td>Aug 31</td><td class="num">$733</td><td>Oct 15</td><td>Oct 23</td><td>Condor 2403</td></tr>
         <tr><td>Aug 31</td><td class="num">$733</td><td>Oct 15</td><td>Oct 23</td><td>Condor 2403</td></tr>
         <tr><td>Aug 30</td><td class="num">$733</td><td>Oct 15</td><td>Oct 23</td><td>Condor 2403</td></tr>
         <tr><td>Aug 29</td><td class="num">$733</td><td>Oct 15</td><td>Oct 23</td><td>Condor 2403</td></tr>
@@ -580,20 +723,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="22.73" data-price="732" data-change="0" data-name="Milan" data-months='{}'>
+<article class="card" data-rank="25.00" data-price="732" data-change="0" data-name="Milan" data-months='{&quot;2026-09&quot;: 764, &quot;2026-10&quot;: 732, &quot;2026-12&quot;: 750, &quot;2027-05&quot;: 911}'>
   <div class="card-head">
     <h3>Milan<span class="code">MXP</span></h3>
     <span class="verdict verdict-fair">Middle of its range</span>
   </div>
-  <p class="signal"><span class="lead">Lowest fare recorded in 11 checks · $54 below its $786 average</span><span class="provisional">Based on 11 checks &mdash; the read firms up as history builds.</span></p>
-  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Milan price trend over 11 checks, $732 to $908, latest $732"><defs><linearGradient id="fill-MXP" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="66.8" x2="713.0" y2="66.8"/><path d="M7.0,56.8 L77.6,56.8 L148.2,37.3 L218.8,37.3 L289.4,14.0 L360.0,82.7 L430.6,90.0 L501.2,90.0 L571.8,90.0 L642.4,90.0 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-MXP)"/><path class="spark-line" d="M7.0,56.8 L77.6,56.8 L148.2,37.3 L218.8,37.3 L289.4,14.0 L360.0,82.7 L430.6,90.0 L501.2,90.0 L571.8,90.0 L642.4,90.0 L713.0,90.0"/><circle class="spark-min" cx="430.6" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Lowest fare recorded in 12 checks · $49 below its $781 average</span><span class="provisional">Based on 12 checks &mdash; the read firms up as history builds.</span></p>
+  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Milan price trend over 12 checks, $732 to $908, latest $732"><defs><linearGradient id="fill-MXP" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="68.7" x2="713.0" y2="68.7"/><path d="M7.0,56.8 L71.2,56.8 L135.4,37.3 L199.5,37.3 L263.7,14.0 L327.9,82.7 L392.1,90.0 L456.3,90.0 L520.5,90.0 L584.6,90.0 L648.8,90.0 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-MXP)"/><path class="spark-line" d="M7.0,56.8 L71.2,56.8 L135.4,37.3 L199.5,37.3 L263.7,14.0 L327.9,82.7 L392.1,90.0 L456.3,90.0 L520.5,90.0 L584.6,90.0 L648.8,90.0 L713.0,90.0"/><circle class="spark-min" cx="392.1" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - May 2027</span>
+      <span class="months-summary">cheapest Oct at $732, $179 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for MXP"><g class="month-group" data-month="2026-09"><rect class="bar" x="46.0" y="72.5" width="88.0" height="25.5" rx="3"/><text class="bar-price" x="90.0" y="66.5" text-anchor="middle">$764</text><text class="bar-label" x="90.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar bar-low" x="226.0" y="84.0" width="88.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="270.0" y="78.0" text-anchor="middle">$732</text><text class="bar-label bar-label-low" x="270.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="406.0" y="77.5" width="88.0" height="20.5" rx="3"/><text class="bar-price" x="450.0" y="71.5" text-anchor="middle">$750</text><text class="bar-label" x="450.0" y="112.0" text-anchor="middle">Dec</text></g><g class="month-group" data-month="2027-05"><rect class="bar" x="586.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="630.0" y="14.0" text-anchor="middle">$911</text><text class="bar-label" x="630.0" y="112.0" text-anchor="middle">May</text></g></svg>
+  </div>
+
   <dl class="stats">
     <div><dd>$732</dd><dt>Latest</dt></div>
     <div><dd class="">no change</dd><dt>Change</dt></div>
     <div><dd>$732</dd><dt>Lowest seen</dt></div>
-    <div><dd>$786</dd><dt>Average</dt></div>
-    <div><dd>11</dd><dt>Checks</dt></div>
+    <div><dd>$781</dd><dt>Average</dt></div>
+    <div><dd>12</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -602,7 +753,8 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
-        <tr class="cheapest"><td>Aug 31</td><td class="num">$732</td><td>Oct 21</td><td>Oct 29</td><td>Condor 2403</td></tr>
+        <tr class="cheapest"><td>Sep 1</td><td class="num">$732</td><td>Oct 21</td><td>Oct 29</td><td>Condor 2403</td></tr>
+        <tr><td>Aug 31</td><td class="num">$732</td><td>Oct 21</td><td>Oct 29</td><td>Condor 2403</td></tr>
         <tr><td>Aug 31</td><td class="num">$732</td><td>Oct 21</td><td>Oct 29</td><td>Condor 2403</td></tr>
         <tr><td>Aug 30</td><td class="num">$732</td><td>Oct 21</td><td>Oct 29</td><td>Condor 2403</td></tr>
         <tr><td>Aug 29</td><td class="num">$732</td><td>Oct 21</td><td>Oct 29</td><td>Condor 2403</td></tr>
@@ -619,20 +771,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="27.27" data-price="794" data-change="0" data-name="Prague" data-months='{}'>
+<article class="card" data-rank="28.12" data-price="602" data-change="-1" data-name="Barcelona" data-months='{&quot;2026-09&quot;: 671, &quot;2026-10&quot;: 602}'>
   <div class="card-head">
-    <h3>Prague<span class="code">PRG</span></h3>
+    <h3>Barcelona<span class="code">BCN</span></h3>
     <span class="verdict verdict-fair">Middle of its range</span>
   </div>
-  <p class="signal"><span class="lead">Lowest fare recorded in 11 checks · $48 below its $842 average</span><span class="provisional">Based on 11 checks &mdash; the read firms up as history builds.</span></p>
-  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Prague price trend over 11 checks, $794 to $913, latest $794"><defs><linearGradient id="fill-PRG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="59.6" x2="713.0" y2="59.6"/><path d="M7.0,90.0 L77.6,90.0 L148.2,90.0 L218.8,90.0 L289.4,14.0 L360.0,25.5 L430.6,25.5 L501.2,25.5 L571.8,25.5 L642.4,90.0 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-PRG)"/><path class="spark-line" d="M7.0,90.0 L77.6,90.0 L148.2,90.0 L218.8,90.0 L289.4,14.0 L360.0,25.5 L430.6,25.5 L501.2,25.5 L571.8,25.5 L642.4,90.0 L713.0,90.0"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Cheaper than 72% of the 16 checks so far · cheapest in 9 days</span></p>
+  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Barcelona price trend over 16 checks, $598 to $605, latest $602"><defs><linearGradient id="fill-BCN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="39.8" x2="713.0" y2="39.8"/><path d="M7.0,24.9 L54.1,24.9 L101.1,46.6 L148.2,79.1 L195.3,68.3 L242.3,90.0 L289.4,46.6 L336.5,14.0 L383.5,14.0 L430.6,14.0 L477.7,35.7 L524.7,35.7 L571.8,24.9 L618.9,35.7 L665.9,35.7 L713.0,46.6 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-BCN)"/><path class="spark-line" d="M7.0,24.9 L54.1,24.9 L101.1,46.6 L148.2,79.1 L195.3,68.3 L242.3,90.0 L289.4,46.6 L336.5,14.0 L383.5,14.0 L430.6,14.0 L477.7,35.7 L524.7,35.7 L571.8,24.9 L618.9,35.7 L665.9,35.7 L713.0,46.6"/><circle class="spark-min" cx="242.3" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="46.6" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Oct 2026</span>
+      <span class="months-summary">cheapest Oct at $602, $69 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for BCN"><g class="month-group" data-month="2026-09"><rect class="bar" x="136.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="180.0" y="14.0" text-anchor="middle">$671</text><text class="bar-label" x="180.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar bar-low" x="496.0" y="84.0" width="88.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="540.0" y="78.0" text-anchor="middle">$602</text><text class="bar-label bar-label-low" x="540.0" y="112.0" text-anchor="middle">Oct</text></g></svg>
+  </div>
+
   <dl class="stats">
-    <div><dd>$794</dd><dt>Latest</dt></div>
-    <div><dd class="">no change</dd><dt>Change</dt></div>
-    <div><dd>$794</dd><dt>Lowest seen</dt></div>
-    <div><dd>$842</dd><dt>Average</dt></div>
-    <div><dd>11</dd><dt>Checks</dt></div>
+    <div><dd>$602</dd><dt>Latest</dt></div>
+    <div><dd class="down">-$1</dd><dt>Change</dt></div>
+    <div><dd>$598</dd><dt>Lowest seen</dt></div>
+    <div><dd>$603</dd><dt>Average</dt></div>
+    <div><dd>16</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -641,7 +801,60 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
-        <tr class="cheapest"><td>Aug 31</td><td class="num">$794</td><td>Feb 5, 2027</td><td>Feb 19, 2027</td><td>SAS Scandinavian 3148</td></tr>
+        <tr><td>Sep 1</td><td class="num">$602</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 262</td></tr>
+        <tr><td>Aug 31</td><td class="num">$603</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 31</td><td class="num">$603</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 30</td><td class="num">$604</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 29</td><td class="num">$603</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 28</td><td class="num">$603</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 26</td><td class="num">$605</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 25</td><td class="num">$605</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 24</td><td class="num">$605</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 23</td><td class="num">$602</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr class="cheapest"><td>Aug 22</td><td class="num">$598</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 21</td><td class="num">$600</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 20</td><td class="num">$599</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 19</td><td class="num">$602</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 18</td><td class="num">$604</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
+        <tr><td>Aug 18</td><td class="num">$604</td><td>Oct 18</td><td>Nov 18</td><td>-</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</article>
+
+<article class="card" data-rank="29.17" data-price="794" data-change="0" data-name="Prague" data-months='{&quot;2026-09&quot;: 895, &quot;2026-11&quot;: 907, &quot;2027-01&quot;: 791, &quot;2027-02&quot;: 794}'>
+  <div class="card-head">
+    <h3>Prague<span class="code">PRG</span></h3>
+    <span class="verdict verdict-fair">Middle of its range</span>
+  </div>
+  <p class="signal"><span class="lead">Lowest fare recorded in 12 checks · $44 below its $838 average</span><span class="provisional">Based on 12 checks &mdash; the read firms up as history builds.</span></p>
+  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Prague price trend over 12 checks, $794 to $913, latest $794"><defs><linearGradient id="fill-PRG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="62.2" x2="713.0" y2="62.2"/><path d="M7.0,90.0 L71.2,90.0 L135.4,90.0 L199.5,90.0 L263.7,14.0 L327.9,25.5 L392.1,25.5 L456.3,25.5 L520.5,25.5 L584.6,90.0 L648.8,90.0 L713.0,90.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-PRG)"/><path class="spark-line" d="M7.0,90.0 L71.2,90.0 L135.4,90.0 L199.5,90.0 L263.7,14.0 L327.9,25.5 L392.1,25.5 L456.3,25.5 L520.5,25.5 L584.6,90.0 L648.8,90.0 L713.0,90.0"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="90.0" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Feb 2027</span>
+      <span class="months-summary">cheapest Jan at $791, $116 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for PRG"><g class="month-group" data-month="2026-09"><rect class="bar" x="46.0" y="26.6" width="88.0" height="71.4" rx="3"/><text class="bar-price" x="90.0" y="20.6" text-anchor="middle">$895</text><text class="bar-label" x="90.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-11"><rect class="bar" x="226.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="270.0" y="14.0" text-anchor="middle">$907</text><text class="bar-label" x="270.0" y="112.0" text-anchor="middle">Nov</text></g><g class="month-group" data-month="2027-01"><rect class="bar bar-low" x="406.0" y="84.0" width="88.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="450.0" y="78.0" text-anchor="middle">$791</text><text class="bar-label bar-label-low" x="450.0" y="112.0" text-anchor="middle">Jan</text></g><g class="month-group" data-month="2027-02"><rect class="bar" x="586.0" y="82.3" width="88.0" height="15.7" rx="3"/><text class="bar-price" x="630.0" y="76.3" text-anchor="middle">$794</text><text class="bar-label" x="630.0" y="112.0" text-anchor="middle">Feb</text></g></svg>
+  </div>
+
+  <dl class="stats">
+    <div><dd>$794</dd><dt>Latest</dt></div>
+    <div><dd class="">no change</dd><dt>Change</dt></div>
+    <div><dd>$794</dd><dt>Lowest seen</dt></div>
+    <div><dd>$838</dd><dt>Average</dt></div>
+    <div><dd>12</dd><dt>Checks</dt></div>
+  </dl>
+  
+  <details>
+    <summary>Full history</summary>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
+        <tbody>
+        <tr class="cheapest"><td>Sep 1</td><td class="num">$794</td><td>Feb 5, 2027</td><td>Feb 19, 2027</td><td>SAS Scandinavian 3148</td></tr>
+        <tr><td>Aug 31</td><td class="num">$794</td><td>Feb 5, 2027</td><td>Feb 19, 2027</td><td>SAS Scandinavian 3148</td></tr>
         <tr><td>Aug 31</td><td class="num">$794</td><td>Feb 5, 2027</td><td>Feb 19, 2027</td><td>SAS Scandinavian 3148</td></tr>
         <tr><td>Aug 30</td><td class="num">$895</td><td>Sep 5</td><td>Sep 23</td><td>Air France 359</td></tr>
         <tr><td>Aug 29</td><td class="num">$895</td><td>Sep 5</td><td>Sep 23</td><td>Air France 359</td></tr>
@@ -658,59 +871,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="36.36" data-price="693" data-change="1" data-name="Warsaw" data-months='{}'>
-  <div class="card-head">
-    <h3>Warsaw<span class="code">WAW</span></h3>
-    <span class="verdict verdict-fair">Middle of its range</span>
-  </div>
-  <p class="signal"><span class="lead">Cheaper than 64% of the 11 checks so far · $7 below its $700 average</span><span class="provisional">Based on 11 checks &mdash; the read firms up as history builds.</span></p>
-  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Warsaw price trend over 11 checks, $692 to $722, latest $693"><defs><linearGradient id="fill-WAW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="69.7" x2="713.0" y2="69.7"/><path d="M7.0,54.5 L77.6,49.5 L148.2,39.3 L218.8,14.0 L289.4,87.5 L360.0,82.4 L430.6,82.4 L501.2,90.0 L571.8,90.0 L642.4,90.0 L713.0,87.5 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-WAW)"/><path class="spark-line" d="M7.0,54.5 L77.6,49.5 L148.2,39.3 L218.8,14.0 L289.4,87.5 L360.0,82.4 L430.6,82.4 L501.2,90.0 L571.8,90.0 L642.4,90.0 L713.0,87.5"/><circle class="spark-min" cx="501.2" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="87.5" r="4.6"/></svg>
-  
-  <dl class="stats">
-    <div><dd>$693</dd><dt>Latest</dt></div>
-    <div><dd class="up">+$1</dd><dt>Change</dt></div>
-    <div><dd>$692</dd><dt>Lowest seen</dt></div>
-    <div><dd>$700</dd><dt>Average</dt></div>
-    <div><dd>11</dd><dt>Checks</dt></div>
-  </dl>
-  
-  <details>
-    <summary>Full history</summary>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
-        <tbody>
-        <tr><td>Aug 31</td><td class="num">$693</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
-        <tr class="cheapest"><td>Aug 31</td><td class="num">$692</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
-        <tr><td>Aug 30</td><td class="num">$692</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
-        <tr><td>Aug 29</td><td class="num">$692</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
-        <tr><td>Aug 28</td><td class="num">$695</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
-        <tr><td>Aug 26</td><td class="num">$695</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
-        <tr><td>Aug 25</td><td class="num">$693</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
-        <tr><td>Aug 24</td><td class="num">$722</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
-        <tr><td>Aug 23</td><td class="num">$712</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
-        <tr><td>Aug 22</td><td class="num">$708</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
-        <tr><td>Aug 21</td><td class="num">$706</td><td>Apr 15, 2027</td><td>Apr 28, 2027</td><td>SAS Scandinavian 950</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </details>
-</article>
-
-<article class="card" data-rank="36.67" data-price="824" data-change="0" data-name="Vienna" data-months='{}'>
+<article class="card" data-rank="37.50" data-price="824" data-change="0" data-name="Vienna" data-months='{&quot;2026-10&quot;: 824, &quot;2026-12&quot;: 1349}'>
   <div class="card-head">
     <h3>Vienna<span class="code">VIE</span></h3>
     <span class="verdict verdict-fair">Middle of its range</span>
   </div>
-  <p class="signal"><span class="lead">Cheaper than 63% of the 15 checks so far · $100 below its $924 average</span></p>
-  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Vienna price trend over 15 checks, $810 to $1419, latest $824"><defs><linearGradient id="fill-VIE" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="75.8" x2="713.0" y2="75.8"/><path d="M7.0,90.0 L57.4,90.0 L107.9,90.0 L158.3,62.0 L208.7,62.0 L259.1,62.0 L309.6,62.0 L360.0,14.0 L410.4,81.4 L460.9,81.5 L511.3,88.3 L561.7,88.3 L612.1,88.3 L662.6,88.3 L713.0,88.3 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-VIE)"/><path class="spark-line" d="M7.0,90.0 L57.4,90.0 L107.9,90.0 L158.3,62.0 L208.7,62.0 L259.1,62.0 L309.6,62.0 L360.0,14.0 L410.4,81.4 L460.9,81.5 L511.3,88.3 L561.7,88.3 L612.1,88.3 L662.6,88.3 L713.0,88.3"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="88.3" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Cheaper than 62% of the 16 checks so far · $94 below its $918 average</span></p>
+  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Vienna price trend over 16 checks, $810 to $1419, latest $824"><defs><linearGradient id="fill-VIE" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="76.5" x2="713.0" y2="76.5"/><path d="M7.0,90.0 L54.1,90.0 L101.1,90.0 L148.2,62.0 L195.3,62.0 L242.3,62.0 L289.4,62.0 L336.5,14.0 L383.5,81.4 L430.6,81.5 L477.7,88.3 L524.7,88.3 L571.8,88.3 L618.9,88.3 L665.9,88.3 L713.0,88.3 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-VIE)"/><path class="spark-line" d="M7.0,90.0 L54.1,90.0 L101.1,90.0 L148.2,62.0 L195.3,62.0 L242.3,62.0 L289.4,62.0 L336.5,14.0 L383.5,81.4 L430.6,81.5 L477.7,88.3 L524.7,88.3 L571.8,88.3 L618.9,88.3 L665.9,88.3 L713.0,88.3"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="88.3" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Oct 2026 - Dec 2026</span>
+      <span class="months-summary">cheapest Oct at $824, $525 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for VIE"><g class="month-group" data-month="2026-10"><rect class="bar bar-low" x="136.0" y="84.0" width="88.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="180.0" y="78.0" text-anchor="middle">$824</text><text class="bar-label bar-label-low" x="180.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="496.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="540.0" y="14.0" text-anchor="middle">$1,349</text><text class="bar-label" x="540.0" y="112.0" text-anchor="middle">Dec</text></g></svg>
+  </div>
+
   <dl class="stats">
     <div><dd>$824</dd><dt>Latest</dt></div>
     <div><dd class="">no change</dd><dt>Change</dt></div>
     <div><dd>$810</dd><dt>Lowest seen</dt></div>
-    <div><dd>$924</dd><dt>Average</dt></div>
-    <div><dd>15</dd><dt>Checks</dt></div>
+    <div><dd>$918</dd><dt>Average</dt></div>
+    <div><dd>16</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -719,6 +901,7 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
+        <tr><td>Sep 1</td><td class="num">$824</td><td>Oct 7</td><td>Oct 12</td><td>Condor 2403</td></tr>
         <tr><td>Aug 31</td><td class="num">$824</td><td>Oct 7</td><td>Oct 12</td><td>Condor 2403</td></tr>
         <tr><td>Aug 31</td><td class="num">$824</td><td>Oct 7</td><td>Oct 12</td><td>Condor 2403</td></tr>
         <tr><td>Aug 30</td><td class="num">$824</td><td>Oct 7</td><td>Oct 12</td><td>Condor 2403</td></tr>
@@ -740,20 +923,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="43.33" data-price="655" data-change="0" data-name="Rome" data-months='{}'>
+<article class="card" data-rank="43.75" data-price="655" data-change="0" data-name="Rome" data-months='{&quot;2026-09&quot;: 778, &quot;2026-10&quot;: 783, &quot;2026-12&quot;: 819, &quot;2027-01&quot;: 655, &quot;2027-06&quot;: 943, &quot;2027-08&quot;: 1084}'>
   <div class="card-head">
     <h3>Rome<span class="code">FCO</span></h3>
     <span class="verdict verdict-fair">Middle of its range</span>
   </div>
-  <p class="signal"><span class="lead">Cheaper than 57% of the 15 checks so far · $28 below its $683 average</span></p>
-  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Rome price trend over 15 checks, $630 to $754, latest $655"><defs><linearGradient id="fill-FCO" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="57.5" x2="713.0" y2="57.5"/><path d="M7.0,90.0 L57.4,90.0 L107.9,34.8 L158.3,34.8 L208.7,34.8 L259.1,34.8 L309.6,34.8 L360.0,34.8 L410.4,14.0 L460.9,78.4 L511.3,78.4 L561.7,78.4 L612.1,74.7 L662.6,74.7 L713.0,74.7 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-FCO)"/><path class="spark-line" d="M7.0,90.0 L57.4,90.0 L107.9,34.8 L158.3,34.8 L208.7,34.8 L259.1,34.8 L309.6,34.8 L360.0,34.8 L410.4,14.0 L460.9,78.4 L511.3,78.4 L561.7,78.4 L612.1,74.7 L662.6,74.7 L713.0,74.7"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="74.7" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Cheaper than 56% of the 16 checks so far · $26 below its $681 average</span></p>
+  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Rome price trend over 16 checks, $630 to $754, latest $655"><defs><linearGradient id="fill-FCO" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="58.6" x2="713.0" y2="58.6"/><path d="M7.0,90.0 L54.1,90.0 L101.1,34.8 L148.2,34.8 L195.3,34.8 L242.3,34.8 L289.4,34.8 L336.5,34.8 L383.5,14.0 L430.6,78.4 L477.7,78.4 L524.7,78.4 L571.8,74.7 L618.9,74.7 L665.9,74.7 L713.0,74.7 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-FCO)"/><path class="spark-line" d="M7.0,90.0 L54.1,90.0 L101.1,34.8 L148.2,34.8 L195.3,34.8 L242.3,34.8 L289.4,34.8 L336.5,34.8 L383.5,14.0 L430.6,78.4 L477.7,78.4 L524.7,78.4 L571.8,74.7 L618.9,74.7 L665.9,74.7 L713.0,74.7"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="74.7" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Aug 2027</span>
+      <span class="months-summary">cheapest Jan at $655, $429 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for FCO"><g class="month-group" data-month="2026-09"><rect class="bar" x="27.0" y="65.6" width="66.0" height="32.4" rx="3"/><text class="bar-price" x="60.0" y="59.6" text-anchor="middle">$778</text><text class="bar-label" x="60.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar" x="147.0" y="64.9" width="66.0" height="33.1" rx="3"/><text class="bar-price" x="180.0" y="58.9" text-anchor="middle">$783</text><text class="bar-label" x="180.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="267.0" y="59.5" width="66.0" height="38.5" rx="3"/><text class="bar-price" x="300.0" y="53.5" text-anchor="middle">$819</text><text class="bar-label" x="300.0" y="112.0" text-anchor="middle">Dec</text></g><g class="month-group" data-month="2027-01"><rect class="bar bar-low" x="387.0" y="84.0" width="66.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="420.0" y="78.0" text-anchor="middle">$655</text><text class="bar-label bar-label-low" x="420.0" y="112.0" text-anchor="middle">Jan</text></g><g class="month-group" data-month="2027-06"><rect class="bar" x="507.0" y="41.0" width="66.0" height="57.0" rx="3"/><text class="bar-price" x="540.0" y="35.0" text-anchor="middle">$943</text><text class="bar-label" x="540.0" y="112.0" text-anchor="middle">Jun</text></g><g class="month-group" data-month="2027-08"><rect class="bar" x="627.0" y="20.0" width="66.0" height="78.0" rx="3"/><text class="bar-price" x="660.0" y="14.0" text-anchor="middle">$1,084</text><text class="bar-label" x="660.0" y="112.0" text-anchor="middle">Aug</text></g></svg>
+  </div>
+
   <dl class="stats">
     <div><dd>$655</dd><dt>Latest</dt></div>
     <div><dd class="">no change</dd><dt>Change</dt></div>
     <div><dd>$630</dd><dt>Lowest seen</dt></div>
-    <div><dd>$683</dd><dt>Average</dt></div>
-    <div><dd>15</dd><dt>Checks</dt></div>
+    <div><dd>$681</dd><dt>Average</dt></div>
+    <div><dd>16</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -762,6 +953,7 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
+        <tr><td>Sep 1</td><td class="num">$655</td><td>Jan 19, 2027</td><td>Jan 23, 2027</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 31</td><td class="num">$655</td><td>Jan 19, 2027</td><td>Jan 23, 2027</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 31</td><td class="num">$655</td><td>Jan 19, 2027</td><td>Jan 23, 2027</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 30</td><td class="num">$655</td><td>Jan 19, 2027</td><td>Jan 23, 2027</td><td>Icelandair 602</td></tr>
@@ -777,49 +969,6 @@
         <tr><td>Aug 19</td><td class="num">$720</td><td>Sep 22</td><td>Oct 1</td><td>Icelandair 602</td></tr>
         <tr class="cheapest"><td>Aug 18</td><td class="num">$630</td><td>Jan 19, 2027</td><td>Jan 23, 2027</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 18</td><td class="num">$630</td><td>Jan 19, 2027</td><td>Jan 23, 2027</td><td>-</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </details>
-</article>
-
-<article class="card" data-rank="46.67" data-price="603" data-change="0" data-name="Barcelona" data-months='{}'>
-  <div class="card-head">
-    <h3>Barcelona<span class="code">BCN</span></h3>
-    <span class="verdict verdict-fair">Middle of its range</span>
-  </div>
-  <p class="signal"><span class="lead">Cheaper than 53% of the 15 checks so far</span></p>
-  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Barcelona price trend over 15 checks, $598 to $605, latest $603"><defs><linearGradient id="fill-BCN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="39.3" x2="713.0" y2="39.3"/><path d="M7.0,24.9 L57.4,24.9 L107.9,46.6 L158.3,79.1 L208.7,68.3 L259.1,90.0 L309.6,46.6 L360.0,14.0 L410.4,14.0 L460.9,14.0 L511.3,35.7 L561.7,35.7 L612.1,24.9 L662.6,35.7 L713.0,35.7 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-BCN)"/><path class="spark-line" d="M7.0,24.9 L57.4,24.9 L107.9,46.6 L158.3,79.1 L208.7,68.3 L259.1,90.0 L309.6,46.6 L360.0,14.0 L410.4,14.0 L460.9,14.0 L511.3,35.7 L561.7,35.7 L612.1,24.9 L662.6,35.7 L713.0,35.7"/><circle class="spark-min" cx="259.1" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="35.7" r="4.6"/></svg>
-  
-  <dl class="stats">
-    <div><dd>$603</dd><dt>Latest</dt></div>
-    <div><dd class="">no change</dd><dt>Change</dt></div>
-    <div><dd>$598</dd><dt>Lowest seen</dt></div>
-    <div><dd>$603</dd><dt>Average</dt></div>
-    <div><dd>15</dd><dt>Checks</dt></div>
-  </dl>
-  
-  <details>
-    <summary>Full history</summary>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
-        <tbody>
-        <tr><td>Aug 31</td><td class="num">$603</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 31</td><td class="num">$603</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 30</td><td class="num">$604</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 29</td><td class="num">$603</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 28</td><td class="num">$603</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 26</td><td class="num">$605</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 25</td><td class="num">$605</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 24</td><td class="num">$605</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 23</td><td class="num">$602</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr class="cheapest"><td>Aug 22</td><td class="num">$598</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 21</td><td class="num">$600</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 20</td><td class="num">$599</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 19</td><td class="num">$602</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 18</td><td class="num">$604</td><td>Oct 18</td><td>Nov 18</td><td>TAP Air Portugal 258</td></tr>
-        <tr><td>Aug 18</td><td class="num">$604</td><td>Oct 18</td><td>Nov 18</td><td>-</td></tr>
         </tbody>
       </table>
     </div>
@@ -857,20 +1006,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="50.00" data-price="760" data-change="0" data-name="Budapest" data-months='{}'>
+<article class="card" data-rank="50.00" data-price="760" data-change="0" data-name="Budapest" data-months='{&quot;2026-09&quot;: 929, &quot;2026-10&quot;: 759, &quot;2027-02&quot;: 760}'>
   <div class="card-head">
     <h3>Budapest<span class="code">BUD</span></h3>
     <span class="verdict verdict-fair">Middle of its range</span>
   </div>
-  <p class="signal"><span class="lead">Cheaper than 50% of the 11 checks so far · $104 below its $864 average</span><span class="provisional">Based on 11 checks &mdash; the read firms up as history builds.</span></p>
-  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Budapest price trend over 11 checks, $759 to $1187, latest $760"><defs><linearGradient id="fill-BUD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="71.4" x2="713.0" y2="71.4"/><path d="M7.0,63.7 L77.6,63.7 L148.2,14.0 L218.8,14.0 L289.4,89.8 L360.0,90.0 L430.6,90.0 L501.2,90.0 L571.8,90.0 L642.4,89.8 L713.0,89.8 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-BUD)"/><path class="spark-line" d="M7.0,63.7 L77.6,63.7 L148.2,14.0 L218.8,14.0 L289.4,89.8 L360.0,90.0 L430.6,90.0 L501.2,90.0 L571.8,90.0 L642.4,89.8 L713.0,89.8"/><circle class="spark-min" cx="360.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="89.8" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Cheaper than 50% of the 12 checks so far · $95 below its $855 average</span><span class="provisional">Based on 12 checks &mdash; the read firms up as history builds.</span></p>
+  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Budapest price trend over 12 checks, $759 to $1187, latest $760"><defs><linearGradient id="fill-BUD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="72.9" x2="713.0" y2="72.9"/><path d="M7.0,63.7 L71.2,63.7 L135.4,14.0 L199.5,14.0 L263.7,89.8 L327.9,90.0 L392.1,90.0 L456.3,90.0 L520.5,90.0 L584.6,89.8 L648.8,89.8 L713.0,89.8 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-BUD)"/><path class="spark-line" d="M7.0,63.7 L71.2,63.7 L135.4,14.0 L199.5,14.0 L263.7,89.8 L327.9,90.0 L392.1,90.0 L456.3,90.0 L520.5,90.0 L584.6,89.8 L648.8,89.8 L713.0,89.8"/><circle class="spark-min" cx="327.9" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="89.8" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Feb 2027</span>
+      <span class="months-summary">cheapest Oct at $759, $170 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for BUD"><g class="month-group" data-month="2026-09"><rect class="bar" x="76.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="120.0" y="14.0" text-anchor="middle">$929</text><text class="bar-label" x="120.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar bar-low" x="316.0" y="84.0" width="88.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="360.0" y="78.0" text-anchor="middle">$759</text><text class="bar-label bar-label-low" x="360.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2027-02"><rect class="bar" x="556.0" y="83.6" width="88.0" height="14.4" rx="3"/><text class="bar-price" x="600.0" y="77.6" text-anchor="middle">$760</text><text class="bar-label" x="600.0" y="112.0" text-anchor="middle">Feb</text></g></svg>
+  </div>
+
   <dl class="stats">
     <div><dd>$760</dd><dt>Latest</dt></div>
     <div><dd class="">no change</dd><dt>Change</dt></div>
     <div><dd>$759</dd><dt>Lowest seen</dt></div>
-    <div><dd>$864</dd><dt>Average</dt></div>
-    <div><dd>11</dd><dt>Checks</dt></div>
+    <div><dd>$855</dd><dt>Average</dt></div>
+    <div><dd>12</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -879,6 +1036,7 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
+        <tr><td>Sep 1</td><td class="num">$760</td><td>Feb 5, 2027</td><td>Feb 19, 2027</td><td>KLM 696</td></tr>
         <tr><td>Aug 31</td><td class="num">$760</td><td>Feb 5, 2027</td><td>Feb 19, 2027</td><td>KLM 696</td></tr>
         <tr><td>Aug 31</td><td class="num">$760</td><td>Feb 5, 2027</td><td>Feb 19, 2027</td><td>KLM 696</td></tr>
         <tr class="cheapest"><td>Aug 30</td><td class="num">$759</td><td>Oct 11</td><td>Oct 21</td><td>Air France 357</td></tr>
@@ -896,20 +1054,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="59.09" data-price="629" data-change="0" data-name="Reykjavik" data-months='{}'>
+<article class="card" data-rank="58.33" data-price="629" data-change="0" data-name="Reykjavik" data-months='{&quot;2026-09&quot;: 629, &quot;2026-10&quot;: 773, &quot;2026-11&quot;: 836, &quot;2026-12&quot;: 924}'>
   <div class="card-head">
     <h3>Reykjavik<span class="code">KEF</span></h3>
     <span class="verdict verdict-fair">Middle of its range</span>
   </div>
-  <p class="signal"><span class="lead">Cheaper than 41% of the 11 checks so far</span><span class="provisional">Based on 11 checks &mdash; the read firms up as history builds.</span></p>
-  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Reykjavik price trend over 11 checks, $609 to $705, latest $629"><defs><linearGradient id="fill-KEF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="73.0" x2="713.0" y2="73.0"/><path d="M7.0,90.0 L77.6,90.0 L148.2,90.0 L218.8,14.0 L289.4,74.2 L360.0,74.2 L430.6,74.2 L501.2,74.2 L571.8,74.2 L642.4,74.2 L713.0,74.2 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-KEF)"/><path class="spark-line" d="M7.0,90.0 L77.6,90.0 L148.2,90.0 L218.8,14.0 L289.4,74.2 L360.0,74.2 L430.6,74.2 L501.2,74.2 L571.8,74.2 L642.4,74.2 L713.0,74.2"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="74.2" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Cheaper than 42% of the 12 checks so far</span><span class="provisional">Based on 12 checks &mdash; the read firms up as history builds.</span></p>
+  <svg class="spark spark-fair" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Reykjavik price trend over 12 checks, $609 to $705, latest $629"><defs><linearGradient id="fill-KEF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="73.1" x2="713.0" y2="73.1"/><path d="M7.0,90.0 L71.2,90.0 L135.4,90.0 L199.5,14.0 L263.7,74.2 L327.9,74.2 L392.1,74.2 L456.3,74.2 L520.5,74.2 L584.6,74.2 L648.8,74.2 L713.0,74.2 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-KEF)"/><path class="spark-line" d="M7.0,90.0 L71.2,90.0 L135.4,90.0 L199.5,14.0 L263.7,74.2 L327.9,74.2 L392.1,74.2 L456.3,74.2 L520.5,74.2 L584.6,74.2 L648.8,74.2 L713.0,74.2"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="74.2" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Dec 2026</span>
+      <span class="months-summary">cheapest Sep at $629, $295 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for KEF"><g class="month-group" data-month="2026-09"><rect class="bar bar-low" x="46.0" y="84.0" width="88.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="90.0" y="78.0" text-anchor="middle">$629</text><text class="bar-label bar-label-low" x="90.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar" x="226.0" y="52.7" width="88.0" height="45.3" rx="3"/><text class="bar-price" x="270.0" y="46.7" text-anchor="middle">$773</text><text class="bar-label" x="270.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-11"><rect class="bar" x="406.0" y="39.1" width="88.0" height="58.9" rx="3"/><text class="bar-price" x="450.0" y="33.1" text-anchor="middle">$836</text><text class="bar-label" x="450.0" y="112.0" text-anchor="middle">Nov</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="586.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="630.0" y="14.0" text-anchor="middle">$924</text><text class="bar-label" x="630.0" y="112.0" text-anchor="middle">Dec</text></g></svg>
+  </div>
+
   <dl class="stats">
     <div><dd>$629</dd><dt>Latest</dt></div>
     <div><dd class="">no change</dd><dt>Change</dt></div>
     <div><dd>$609</dd><dt>Lowest seen</dt></div>
     <div><dd>$630</dd><dt>Average</dt></div>
-    <div><dd>11</dd><dt>Checks</dt></div>
+    <div><dd>12</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -918,6 +1084,7 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
+        <tr><td>Sep 1</td><td class="num">$629</td><td>Sep 24</td><td>Sep 30</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 31</td><td class="num">$629</td><td>Sep 24</td><td>Sep 30</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 31</td><td class="num">$629</td><td>Sep 24</td><td>Sep 30</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 30</td><td class="num">$629</td><td>Sep 24</td><td>Sep 30</td><td>Icelandair 602</td></tr>
@@ -935,143 +1102,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="65.38" data-price="850" data-change="0" data-name="Zurich" data-months='{}'>
-  <div class="card-head">
-    <h3>Zurich<span class="code">ZRH</span></h3>
-    <span class="verdict verdict-high">Above its usual range</span>
-  </div>
-  <p class="signal"><span class="lead">Cheaper than 35% of the 13 checks so far · $54 below its $904 average</span><span class="provisional">Based on 13 checks &mdash; the read firms up as history builds.</span></p>
-  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Zurich price trend over 13 checks, $842 to $1224, latest $850"><defs><linearGradient id="fill-ZRH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="77.7" x2="713.0" y2="77.7"/><path d="M7.0,90.0 L65.8,90.0 L124.7,90.0 L183.5,90.0 L242.3,90.0 L301.2,90.0 L360.0,14.0 L418.8,14.0 L477.7,88.4 L536.5,88.4 L595.3,88.4 L654.2,88.4 L713.0,88.4 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-ZRH)"/><path class="spark-line" d="M7.0,90.0 L65.8,90.0 L124.7,90.0 L183.5,90.0 L242.3,90.0 L301.2,90.0 L360.0,14.0 L418.8,14.0 L477.7,88.4 L536.5,88.4 L595.3,88.4 L654.2,88.4 L713.0,88.4"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="88.4" r="4.6"/></svg>
-  
-  <dl class="stats">
-    <div><dd>$850</dd><dt>Latest</dt></div>
-    <div><dd class="">no change</dd><dt>Change</dt></div>
-    <div><dd>$842</dd><dt>Lowest seen</dt></div>
-    <div><dd>$904</dd><dt>Average</dt></div>
-    <div><dd>13</dd><dt>Checks</dt></div>
-  </dl>
-  
-  <details>
-    <summary>Full history</summary>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
-        <tbody>
-        <tr><td>Aug 31</td><td class="num">$850</td><td>Oct 10</td><td>Oct 24</td><td>WestJet 46</td></tr>
-        <tr><td>Aug 31</td><td class="num">$850</td><td>Oct 10</td><td>Oct 24</td><td>WestJet 46</td></tr>
-        <tr><td>Aug 30</td><td class="num">$850</td><td>Oct 10</td><td>Oct 24</td><td>WestJet 46</td></tr>
-        <tr><td>Aug 29</td><td class="num">$850</td><td>Oct 10</td><td>Oct 24</td><td>WestJet 46</td></tr>
-        <tr><td>Aug 28</td><td class="num">$850</td><td>Oct 10</td><td>Oct 24</td><td>WestJet 46</td></tr>
-        <tr><td>Aug 24</td><td class="num">$1,224</td><td>Sep 18</td><td>Sep 27</td><td>KLM 696</td></tr>
-        <tr><td>Aug 23</td><td class="num">$1,224</td><td>Sep 18</td><td>Sep 27</td><td>KLM 696</td></tr>
-        <tr class="cheapest"><td>Aug 22</td><td class="num">$842</td><td>Sep 23</td><td>Oct 8</td><td>Condor 2403</td></tr>
-        <tr><td>Aug 21</td><td class="num">$842</td><td>Sep 23</td><td>Oct 8</td><td>Condor 2403</td></tr>
-        <tr><td>Aug 20</td><td class="num">$842</td><td>Sep 23</td><td>Oct 8</td><td>Condor 2403</td></tr>
-        <tr><td>Aug 19</td><td class="num">$842</td><td>Sep 23</td><td>Oct 8</td><td>Condor 2403</td></tr>
-        <tr><td>Aug 18</td><td class="num">$842</td><td>Sep 23</td><td>Oct 8</td><td>Condor 2403</td></tr>
-        <tr><td>Aug 18</td><td class="num">$842</td><td>Sep 23</td><td>Oct 8</td><td>-</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </details>
-</article>
-
-<article class="card" data-rank="68.18" data-price="769" data-change="0" data-name="Edinburgh" data-months='{}'>
-  <div class="card-head">
-    <h3>Edinburgh<span class="code">EDI</span></h3>
-    <span class="verdict verdict-high">Above its usual range</span>
-  </div>
-  <p class="signal"><span class="lead">Cheaper than 32% of the 11 checks so far · $6 above its $763 average</span><span class="provisional">Based on 11 checks &mdash; the read firms up as history builds.</span></p>
-  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Edinburgh price trend over 11 checks, $731 to $844, latest $769"><defs><linearGradient id="fill-EDI" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="68.6" x2="713.0" y2="68.6"/><path d="M7.0,14.0 L77.6,14.0 L148.2,90.0 L218.8,88.7 L289.4,88.7 L360.0,88.7 L430.6,88.7 L501.2,88.7 L571.8,64.4 L642.4,64.4 L713.0,64.4 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-EDI)"/><path class="spark-line" d="M7.0,14.0 L77.6,14.0 L148.2,90.0 L218.8,88.7 L289.4,88.7 L360.0,88.7 L430.6,88.7 L501.2,88.7 L571.8,64.4 L642.4,64.4 L713.0,64.4"/><circle class="spark-min" cx="148.2" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="64.4" r="4.6"/></svg>
-  
-  <dl class="stats">
-    <div><dd>$769</dd><dt>Latest</dt></div>
-    <div><dd class="">no change</dd><dt>Change</dt></div>
-    <div><dd>$731</dd><dt>Lowest seen</dt></div>
-    <div><dd>$763</dd><dt>Average</dt></div>
-    <div><dd>11</dd><dt>Checks</dt></div>
-  </dl>
-  
-  <details>
-    <summary>Full history</summary>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
-        <tbody>
-        <tr><td>Aug 31</td><td class="num">$769</td><td>Sep 17</td><td>Oct 1</td><td>WestJet 36</td></tr>
-        <tr><td>Aug 31</td><td class="num">$769</td><td>Sep 17</td><td>Oct 1</td><td>WestJet 36</td></tr>
-        <tr><td>Aug 30</td><td class="num">$769</td><td>Sep 17</td><td>Oct 1</td><td>WestJet 36</td></tr>
-        <tr><td>Aug 29</td><td class="num">$733</td><td>Sep 24</td><td>Sep 27</td><td>Air Transat 7230</td></tr>
-        <tr><td>Aug 28</td><td class="num">$733</td><td>Sep 24</td><td>Sep 27</td><td>Air Transat 7230</td></tr>
-        <tr><td>Aug 26</td><td class="num">$733</td><td>Sep 24</td><td>Sep 27</td><td>Air Transat 7230</td></tr>
-        <tr><td>Aug 25</td><td class="num">$733</td><td>Sep 24</td><td>Sep 27</td><td>Air Transat 7230</td></tr>
-        <tr><td>Aug 24</td><td class="num">$733</td><td>Sep 24</td><td>Sep 27</td><td>Air Transat 7230</td></tr>
-        <tr class="cheapest"><td>Aug 23</td><td class="num">$731</td><td>Sep 24</td><td>Sep 27</td><td>Air Transat 7230</td></tr>
-        <tr><td>Aug 22</td><td class="num">$844</td><td>Oct 11</td><td>Oct 18</td><td>WestJet 36</td></tr>
-        <tr><td>Aug 21</td><td class="num">$844</td><td>Oct 11</td><td>Oct 18</td><td>WestJet 36</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </details>
-</article>
-
-<article class="card" data-rank="73.33" data-price="743" data-change="0" data-name="Madrid" data-months='{}'>
-  <div class="card-head">
-    <h3>Madrid<span class="code">MAD</span></h3>
-    <span class="verdict verdict-high">Above its usual range</span>
-  </div>
-  <p class="signal"><span class="lead">Cheaper than 27% of the 15 checks so far · $27 above its $716 average</span></p>
-  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Madrid price trend over 15 checks, $658 to $850, latest $743"><defs><linearGradient id="fill-MAD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="67.0" x2="713.0" y2="67.0"/><path d="M7.0,14.0 L57.4,14.0 L107.9,50.4 L158.3,90.0 L208.7,90.0 L259.1,90.0 L309.6,90.0 L360.0,90.0 L410.4,90.0 L460.9,90.0 L511.3,61.5 L561.7,61.5 L612.1,61.5 L662.6,56.4 L713.0,56.4 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-MAD)"/><path class="spark-line" d="M7.0,14.0 L57.4,14.0 L107.9,50.4 L158.3,90.0 L208.7,90.0 L259.1,90.0 L309.6,90.0 L360.0,90.0 L410.4,90.0 L460.9,90.0 L511.3,61.5 L561.7,61.5 L612.1,61.5 L662.6,56.4 L713.0,56.4"/><circle class="spark-min" cx="158.3" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="56.4" r="4.6"/></svg>
-  
-  <dl class="stats">
-    <div><dd>$743</dd><dt>Latest</dt></div>
-    <div><dd class="">no change</dd><dt>Change</dt></div>
-    <div><dd>$658</dd><dt>Lowest seen</dt></div>
-    <div><dd>$716</dd><dt>Average</dt></div>
-    <div><dd>15</dd><dt>Checks</dt></div>
-  </dl>
-  
-  <details>
-    <summary>Full history</summary>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
-        <tbody>
-        <tr><td>Aug 31</td><td class="num">$743</td><td>Oct 12</td><td>Oct 20</td><td>KLM 692</td></tr>
-        <tr><td>Aug 31</td><td class="num">$743</td><td>Oct 12</td><td>Oct 20</td><td>KLM 692</td></tr>
-        <tr><td>Aug 30</td><td class="num">$730</td><td>Dec 4</td><td>Dec 14</td><td>TAP Air Portugal 262</td></tr>
-        <tr><td>Aug 29</td><td class="num">$730</td><td>Dec 4</td><td>Dec 14</td><td>TAP Air Portugal 262</td></tr>
-        <tr><td>Aug 28</td><td class="num">$730</td><td>Dec 4</td><td>Dec 14</td><td>TAP Air Portugal 262</td></tr>
-        <tr class="cheapest"><td>Aug 26</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
-        <tr><td>Aug 25</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
-        <tr><td>Aug 24</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
-        <tr><td>Aug 23</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
-        <tr><td>Aug 22</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
-        <tr><td>Aug 21</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
-        <tr><td>Aug 20</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
-        <tr><td>Aug 19</td><td class="num">$758</td><td>Nov 13</td><td>Nov 21</td><td>Porter Airlines Canada 7253</td></tr>
-        <tr><td>Aug 18</td><td class="num">$850</td><td>Oct 8</td><td>Oct 18</td><td>WestJet 46</td></tr>
-        <tr><td>Aug 18</td><td class="num">$850</td><td>Oct 8</td><td>Oct 18</td><td>-</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </details>
-</article>
-
-<article class="card" data-rank="76.67" data-price="602" data-change="0" data-name="Lisbon" data-months='{}'>
+<article class="card" data-rank="62.50" data-price="600" data-change="-2" data-name="Lisbon" data-months='{&quot;2026-09&quot;: 715, &quot;2026-10&quot;: 634, &quot;2026-11&quot;: 600, &quot;2026-12&quot;: 857, &quot;2027-01&quot;: 862, &quot;2027-08&quot;: 1150}'>
   <div class="card-head">
     <h3>Lisbon<span class="code">LIS</span></h3>
     <span class="verdict verdict-high">Above its usual range</span>
   </div>
-  <p class="signal"><span class="lead">Cheaper than 23% of the 15 checks so far</span></p>
-  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Lisbon price trend over 15 checks, $594 to $611, latest $602"><defs><linearGradient id="fill-LIS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="67.3" x2="713.0" y2="67.3"/><path d="M7.0,90.0 L57.4,90.0 L107.9,90.0 L158.3,90.0 L208.7,90.0 L259.1,72.1 L309.6,72.1 L360.0,14.0 L410.4,14.0 L460.9,90.0 L511.3,63.2 L561.7,72.1 L612.1,54.2 L662.6,54.2 L713.0,54.2 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-LIS)"/><path class="spark-line" d="M7.0,90.0 L57.4,90.0 L107.9,90.0 L158.3,90.0 L208.7,90.0 L259.1,72.1 L309.6,72.1 L360.0,14.0 L410.4,14.0 L460.9,90.0 L511.3,63.2 L561.7,72.1 L612.1,54.2 L662.6,54.2 L713.0,54.2"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="54.2" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Cheaper than 38% of the 16 checks so far · cheapest in 3 days</span></p>
+  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Lisbon price trend over 16 checks, $594 to $611, latest $600"><defs><linearGradient id="fill-LIS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="67.1" x2="713.0" y2="67.1"/><path d="M7.0,90.0 L54.1,90.0 L101.1,90.0 L148.2,90.0 L195.3,90.0 L242.3,72.1 L289.4,72.1 L336.5,14.0 L383.5,14.0 L430.6,90.0 L477.7,63.2 L524.7,72.1 L571.8,54.2 L618.9,54.2 L665.9,54.2 L713.0,63.2 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-LIS)"/><path class="spark-line" d="M7.0,90.0 L54.1,90.0 L101.1,90.0 L148.2,90.0 L195.3,90.0 L242.3,72.1 L289.4,72.1 L336.5,14.0 L383.5,14.0 L430.6,90.0 L477.7,63.2 L524.7,72.1 L571.8,54.2 L618.9,54.2 L665.9,54.2 L713.0,63.2"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="63.2" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Aug 2027</span>
+      <span class="months-summary">cheapest Nov at $600, $550 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for LIS"><g class="month-group" data-month="2026-09"><rect class="bar" x="27.0" y="70.6" width="66.0" height="27.4" rx="3"/><text class="bar-price" x="60.0" y="64.6" text-anchor="middle">$715</text><text class="bar-label" x="60.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar" x="147.0" y="80.0" width="66.0" height="18.0" rx="3"/><text class="bar-price" x="180.0" y="74.0" text-anchor="middle">$634</text><text class="bar-label" x="180.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-11"><rect class="bar bar-low" x="267.0" y="84.0" width="66.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="300.0" y="78.0" text-anchor="middle">$600</text><text class="bar-label bar-label-low" x="300.0" y="112.0" text-anchor="middle">Nov</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="387.0" y="54.1" width="66.0" height="43.9" rx="3"/><text class="bar-price" x="420.0" y="48.1" text-anchor="middle">$857</text><text class="bar-label" x="420.0" y="112.0" text-anchor="middle">Dec</text></g><g class="month-group" data-month="2027-01"><rect class="bar" x="507.0" y="53.5" width="66.0" height="44.5" rx="3"/><text class="bar-price" x="540.0" y="47.5" text-anchor="middle">$862</text><text class="bar-label" x="540.0" y="112.0" text-anchor="middle">Jan</text></g><g class="month-group" data-month="2027-08"><rect class="bar" x="627.0" y="20.0" width="66.0" height="78.0" rx="3"/><text class="bar-price" x="660.0" y="14.0" text-anchor="middle">$1,150</text><text class="bar-label" x="660.0" y="112.0" text-anchor="middle">Aug</text></g></svg>
+  </div>
+
   <dl class="stats">
-    <div><dd>$602</dd><dt>Latest</dt></div>
-    <div><dd class="">no change</dd><dt>Change</dt></div>
+    <div><dd>$600</dd><dt>Latest</dt></div>
+    <div><dd class="down">-$2</dd><dt>Change</dt></div>
     <div><dd>$594</dd><dt>Lowest seen</dt></div>
     <div><dd>$599</dd><dt>Average</dt></div>
-    <div><dd>15</dd><dt>Checks</dt></div>
+    <div><dd>16</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -1080,6 +1132,7 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
+        <tr><td>Sep 1</td><td class="num">$600</td><td>Nov 22</td><td>Dec 13</td><td>TAP Air Portugal 258</td></tr>
         <tr><td>Aug 31</td><td class="num">$602</td><td>Nov 22</td><td>Dec 13</td><td>TAP Air Portugal 258</td></tr>
         <tr><td>Aug 31</td><td class="num">$602</td><td>Nov 22</td><td>Dec 13</td><td>TAP Air Portugal 258</td></tr>
         <tr><td>Aug 30</td><td class="num">$602</td><td>Nov 22</td><td>Dec 13</td><td>TAP Air Portugal 258</td></tr>
@@ -1101,20 +1154,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="86.36" data-price="948" data-change="0" data-name="Oslo" data-months='{}'>
+<article class="card" data-rank="64.29" data-price="850" data-change="0" data-name="Zurich" data-months='{&quot;2026-10&quot;: 850}'>
   <div class="card-head">
-    <h3>Oslo<span class="code">OSL</span></h3>
+    <h3>Zurich<span class="code">ZRH</span></h3>
     <span class="verdict verdict-high">Above its usual range</span>
   </div>
-  <p class="signal"><span class="lead">Cheaper than 14% of the 11 checks so far · $43 above its $905 average</span><span class="provisional">Based on 11 checks &mdash; the read firms up as history builds.</span></p>
-  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Oslo price trend over 11 checks, $858 to $948, latest $948"><defs><linearGradient id="fill-OSL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="50.2" x2="713.0" y2="50.2"/><path d="M7.0,77.3 L77.6,77.3 L148.2,77.3 L218.8,32.6 L289.4,32.6 L360.0,32.6 L430.6,90.0 L501.2,90.0 L571.8,14.0 L642.4,14.0 L713.0,14.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-OSL)"/><path class="spark-line" d="M7.0,77.3 L77.6,77.3 L148.2,77.3 L218.8,32.6 L289.4,32.6 L360.0,32.6 L430.6,90.0 L501.2,90.0 L571.8,14.0 L642.4,14.0 L713.0,14.0"/><circle class="spark-min" cx="430.6" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="14.0" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Cheaper than 36% of the 14 checks so far · $50 below its $900 average</span></p>
+  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Zurich price trend over 14 checks, $842 to $1224, latest $850"><defs><linearGradient id="fill-ZRH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="78.5" x2="713.0" y2="78.5"/><path d="M7.0,90.0 L61.3,90.0 L115.6,90.0 L169.9,90.0 L224.2,90.0 L278.5,90.0 L332.8,14.0 L387.2,14.0 L441.5,88.4 L495.8,88.4 L550.1,88.4 L604.4,88.4 L658.7,88.4 L713.0,88.4 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-ZRH)"/><path class="spark-line" d="M7.0,90.0 L61.3,90.0 L115.6,90.0 L169.9,90.0 L224.2,90.0 L278.5,90.0 L332.8,14.0 L387.2,14.0 L441.5,88.4 L495.8,88.4 L550.1,88.4 L604.4,88.4 L658.7,88.4 L713.0,88.4"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="88.4" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Oct 2026</span>
+      <span class="months-summary">level at $850 across every month</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for ZRH"><g class="month-group" data-month="2026-10"><rect class="bar" x="316.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="360.0" y="14.0" text-anchor="middle">$850</text><text class="bar-label" x="360.0" y="112.0" text-anchor="middle">Oct</text></g></svg>
+  </div>
+
   <dl class="stats">
-    <div><dd>$948</dd><dt>Latest</dt></div>
+    <div><dd>$850</dd><dt>Latest</dt></div>
     <div><dd class="">no change</dd><dt>Change</dt></div>
-    <div><dd>$858</dd><dt>Lowest seen</dt></div>
-    <div><dd>$905</dd><dt>Average</dt></div>
-    <div><dd>11</dd><dt>Checks</dt></div>
+    <div><dd>$842</dd><dt>Lowest seen</dt></div>
+    <div><dd>$900</dd><dt>Average</dt></div>
+    <div><dd>14</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -1123,6 +1184,157 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
+        <tr><td>Sep 1</td><td class="num">$850</td><td>Oct 10</td><td>Oct 24</td><td>WestJet 46</td></tr>
+        <tr><td>Aug 31</td><td class="num">$850</td><td>Oct 10</td><td>Oct 24</td><td>WestJet 46</td></tr>
+        <tr><td>Aug 31</td><td class="num">$850</td><td>Oct 10</td><td>Oct 24</td><td>WestJet 46</td></tr>
+        <tr><td>Aug 30</td><td class="num">$850</td><td>Oct 10</td><td>Oct 24</td><td>WestJet 46</td></tr>
+        <tr><td>Aug 29</td><td class="num">$850</td><td>Oct 10</td><td>Oct 24</td><td>WestJet 46</td></tr>
+        <tr><td>Aug 28</td><td class="num">$850</td><td>Oct 10</td><td>Oct 24</td><td>WestJet 46</td></tr>
+        <tr><td>Aug 24</td><td class="num">$1,224</td><td>Sep 18</td><td>Sep 27</td><td>KLM 696</td></tr>
+        <tr><td>Aug 23</td><td class="num">$1,224</td><td>Sep 18</td><td>Sep 27</td><td>KLM 696</td></tr>
+        <tr class="cheapest"><td>Aug 22</td><td class="num">$842</td><td>Sep 23</td><td>Oct 8</td><td>Condor 2403</td></tr>
+        <tr><td>Aug 21</td><td class="num">$842</td><td>Sep 23</td><td>Oct 8</td><td>Condor 2403</td></tr>
+        <tr><td>Aug 20</td><td class="num">$842</td><td>Sep 23</td><td>Oct 8</td><td>Condor 2403</td></tr>
+        <tr><td>Aug 19</td><td class="num">$842</td><td>Sep 23</td><td>Oct 8</td><td>Condor 2403</td></tr>
+        <tr><td>Aug 18</td><td class="num">$842</td><td>Sep 23</td><td>Oct 8</td><td>Condor 2403</td></tr>
+        <tr><td>Aug 18</td><td class="num">$842</td><td>Sep 23</td><td>Oct 8</td><td>-</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</article>
+
+<article class="card" data-rank="66.67" data-price="769" data-change="0" data-name="Edinburgh" data-months='{&quot;2026-09&quot;: 769}'>
+  <div class="card-head">
+    <h3>Edinburgh<span class="code">EDI</span></h3>
+    <span class="verdict verdict-high">Above its usual range</span>
+  </div>
+  <p class="signal"><span class="lead">Cheaper than 33% of the 12 checks so far · $6 above its $763 average</span><span class="provisional">Based on 12 checks &mdash; the read firms up as history builds.</span></p>
+  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Edinburgh price trend over 12 checks, $731 to $844, latest $769"><defs><linearGradient id="fill-EDI" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="68.3" x2="713.0" y2="68.3"/><path d="M7.0,14.0 L71.2,14.0 L135.4,90.0 L199.5,88.7 L263.7,88.7 L327.9,88.7 L392.1,88.7 L456.3,88.7 L520.5,64.4 L584.6,64.4 L648.8,64.4 L713.0,64.4 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-EDI)"/><path class="spark-line" d="M7.0,14.0 L71.2,14.0 L135.4,90.0 L199.5,88.7 L263.7,88.7 L327.9,88.7 L392.1,88.7 L456.3,88.7 L520.5,64.4 L584.6,64.4 L648.8,64.4 L713.0,64.4"/><circle class="spark-min" cx="135.4" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="64.4" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026</span>
+      <span class="months-summary">level at $769 across every month</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for EDI"><g class="month-group" data-month="2026-09"><rect class="bar" x="316.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="360.0" y="14.0" text-anchor="middle">$769</text><text class="bar-label" x="360.0" y="112.0" text-anchor="middle">Sep</text></g></svg>
+  </div>
+
+  <dl class="stats">
+    <div><dd>$769</dd><dt>Latest</dt></div>
+    <div><dd class="">no change</dd><dt>Change</dt></div>
+    <div><dd>$731</dd><dt>Lowest seen</dt></div>
+    <div><dd>$763</dd><dt>Average</dt></div>
+    <div><dd>12</dd><dt>Checks</dt></div>
+  </dl>
+  
+  <details>
+    <summary>Full history</summary>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
+        <tbody>
+        <tr><td>Sep 1</td><td class="num">$769</td><td>Sep 17</td><td>Oct 1</td><td>WestJet 36</td></tr>
+        <tr><td>Aug 31</td><td class="num">$769</td><td>Sep 17</td><td>Oct 1</td><td>WestJet 36</td></tr>
+        <tr><td>Aug 31</td><td class="num">$769</td><td>Sep 17</td><td>Oct 1</td><td>WestJet 36</td></tr>
+        <tr><td>Aug 30</td><td class="num">$769</td><td>Sep 17</td><td>Oct 1</td><td>WestJet 36</td></tr>
+        <tr><td>Aug 29</td><td class="num">$733</td><td>Sep 24</td><td>Sep 27</td><td>Air Transat 7230</td></tr>
+        <tr><td>Aug 28</td><td class="num">$733</td><td>Sep 24</td><td>Sep 27</td><td>Air Transat 7230</td></tr>
+        <tr><td>Aug 26</td><td class="num">$733</td><td>Sep 24</td><td>Sep 27</td><td>Air Transat 7230</td></tr>
+        <tr><td>Aug 25</td><td class="num">$733</td><td>Sep 24</td><td>Sep 27</td><td>Air Transat 7230</td></tr>
+        <tr><td>Aug 24</td><td class="num">$733</td><td>Sep 24</td><td>Sep 27</td><td>Air Transat 7230</td></tr>
+        <tr class="cheapest"><td>Aug 23</td><td class="num">$731</td><td>Sep 24</td><td>Sep 27</td><td>Air Transat 7230</td></tr>
+        <tr><td>Aug 22</td><td class="num">$844</td><td>Oct 11</td><td>Oct 18</td><td>WestJet 36</td></tr>
+        <tr><td>Aug 21</td><td class="num">$844</td><td>Oct 11</td><td>Oct 18</td><td>WestJet 36</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</article>
+
+<article class="card" data-rank="71.88" data-price="743" data-change="0" data-name="Madrid" data-months='{&quot;2026-09&quot;: 852, &quot;2026-10&quot;: 743, &quot;2027-03&quot;: 1010, &quot;2027-04&quot;: 962}'>
+  <div class="card-head">
+    <h3>Madrid<span class="code">MAD</span></h3>
+    <span class="verdict verdict-high">Above its usual range</span>
+  </div>
+  <p class="signal"><span class="lead">Cheaper than 28% of the 16 checks so far · $25 above its $718 average</span></p>
+  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Madrid price trend over 16 checks, $658 to $850, latest $743"><defs><linearGradient id="fill-MAD" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="66.4" x2="713.0" y2="66.4"/><path d="M7.0,14.0 L54.1,14.0 L101.1,50.4 L148.2,90.0 L195.3,90.0 L242.3,90.0 L289.4,90.0 L336.5,90.0 L383.5,90.0 L430.6,90.0 L477.7,61.5 L524.7,61.5 L571.8,61.5 L618.9,56.4 L665.9,56.4 L713.0,56.4 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-MAD)"/><path class="spark-line" d="M7.0,14.0 L54.1,14.0 L101.1,50.4 L148.2,90.0 L195.3,90.0 L242.3,90.0 L289.4,90.0 L336.5,90.0 L383.5,90.0 L430.6,90.0 L477.7,61.5 L524.7,61.5 L571.8,61.5 L618.9,56.4 L665.9,56.4 L713.0,56.4"/><circle class="spark-min" cx="148.2" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="56.4" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Apr 2027</span>
+      <span class="months-summary">cheapest Oct at $743, $267 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for MAD"><g class="month-group" data-month="2026-09"><rect class="bar" x="46.0" y="57.8" width="88.0" height="40.2" rx="3"/><text class="bar-price" x="90.0" y="51.8" text-anchor="middle">$852</text><text class="bar-label" x="90.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar bar-low" x="226.0" y="84.0" width="88.0" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="270.0" y="78.0" text-anchor="middle">$743</text><text class="bar-label bar-label-low" x="270.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2027-03"><rect class="bar" x="406.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="450.0" y="14.0" text-anchor="middle">$1,010</text><text class="bar-label" x="450.0" y="112.0" text-anchor="middle">Mar</text></g><g class="month-group" data-month="2027-04"><rect class="bar" x="586.0" y="31.5" width="88.0" height="66.5" rx="3"/><text class="bar-price" x="630.0" y="25.5" text-anchor="middle">$962</text><text class="bar-label" x="630.0" y="112.0" text-anchor="middle">Apr</text></g></svg>
+  </div>
+
+  <dl class="stats">
+    <div><dd>$743</dd><dt>Latest</dt></div>
+    <div><dd class="">no change</dd><dt>Change</dt></div>
+    <div><dd>$658</dd><dt>Lowest seen</dt></div>
+    <div><dd>$718</dd><dt>Average</dt></div>
+    <div><dd>16</dd><dt>Checks</dt></div>
+  </dl>
+  
+  <details>
+    <summary>Full history</summary>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
+        <tbody>
+        <tr><td>Sep 1</td><td class="num">$743</td><td>Oct 12</td><td>Oct 20</td><td>KLM 692</td></tr>
+        <tr><td>Aug 31</td><td class="num">$743</td><td>Oct 12</td><td>Oct 20</td><td>KLM 692</td></tr>
+        <tr><td>Aug 31</td><td class="num">$743</td><td>Oct 12</td><td>Oct 20</td><td>KLM 692</td></tr>
+        <tr><td>Aug 30</td><td class="num">$730</td><td>Dec 4</td><td>Dec 14</td><td>TAP Air Portugal 262</td></tr>
+        <tr><td>Aug 29</td><td class="num">$730</td><td>Dec 4</td><td>Dec 14</td><td>TAP Air Portugal 262</td></tr>
+        <tr><td>Aug 28</td><td class="num">$730</td><td>Dec 4</td><td>Dec 14</td><td>TAP Air Portugal 262</td></tr>
+        <tr class="cheapest"><td>Aug 26</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
+        <tr><td>Aug 25</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
+        <tr><td>Aug 24</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
+        <tr><td>Aug 23</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
+        <tr><td>Aug 22</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
+        <tr><td>Aug 21</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
+        <tr><td>Aug 20</td><td class="num">$658</td><td>Oct 12</td><td>Oct 21</td><td>TAP Air Portugal 262</td></tr>
+        <tr><td>Aug 19</td><td class="num">$758</td><td>Nov 13</td><td>Nov 21</td><td>Porter Airlines Canada 7253</td></tr>
+        <tr><td>Aug 18</td><td class="num">$850</td><td>Oct 8</td><td>Oct 18</td><td>WestJet 46</td></tr>
+        <tr><td>Aug 18</td><td class="num">$850</td><td>Oct 8</td><td>Oct 18</td><td>-</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</article>
+
+<article class="card" data-rank="83.33" data-price="948" data-change="0" data-name="Oslo" data-months='{&quot;2026-09&quot;: 948}'>
+  <div class="card-head">
+    <h3>Oslo<span class="code">OSL</span></h3>
+    <span class="verdict verdict-high">Above its usual range</span>
+  </div>
+  <p class="signal"><span class="lead">Cheaper than 17% of the 12 checks so far · $39 above its $909 average</span><span class="provisional">Based on 12 checks &mdash; the read firms up as history builds.</span></p>
+  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Oslo price trend over 12 checks, $858 to $948, latest $948"><defs><linearGradient id="fill-OSL" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="47.1" x2="713.0" y2="47.1"/><path d="M7.0,77.3 L71.2,77.3 L135.4,77.3 L199.5,32.6 L263.7,32.6 L327.9,32.6 L392.1,90.0 L456.3,90.0 L520.5,14.0 L584.6,14.0 L648.8,14.0 L713.0,14.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-OSL)"/><path class="spark-line" d="M7.0,77.3 L71.2,77.3 L135.4,77.3 L199.5,32.6 L263.7,32.6 L327.9,32.6 L392.1,90.0 L456.3,90.0 L520.5,14.0 L584.6,14.0 L648.8,14.0 L713.0,14.0"/><circle class="spark-min" cx="392.1" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="14.0" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026</span>
+      <span class="months-summary">level at $948 across every month</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for OSL"><g class="month-group" data-month="2026-09"><rect class="bar" x="316.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="360.0" y="14.0" text-anchor="middle">$948</text><text class="bar-label" x="360.0" y="112.0" text-anchor="middle">Sep</text></g></svg>
+  </div>
+
+  <dl class="stats">
+    <div><dd>$948</dd><dt>Latest</dt></div>
+    <div><dd class="">no change</dd><dt>Change</dt></div>
+    <div><dd>$858</dd><dt>Lowest seen</dt></div>
+    <div><dd>$909</dd><dt>Average</dt></div>
+    <div><dd>12</dd><dt>Checks</dt></div>
+  </dl>
+  
+  <details>
+    <summary>Full history</summary>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
+        <tbody>
+        <tr><td>Sep 1</td><td class="num">$948</td><td>Sep 6</td><td>Sep 15</td><td>WestJet 806</td></tr>
         <tr><td>Aug 31</td><td class="num">$948</td><td>Sep 6</td><td>Sep 15</td><td>WestJet 806</td></tr>
         <tr><td>Aug 31</td><td class="num">$948</td><td>Sep 6</td><td>Sep 15</td><td>WestJet 806</td></tr>
         <tr><td>Aug 30</td><td class="num">$948</td><td>Sep 6</td><td>Sep 15</td><td>WestJet 806</td></tr>
@@ -1140,20 +1352,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="86.67" data-price="736" data-change="0" data-name="Amsterdam" data-months='{}'>
+<article class="card" data-rank="84.38" data-price="736" data-change="0" data-name="Amsterdam" data-months='{&quot;2026-09&quot;: 736, &quot;2026-10&quot;: 763, &quot;2026-11&quot;: 745, &quot;2026-12&quot;: 834, &quot;2027-03&quot;: 1004}'>
   <div class="card-head">
     <h3>Amsterdam<span class="code">AMS</span></h3>
     <span class="verdict verdict-high">Above its usual range</span>
   </div>
-  <p class="signal"><span class="lead">Cheaper than 13% of the 15 checks so far · $109 above its $627 average</span></p>
-  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Amsterdam price trend over 15 checks, $588 to $744, latest $736"><defs><linearGradient id="fill-AMS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="71.1" x2="713.0" y2="71.1"/><path d="M7.0,90.0 L57.4,90.0 L107.9,90.0 L158.3,90.0 L208.7,90.0 L259.1,90.0 L309.6,80.3 L360.0,79.3 L410.4,79.3 L460.9,79.3 L511.3,79.3 L561.7,79.3 L612.1,14.0 L662.6,17.9 L713.0,17.9 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-AMS)"/><path class="spark-line" d="M7.0,90.0 L57.4,90.0 L107.9,90.0 L158.3,90.0 L208.7,90.0 L259.1,90.0 L309.6,80.3 L360.0,79.3 L410.4,79.3 L460.9,79.3 L511.3,79.3 L561.7,79.3 L612.1,14.0 L662.6,17.9 L713.0,17.9"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="17.9" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Cheaper than 16% of the 16 checks so far · $102 above its $634 average</span></p>
+  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Amsterdam price trend over 16 checks, $588 to $744, latest $736"><defs><linearGradient id="fill-AMS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="67.8" x2="713.0" y2="67.8"/><path d="M7.0,90.0 L54.1,90.0 L101.1,90.0 L148.2,90.0 L195.3,90.0 L242.3,90.0 L289.4,80.3 L336.5,79.3 L383.5,79.3 L430.6,79.3 L477.7,79.3 L524.7,79.3 L571.8,14.0 L618.9,17.9 L665.9,17.9 L713.0,17.9 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-AMS)"/><path class="spark-line" d="M7.0,90.0 L54.1,90.0 L101.1,90.0 L148.2,90.0 L195.3,90.0 L242.3,90.0 L289.4,80.3 L336.5,79.3 L383.5,79.3 L430.6,79.3 L477.7,79.3 L524.7,79.3 L571.8,14.0 L618.9,17.9 L665.9,17.9 L713.0,17.9"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="17.9" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Mar 2027</span>
+      <span class="months-summary">cheapest Sep at $736, $268 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for AMS"><g class="month-group" data-month="2026-09"><rect class="bar bar-low" x="32.4" y="84.0" width="79.2" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="72.0" y="78.0" text-anchor="middle">$736</text><text class="bar-label bar-label-low" x="72.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar" x="176.4" y="77.5" width="79.2" height="20.5" rx="3"/><text class="bar-price" x="216.0" y="71.5" text-anchor="middle">$763</text><text class="bar-label" x="216.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-11"><rect class="bar" x="320.4" y="81.8" width="79.2" height="16.2" rx="3"/><text class="bar-price" x="360.0" y="75.8" text-anchor="middle">$745</text><text class="bar-label" x="360.0" y="112.0" text-anchor="middle">Nov</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="464.4" y="60.6" width="79.2" height="37.4" rx="3"/><text class="bar-price" x="504.0" y="54.6" text-anchor="middle">$834</text><text class="bar-label" x="504.0" y="112.0" text-anchor="middle">Dec</text></g><g class="month-group" data-month="2027-03"><rect class="bar" x="608.4" y="20.0" width="79.2" height="78.0" rx="3"/><text class="bar-price" x="648.0" y="14.0" text-anchor="middle">$1,004</text><text class="bar-label" x="648.0" y="112.0" text-anchor="middle">Mar</text></g></svg>
+  </div>
+
   <dl class="stats">
     <div><dd>$736</dd><dt>Latest</dt></div>
     <div><dd class="">no change</dd><dt>Change</dt></div>
     <div><dd>$588</dd><dt>Lowest seen</dt></div>
-    <div><dd>$627</dd><dt>Average</dt></div>
-    <div><dd>15</dd><dt>Checks</dt></div>
+    <div><dd>$634</dd><dt>Average</dt></div>
+    <div><dd>16</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -1162,6 +1382,7 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
+        <tr><td>Sep 1</td><td class="num">$736</td><td>Sep 29</td><td>Oct 6</td><td>Air Canada 894</td></tr>
         <tr><td>Aug 31</td><td class="num">$736</td><td>Sep 29</td><td>Oct 6</td><td>Air Canada 894</td></tr>
         <tr><td>Aug 31</td><td class="num">$736</td><td>Sep 29</td><td>Oct 6</td><td>Air Canada 894</td></tr>
         <tr><td>Aug 30</td><td class="num">$744</td><td>Sep 12</td><td>Sep 20</td><td>Air Canada 432</td></tr>
@@ -1183,56 +1404,28 @@
   </details>
 </article>
 
-<article class="card" data-rank="87.50" data-price="879" data-change="0" data-name="Stockholm" data-months='{}'>
-  <div class="card-head">
-    <h3>Stockholm<span class="code">ARN</span></h3>
-    <span class="verdict verdict-high">Above its usual range</span>
-  </div>
-  <p class="signal"><span class="lead">Cheaper than 12% of the 8 checks so far · $38 above its $841 average</span><span class="provisional">Based on 8 checks &mdash; the read firms up as history builds.</span></p>
-  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Stockholm price trend over 8 checks, $828 to $879, latest $879"><defs><linearGradient id="fill-ARN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="71.0" x2="713.0" y2="71.0"/><path d="M7.0,90.0 L107.9,90.0 L208.7,90.0 L309.6,90.0 L410.4,90.0 L511.3,90.0 L612.1,14.0 L713.0,14.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-ARN)"/><path class="spark-line" d="M7.0,90.0 L107.9,90.0 L208.7,90.0 L309.6,90.0 L410.4,90.0 L511.3,90.0 L612.1,14.0 L713.0,14.0"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="14.0" r="4.6"/></svg>
-  
-  <dl class="stats">
-    <div><dd>$879</dd><dt>Latest</dt></div>
-    <div><dd class="">no change</dd><dt>Change</dt></div>
-    <div><dd>$828</dd><dt>Lowest seen</dt></div>
-    <div><dd>$841</dd><dt>Average</dt></div>
-    <div><dd>8</dd><dt>Checks</dt></div>
-  </dl>
-  
-  <details>
-    <summary>Full history</summary>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
-        <tbody>
-        <tr><td>Aug 31</td><td class="num">$879</td><td>Oct 6</td><td>Oct 29</td><td>Air Transat 230</td></tr>
-        <tr><td>Aug 31</td><td class="num">$879</td><td>Oct 6</td><td>Oct 29</td><td>Air Transat 230</td></tr>
-        <tr class="cheapest"><td>Aug 30</td><td class="num">$828</td><td>Oct 11</td><td>Oct 17</td><td>Icelandair 602</td></tr>
-        <tr><td>Aug 29</td><td class="num">$828</td><td>Oct 11</td><td>Oct 17</td><td>Icelandair 602</td></tr>
-        <tr><td>Aug 28</td><td class="num">$828</td><td>Oct 11</td><td>Oct 17</td><td>Icelandair 602</td></tr>
-        <tr><td>Aug 26</td><td class="num">$828</td><td>Oct 11</td><td>Oct 17</td><td>Icelandair 602</td></tr>
-        <tr><td>Aug 25</td><td class="num">$828</td><td>Oct 11</td><td>Oct 17</td><td>Icelandair 602</td></tr>
-        <tr><td>Aug 24</td><td class="num">$828</td><td>Oct 11</td><td>Oct 17</td><td>Icelandair 602</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </details>
-</article>
-
-<article class="card" data-rank="93.33" data-price="854" data-change="0" data-name="Frankfurt" data-months='{}'>
+<article class="card" data-rank="90.62" data-price="854" data-change="0" data-name="Frankfurt" data-months='{&quot;2026-09&quot;: 927, &quot;2026-10&quot;: 1052, &quot;2026-11&quot;: 854, &quot;2026-12&quot;: 1102, &quot;2027-01&quot;: 1036}'>
   <div class="card-head">
     <h3>Frankfurt<span class="code">FRA</span></h3>
     <span class="verdict verdict-high">Above its usual range</span>
   </div>
-  <p class="signal"><span class="lead">Cheaper than 7% of the 15 checks so far · $167 above its $687 average</span></p>
-  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Frankfurt price trend over 15 checks, $576 to $854, latest $854"><defs><linearGradient id="fill-FRA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="59.5" x2="713.0" y2="59.5"/><path d="M7.0,90.0 L57.4,90.0 L107.9,39.7 L158.3,39.7 L208.7,39.7 L259.1,39.7 L309.6,15.9 L360.0,85.1 L410.4,85.1 L460.9,85.1 L511.3,85.1 L561.7,85.1 L612.1,85.1 L662.6,14.0 L713.0,14.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-FRA)"/><path class="spark-line" d="M7.0,90.0 L57.4,90.0 L107.9,39.7 L158.3,39.7 L208.7,39.7 L259.1,39.7 L309.6,15.9 L360.0,85.1 L410.4,85.1 L460.9,85.1 L511.3,85.1 L561.7,85.1 L612.1,85.1 L662.6,14.0 L713.0,14.0"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="14.0" r="4.6"/></svg>
-  
+  <p class="signal"><span class="lead">Cheaper than 9% of the 16 checks so far · $156 above its $698 average</span></p>
+  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Frankfurt price trend over 16 checks, $576 to $854, latest $854"><defs><linearGradient id="fill-FRA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="56.7" x2="713.0" y2="56.7"/><path d="M7.0,90.0 L54.1,90.0 L101.1,39.7 L148.2,39.7 L195.3,39.7 L242.3,39.7 L289.4,15.9 L336.5,85.1 L383.5,85.1 L430.6,85.1 L477.7,85.1 L524.7,85.1 L571.8,85.1 L618.9,14.0 L665.9,14.0 L713.0,14.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-FRA)"/><path class="spark-line" d="M7.0,90.0 L54.1,90.0 L101.1,39.7 L148.2,39.7 L195.3,39.7 L242.3,39.7 L289.4,15.9 L336.5,85.1 L383.5,85.1 L430.6,85.1 L477.7,85.1 L524.7,85.1 L571.8,85.1 L618.9,14.0 L665.9,14.0 L713.0,14.0"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="14.0" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Sep 2026 - Jan 2027</span>
+      <span class="months-summary">cheapest Nov at $854, $248 spread</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for FRA"><g class="month-group" data-month="2026-09"><rect class="bar" x="32.4" y="65.1" width="79.2" height="32.9" rx="3"/><text class="bar-price" x="72.0" y="59.1" text-anchor="middle">$927</text><text class="bar-label" x="72.0" y="112.0" text-anchor="middle">Sep</text></g><g class="month-group" data-month="2026-10"><rect class="bar" x="176.4" y="32.9" width="79.2" height="65.1" rx="3"/><text class="bar-price" x="216.0" y="26.9" text-anchor="middle">$1,052</text><text class="bar-label" x="216.0" y="112.0" text-anchor="middle">Oct</text></g><g class="month-group" data-month="2026-11"><rect class="bar bar-low" x="320.4" y="84.0" width="79.2" height="14.0" rx="3"/><text class="bar-price bar-price-low" x="360.0" y="78.0" text-anchor="middle">$854</text><text class="bar-label bar-label-low" x="360.0" y="112.0" text-anchor="middle">Nov</text></g><g class="month-group" data-month="2026-12"><rect class="bar" x="464.4" y="20.0" width="79.2" height="78.0" rx="3"/><text class="bar-price" x="504.0" y="14.0" text-anchor="middle">$1,102</text><text class="bar-label" x="504.0" y="112.0" text-anchor="middle">Dec</text></g><g class="month-group" data-month="2027-01"><rect class="bar" x="608.4" y="37.0" width="79.2" height="61.0" rx="3"/><text class="bar-price" x="648.0" y="31.0" text-anchor="middle">$1,036</text><text class="bar-label" x="648.0" y="112.0" text-anchor="middle">Jan</text></g></svg>
+  </div>
+
   <dl class="stats">
     <div><dd>$854</dd><dt>Latest</dt></div>
     <div><dd class="">no change</dd><dt>Change</dt></div>
     <div><dd>$576</dd><dt>Lowest seen</dt></div>
-    <div><dd>$687</dd><dt>Average</dt></div>
-    <div><dd>15</dd><dt>Checks</dt></div>
+    <div><dd>$698</dd><dt>Average</dt></div>
+    <div><dd>16</dd><dt>Checks</dt></div>
   </dl>
   
   <details>
@@ -1241,6 +1434,7 @@
       <table>
         <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
         <tbody>
+        <tr><td>Sep 1</td><td class="num">$854</td><td>Nov 11</td><td>Nov 20</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 31</td><td class="num">$854</td><td>Nov 11</td><td>Nov 20</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 31</td><td class="num">$854</td><td>Nov 11</td><td>Nov 20</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 30</td><td class="num">$594</td><td>Nov 10</td><td>Nov 20</td><td>Icelandair 602</td></tr>
@@ -1256,6 +1450,51 @@
         <tr><td>Aug 19</td><td class="num">$760</td><td>Nov 11</td><td>Nov 18</td><td>Icelandair 602</td></tr>
         <tr class="cheapest"><td>Aug 18</td><td class="num">$576</td><td>Nov 11</td><td>Nov 17</td><td>Icelandair 602</td></tr>
         <tr><td>Aug 18</td><td class="num">$576</td><td>Nov 11</td><td>Nov 17</td><td>-</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+</article>
+
+<article class="card" data-rank="94.44" data-price="1291" data-change="412" data-name="Stockholm" data-months='{&quot;2026-12&quot;: 1291}'>
+  <div class="card-head">
+    <h3>Stockholm<span class="code">ARN</span></h3>
+    <span class="verdict verdict-high">Above its usual range</span>
+  </div>
+  <p class="signal"><span class="lead">Cheaper than 6% of the 9 checks so far · $400 above its $891 average</span><span class="provisional">Based on 9 checks &mdash; the read firms up as history builds.</span></p>
+  <svg class="spark spark-high" viewBox="0 0 720 104" width="720" height="104" role="img" aria-label="Stockholm price trend over 9 checks, $828 to $1291, latest $1291"><defs><linearGradient id="fill-ARN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity="0.20"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><line class="spark-avg" x1="7.0" y1="79.7" x2="713.0" y2="79.7"/><path d="M7.0,90.0 L95.2,90.0 L183.5,90.0 L271.8,90.0 L360.0,90.0 L448.2,90.0 L536.5,81.6 L624.8,81.6 L713.0,14.0 L713.0,104.0 L7.0,104.0 Z" fill="url(#fill-ARN)"/><path class="spark-line" d="M7.0,90.0 L95.2,90.0 L183.5,90.0 L271.8,90.0 L360.0,90.0 L448.2,90.0 L536.5,81.6 L624.8,81.6 L713.0,14.0"/><circle class="spark-min" cx="7.0" cy="90.0" r="3.4"/><circle class="spark-dot" cx="713.0" cy="14.0" r="4.6"/></svg>
+  <div class="months">
+    <div class="months-head">
+      <span class="months-title">By travel month</span>
+      <span class="months-range">Dec 2026</span>
+      <span class="months-summary">level at $1,291 across every month</span>
+    </div>
+    <svg class="months-chart" viewBox="0 0 720 118" width="720" height="118" role="img" aria-label="Cheapest fare by departure month for ARN"><g class="month-group" data-month="2026-12"><rect class="bar" x="316.0" y="20.0" width="88.0" height="78.0" rx="3"/><text class="bar-price" x="360.0" y="14.0" text-anchor="middle">$1,291</text><text class="bar-label" x="360.0" y="112.0" text-anchor="middle">Dec</text></g></svg>
+  </div>
+
+  <dl class="stats">
+    <div><dd>$1,291</dd><dt>Latest</dt></div>
+    <div><dd class="up">+$412</dd><dt>Change</dt></div>
+    <div><dd>$828</dd><dt>Lowest seen</dt></div>
+    <div><dd>$891</dd><dt>Average</dt></div>
+    <div><dd>9</dd><dt>Checks</dt></div>
+  </dl>
+  
+  <details>
+    <summary>Full history</summary>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Checked</th><th class="num">Price</th><th>Depart</th><th>Return</th><th>Flight</th></tr></thead>
+        <tbody>
+        <tr><td>Sep 1</td><td class="num">$1,291</td><td>Dec 23</td><td>Jan 3, 2027</td><td>SATA 2322</td></tr>
+        <tr><td>Aug 31</td><td class="num">$879</td><td>Oct 6</td><td>Oct 29</td><td>Air Transat 230</td></tr>
+        <tr><td>Aug 31</td><td class="num">$879</td><td>Oct 6</td><td>Oct 29</td><td>Air Transat 230</td></tr>
+        <tr class="cheapest"><td>Aug 30</td><td class="num">$828</td><td>Oct 11</td><td>Oct 17</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 29</td><td class="num">$828</td><td>Oct 11</td><td>Oct 17</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 28</td><td class="num">$828</td><td>Oct 11</td><td>Oct 17</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 26</td><td class="num">$828</td><td>Oct 11</td><td>Oct 17</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 25</td><td class="num">$828</td><td>Oct 11</td><td>Oct 17</td><td>Icelandair 602</td></tr>
+        <tr><td>Aug 24</td><td class="num">$828</td><td>Oct 11</td><td>Oct 17</td><td>Icelandair 602</td></tr>
         </tbody>
       </table>
     </div>
