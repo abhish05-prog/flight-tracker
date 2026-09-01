@@ -20,9 +20,17 @@ Runs entirely on free tiers: Travelpayouts Data API, GitHub Actions, Gmail SMTP.
    the daily check asks "cheapest fare on any date", which makes its
    `depart_date` a by-product rather than a dimension you can filter on, so
    month questions need their own sampling.
-3. If any route triggers a deal, an email is sent via Gmail SMTP listing the
-   qualifying routes, prices, dates, and the reason(s) they qualified. No
-   email is sent on days with no deals.
+3. Two kinds of email go out via Gmail SMTP:
+   - **Deal alerts** when a route is at or below `floor_price_cad`, or lands in
+     the cheapest `alert_percentile`% of its own recorded history — the same
+     percentile the history page shows, so the email and the page never
+     disagree. A route that already alerted within
+     `repeat_suppression_days` is skipped unless it got cheaper still, and
+     `data/alerts.csv` records what was sent so that survives between runs.
+   - **Run health warnings** when fewer routes came back than are configured,
+     or a day was missed entirely, so silent failures aren't invisible.
+
+   No email is sent on days with nothing to report.
 4. `generate_html.py` rebuilds `docs/history.html` — one card per destination
    showing a **book-or-wait signal**, an inline sparkline of the price trend,
    headline stats, and a collapsible check history.
@@ -144,11 +152,19 @@ Two caveats:
 Edit `config.yaml` to change:
 - `origin` — departure airport code
 - `destinations` — list of `{code, name}` destination airports
-- `deal_rules.floor_price_cad` — hard price ceiling for an alert
-- `deal_rules.statistical_discount_pct` — % below rolling average to trigger
-- `deal_rules.min_history_points` — minimum data points before the
-  statistical trigger is active
-- `deal_rules.rolling_window_days` — lookback window for the average
+- `deal_rules.floor_price_cad` — always alert at or below this price. **This
+  is the biggest driver of how often you get mail**: routes that normally sit
+  just under it (Paris, Lisbon) will alert on ordinary days. Replaying the real
+  history, dropping it from $600 to $550 takes alerts from 7 days in 13 to 2.
+- `deal_rules.alert_percentile` — alert when the fare is in the cheapest N% of
+  that route's history
+- `deal_rules.min_history_points` — minimum data points before the percentile
+  trigger is active
+- `deal_rules.rolling_window_days` — lookback window for the percentile
+- `deal_rules.repeat_suppression_days` — don't re-alert a route within this
+  many days unless it got cheaper still
+- `run_health.enabled` — send warning emails on short or missed runs
+- `email.page_url` — linked at the bottom of each email
 
 The alert recipient is set via the `EMAIL_RECIPIENT` secret/env var, not
 `config.yaml`, so it isn't exposed if the repo is public.

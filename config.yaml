@@ -86,12 +86,29 @@ monthly_prices:
   request_delay_seconds: 0.25
 
 deal_rules:
+  # A fare at or below this always alerts, whatever its history. This is the
+  # single biggest driver of how often you get mail: Paris and Lisbon normally
+  # sit just under $600, so this fires on ordinary days for them. Replaying the
+  # real history, dropping it to $550 takes alerts from 7 days in 13 down to 2.
   floor_price_cad: 600
-  statistical_discount_pct: 15
-  min_history_points: 5
+  # Otherwise alert only when the fare lands in the cheapest N% of that
+  # route's own recorded history -- the same percentile the history page
+  # shows, so the email and the page never disagree.
+  alert_percentile: 5
+  min_history_points: 10
   rolling_window_days: 90
+  # Don't re-alert a route within this many days unless it got cheaper still.
+  # Without this the statistical rule mailed 2-6 routes every single day.
+  repeat_suppression_days: 7
+
+# Warn by email when a run looks wrong -- fewer routes than configured came
+# back, or a day was missed entirely -- so silent failures aren't invisible.
+run_health:
+  enabled: true
 
 email:
   # Recipient address comes from the EMAIL_RECIPIENT secret/env var, not here,
   # so this file can be committed to a public repo without exposing it.
   subject_prefix: "[Flight Deal]"
+  # Linked at the bottom of each email.
+  page_url: "https://abhish05-prog.github.io/flight-tracker/history.html"

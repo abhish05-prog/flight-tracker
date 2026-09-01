@@ -6,7 +6,7 @@ import os
 import smtplib
 import sys
 import time
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from email.mime.text import MIMEText
 
 import requests
@@ -21,6 +21,9 @@ AIRLINES_URL = "https://api.travelpayouts.com/data/en/airlines.json"
 CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.yaml")
 HISTORY_PATH = os.path.join(os.path.dirname(__file__), "data", "history.csv")
 MONTHLY_PATH = os.path.join(os.path.dirname(__file__), "data", "fares_by_month.csv")
+# What has already been alerted on, so the same fare is not mailed every day.
+ALERT_LOG_PATH = os.path.join(os.path.dirname(__file__), "data", "alerts.csv")
+ALERT_LOG_FIELDS = ["sent_at", "destination", "price"]
 CSV_FIELDS = [
     "checked_at",
     "origin",
@@ -208,51 +211,154 @@ def rolling_average(history, destination, window_days):
 
 
 def evaluate_deal(price, destination, history, rules, floor_price_cad=None):
+    """Reasons this fare is worth mailing about, or an empty list."""
     reasons = []
 
     floor = floor_price_cad if floor_price_cad is not None else rules["floor_price_cad"]
     if price <= floor:
-        reasons.append(f"at or below floor price of ${floor} CAD")
+        reasons.append(f"at or below the ${floor:,.0f} floor")
 
-    past_prices = rolling_average(history, destination, rules["rolling_window_days"])
-    if len(past_prices) >= rules["min_history_points"]:
-        avg = sum(past_prices) / len(past_prices)
-        threshold = avg * (1 - rules["statistical_discount_pct"] / 100)
-        if price <= threshold:
-            pct_below = (1 - price / avg) * 100
+    past = rolling_average(history, destination, rules["rolling_window_days"])
+    if len(past) >= rules["min_history_points"]:
+        # Same percentile the history page shows, so the email and the page
+        # never disagree about whether today is a good day to book.
+        series = sorted(past + [price])
+        below = sum(1 for p in series if p < price)
+        equal = sum(1 for p in series if p == price)
+        rank = (below + 0.5 * equal) / len(series) * 100
+        if rank <= rules.get("alert_percentile", 10):
             reasons.append(
-                f"{pct_below:.0f}% below the {rules['rolling_window_days']}-day "
-                f"average of ${avg:.0f} CAD"
+                f"cheapest {rank:.0f}% of {len(series)} checks "
+                f"(low ${min(series):,.0f}, average ${sum(series) / len(series):,.0f})"
             )
 
     return reasons
 
 
-def send_deal_email(config, deals):
-    email_cfg = config["email"]
+def read_alert_log():
+    """Most recent alert per route: destination -> (date, price)."""
+    if not os.path.exists(ALERT_LOG_PATH):
+        return {}
+    latest = {}
+    with open(ALERT_LOG_PATH, newline="") as f:
+        for row in csv.DictReader(f):
+            try:
+                sent = date.fromisoformat(row["sent_at"][:10])
+                price = float(row["price"])
+            except (ValueError, KeyError, TypeError):
+                continue
+            dest = row.get("destination")
+            if dest and (dest not in latest or sent >= latest[dest][0]):
+                latest[dest] = (sent, price)
+    return latest
+
+
+def append_alert_log(rows):
+    if not rows:
+        return
+    exists = os.path.exists(ALERT_LOG_PATH)
+    os.makedirs(os.path.dirname(ALERT_LOG_PATH), exist_ok=True)
+    with open(ALERT_LOG_PATH, "a", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=ALERT_LOG_FIELDS)
+        if not exists:
+            writer.writeheader()
+        writer.writerows(rows)
+
+
+def recently_alerted(destination, price, alert_log, suppress_days, today):
+    """True when this route was alerted recently and has not got cheaper."""
+    last = alert_log.get(destination)
+    if not last or suppress_days <= 0:
+        return False
+    last_date, last_price = last
+    if (today - last_date).days >= suppress_days:
+        return False
+    return price >= last_price
+
+
+def _send(config, subject, body):
     sender = os.environ["EMAIL_ADDRESS"]
     app_password = os.environ["EMAIL_APP_PASSWORD"]
     recipient = os.environ["EMAIL_RECIPIENT"]
 
-    lines = ["Flight deals found:\n"]
-    for deal in deals:
-        lines.append(
-            f"- {deal['destination_name']} ({deal['destination']}): "
-            f"${deal['price']} {deal['currency'].upper()} "
-            f"(depart {deal['depart_date']}, return {deal['return_date']}) "
-            f"[{deal['airline_name']} {deal['flight_number']}]\n"
-            f"  Reason: {', '.join(deal['reasons'])}"
-        )
-    body = "\n".join(lines)
-
     msg = MIMEText(body)
-    msg["Subject"] = f"{email_cfg['subject_prefix']} {len(deals)} route(s) found"
+    msg["Subject"] = f"{config['email']['subject_prefix']} {subject}"
     msg["From"] = sender
     msg["To"] = recipient
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
         server.login(sender, app_password)
         server.sendmail(sender, [recipient], msg.as_string())
+
+
+def send_deal_email(config, deals, page_url=None):
+    lines = [
+        f"{len(deals)} route(s) worth a look today:",
+        "",
+    ]
+    for deal in deals:
+        flight = f"{deal['airline_name']} {deal['flight_number']}".strip()
+        lines.append(f"{deal['destination_name']} ({deal['destination']})  "
+                     f"${deal['price']:,.0f} {deal['currency'].upper()}")
+        lines.append(f"  depart {deal['depart_date']}  return {deal['return_date']}"
+                     + (f"  {flight}" if flight else ""))
+        lines.append(f"  why: {'; '.join(deal['reasons'])}")
+        if deal.get("best_month"):
+            month, month_price = deal["best_month"]
+            lines.append(f"  cheapest month on record: {month} at ${month_price:,.0f}")
+        lines.append("")
+
+    if page_url:
+        lines.append(f"Full history: {page_url}")
+    lines.append("")
+    lines.append("Fares are cached, crowd-sourced data - confirm with the airline "
+                 "before booking.")
+
+    _send(config, f"{len(deals)} route(s) found", "\n".join(lines))
+
+
+def send_health_email(config, problems, page_url=None):
+    lines = ["The tracker ran but something looks wrong:", ""]
+    lines.extend(f"- {p}" for p in problems)
+    lines.append("")
+    lines.append("A run that records fewer routes than configured usually means the "
+                 "API returned nothing for them, not that the fares vanished.")
+    if page_url:
+        lines.append("")
+        lines.append(f"Full history: {page_url}")
+    _send(config, "run health warning", "\n".join(lines))
+
+
+def check_run_health(config, new_rows, history, today):
+    """Problems worth mailing about: missing routes, or a gap since last run."""
+    problems = []
+    expected = len(config.get("destinations") or [])
+    got = len({r["destination"] for r in new_rows})
+    threshold = config.get("run_health", {}).get("min_routes", expected)
+    if expected and got < threshold:
+        missing = sorted(
+            {d["code"] for d in config["destinations"]}
+            - {r["destination"] for r in new_rows}
+        )
+        problems.append(
+            f"only {got} of {expected} routes returned a fare "
+            f"(missing: {', '.join(missing)})"
+        )
+
+    days = sorted({r["checked_at"][:10] for r in history})
+    if days:
+        try:
+            last = date.fromisoformat(days[-1])
+            gap = (today - last).days
+            if gap > 1:
+                problems.append(
+                    f"no fares recorded for {gap - 1} day(s) before today "
+                    f"(last was {days[-1]})"
+                )
+        except ValueError:
+            pass
+
+    return problems
 
 
 def main():
@@ -271,13 +377,20 @@ def main():
 
     # One extra request per route records every departure month the API has
     # cached, so the history page can be filtered by any month or season.
+    today = datetime.now(timezone.utc).date()
     monthly_cfg = config.get("monthly_prices") or {}
     collect_months = monthly_cfg.get("enabled", True)
     delay = float(monthly_cfg.get("request_delay_seconds", 0.25))
 
+    alert_log = read_alert_log()
+    suppress_days = int(rules.get("repeat_suppression_days", 3))
+    page_url = (config.get("email") or {}).get("page_url")
+
     new_rows = []
     monthly_rows = []
+    monthly_by_dest = {}
     deals = []
+    suppressed = []
 
     for dest in config["destinations"]:
         code, name = dest["code"], dest["name"]
@@ -310,9 +423,11 @@ def main():
         print(f"  {code}: ${fare['price']} {currency.upper()}")
 
         if collect_months:
-            monthly_rows.extend(
-                collect_monthly(dest, origin, currency, token, airline_names, now)
-            )
+            got = collect_monthly(dest, origin, currency, token, airline_names, now)
+            monthly_rows.extend(got)
+            if got:
+                cheapest = min(got, key=lambda r: r["price"])
+                monthly_by_dest[code] = (cheapest["depart_month"], cheapest["price"])
             time.sleep(delay)
 
         if dest.get("alerts", True):
@@ -320,7 +435,14 @@ def main():
                 fare["price"], code, history, rules, floor_price_cad=dest.get("floor_price_cad")
             )
             if reasons:
-                deals.append({**row, "reasons": reasons})
+                if recently_alerted(code, fare["price"], alert_log, suppress_days, today):
+                    suppressed.append(code)
+                else:
+                    deals.append({
+                        **row,
+                        "reasons": reasons,
+                        "best_month": monthly_by_dest.get(code),
+                    })
 
     if new_rows:
         append_history(new_rows)
@@ -329,11 +451,24 @@ def main():
         append_monthly(monthly_rows)
         print(f"Logged {len(monthly_rows)} month/route fares")
 
+    if suppressed:
+        print(f"Suppressed {len(suppressed)} repeat alert(s): {', '.join(suppressed)}")
+
     if deals:
         print(f"Found {len(deals)} deal(s), sending email")
-        send_deal_email(config, deals)
+        send_deal_email(config, deals, page_url)
+        append_alert_log([
+            {"sent_at": now, "destination": d["destination"], "price": d["price"]}
+            for d in deals
+        ])
     else:
-        print("No deals found today")
+        print("No new deals today")
+
+    if (config.get("run_health") or {}).get("enabled", True):
+        problems = check_run_health(config, new_rows, history, today)
+        if problems:
+            print(f"Run health problems: {problems}")
+            send_health_email(config, problems, page_url)
 
 
 if __name__ == "__main__":
