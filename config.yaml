@@ -84,9 +84,15 @@ monthly_prices:
   enabled: true
   # Priority routes only: after the bulk call, ask month by month for any of
   # the next N months it did not return. Costs up to N calls per priority
-  # route. Whether it finds anything depends on the same cache, so this may
-  # legitimately come back empty -- check the run log before trusting it.
-  priority_backfill_months: 12
+  # route.
+  #
+  # Disabled because it was tried and provably found nothing: on 2026-09-01
+  # Travelpayouts had no cached YYZ-DEL fare beyond 2026-12 or YYZ-BOM beyond
+  # 2027-02, by either endpoint. Their data comes from real user searches, so
+  # far-future months on these routes simply do not exist yet. Worth setting
+  # back to 12 in a few months, once those departure dates draw closer and
+  # people start searching them -- the run log reports what it recovers.
+  priority_backfill_months: 0
   # Pause between API calls, in seconds, to stay a polite client.
   request_delay_seconds: 0.25
 
