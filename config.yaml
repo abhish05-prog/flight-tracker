@@ -75,6 +75,16 @@ destinations:
     priority: true
     alerts: false
 
+# Per-departure-month prices, recorded alongside the daily cheapest-any-date
+# check. `/v1/prices/monthly` returns every month Travelpayouts has cached for
+# a route in a single request, so all available months are recorded for every
+# route -- one extra API call each -- and the history page does the filtering
+# by month or season. Nothing needs choosing here.
+monthly_prices:
+  enabled: true
+  # Pause between API calls, in seconds, to stay a polite client.
+  request_delay_seconds: 0.25
+
 deal_rules:
   floor_price_cad: 600
   statistical_discount_pct: 15

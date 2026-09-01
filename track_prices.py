@@ -5,6 +5,7 @@ import csv
 import os
 import smtplib
 import sys
+import time
 from datetime import datetime, timedelta, timezone
 from email.mime.text import MIMEText
 
@@ -13,9 +14,13 @@ import yaml
 
 API_URL = "https://api.travelpayouts.com/v1/prices/cheap"
 DIRECT_API_URL = "https://api.travelpayouts.com/v1/prices/direct"
+# Returns the cheapest fare for every month Travelpayouts has cached for a
+# route, keyed YYYY-MM, in a single request.
+MONTHLY_API_URL = "https://api.travelpayouts.com/v1/prices/monthly"
 AIRLINES_URL = "https://api.travelpayouts.com/data/en/airlines.json"
 CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.yaml")
 HISTORY_PATH = os.path.join(os.path.dirname(__file__), "data", "history.csv")
+MONTHLY_PATH = os.path.join(os.path.dirname(__file__), "data", "fares_by_month.csv")
 CSV_FIELDS = [
     "checked_at",
     "origin",
@@ -29,6 +34,10 @@ CSV_FIELDS = [
     "airline_name",
     "flight_number",
 ]
+# One row per route per departure month, so price can be read across the
+# calendar rather than only across check dates.
+MONTHLY_FIELDS = ["checked_at", "origin", "destination", "destination_name",
+                  "depart_month"] + CSV_FIELDS[4:] + ["transfers"]
 
 
 def load_config():
@@ -46,15 +55,48 @@ def fetch_airline_names():
         return {}
 
 
-def fetch_cheapest_fare(origin, destination, currency, token, direct_only=False):
+def fetch_monthly_fares(origin, destination, currency, token):
+    """Cheapest fare per departure month for one route, in a single request."""
     resp = requests.get(
-        DIRECT_API_URL if direct_only else API_URL,
+        MONTHLY_API_URL,
         params={
             "origin": origin,
             "destination": destination,
             "currency": currency,
             "token": token,
         },
+        timeout=30,
+    )
+    resp.raise_for_status()
+    payload = resp.json()
+    if not payload.get("success"):
+        return {}
+
+    fares = {}
+    for month, offer in (payload.get("data") or {}).items():
+        if not isinstance(offer, dict) or offer.get("price") is None:
+            continue
+        fares[month] = {
+            "price": offer["price"],
+            "depart_date": (offer.get("departure_at") or "")[:10],
+            "return_date": (offer.get("return_at") or "")[:10],
+            "airline": offer.get("airline", ""),
+            "flight_number": offer.get("flight_number", ""),
+            "transfers": offer.get("transfers", ""),
+        }
+    return fares
+
+
+def fetch_cheapest_fare(origin, destination, currency, token, direct_only=False):
+    params = {
+        "origin": origin,
+        "destination": destination,
+        "currency": currency,
+        "token": token,
+    }
+    resp = requests.get(
+        DIRECT_API_URL if direct_only else API_URL,
+        params=params,
         timeout=30,
     )
     resp.raise_for_status()
@@ -79,6 +121,7 @@ def fetch_cheapest_fare(origin, destination, currency, token, direct_only=False)
     }
 
 
+
 def read_history():
     if not os.path.exists(HISTORY_PATH):
         return []
@@ -94,6 +137,54 @@ def append_history(rows):
         if not file_exists:
             writer.writeheader()
         writer.writerows(rows)
+
+
+def append_monthly(rows):
+    if not rows:
+        return
+    file_exists = os.path.exists(MONTHLY_PATH)
+    os.makedirs(os.path.dirname(MONTHLY_PATH), exist_ok=True)
+    with open(MONTHLY_PATH, "a", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=MONTHLY_FIELDS)
+        if not file_exists:
+            writer.writeheader()
+        writer.writerows(rows)
+
+
+def collect_monthly(dest, origin, currency, token, airline_names, now):
+    """Record every departure month Travelpayouts has cached for one route."""
+    code, name = dest["code"], dest["name"]
+    try:
+        fares = fetch_monthly_fares(origin, code, currency, token)
+    except requests.RequestException as e:
+        print(f"  {code} months: request failed ({e})", file=sys.stderr)
+        return []
+
+    if not fares:
+        print(f"  {code} months: no data")
+        return []
+
+    rows = []
+    for month in sorted(fares):
+        fare = fares[month]
+        rows.append({
+            "checked_at": now,
+            "origin": origin,
+            "destination": code,
+            "destination_name": name,
+            "depart_month": month,
+            "price": fare["price"],
+            "currency": currency,
+            "depart_date": fare["depart_date"],
+            "return_date": fare["return_date"],
+            "airline": fare["airline"],
+            "airline_name": airline_names.get(fare["airline"], fare["airline"]),
+            "flight_number": fare["flight_number"],
+            "transfers": fare["transfers"],
+        })
+    span = f"{min(fares)} to {max(fares)}" if fares else "none"
+    print(f"  {code} months: {len(rows)} ({span})")
+    return rows
 
 
 def rolling_average(history, destination, window_days):
@@ -175,7 +266,14 @@ def main():
     history = read_history()
     now = datetime.now(timezone.utc).isoformat()
 
+    # One extra request per route records every departure month the API has
+    # cached, so the history page can be filtered by any month or season.
+    monthly_cfg = config.get("monthly_prices") or {}
+    collect_months = monthly_cfg.get("enabled", True)
+    delay = float(monthly_cfg.get("request_delay_seconds", 0.25))
+
     new_rows = []
+    monthly_rows = []
     deals = []
 
     for dest in config["destinations"]:
@@ -208,6 +306,12 @@ def main():
         new_rows.append(row)
         print(f"  {code}: ${fare['price']} {currency.upper()}")
 
+        if collect_months:
+            monthly_rows.extend(
+                collect_monthly(dest, origin, currency, token, airline_names, now)
+            )
+            time.sleep(delay)
+
         if dest.get("alerts", True):
             reasons = evaluate_deal(
                 fare["price"], code, history, rules, floor_price_cad=dest.get("floor_price_cad")
@@ -217,6 +321,10 @@ def main():
 
     if new_rows:
         append_history(new_rows)
+
+    if monthly_rows:
+        append_monthly(monthly_rows)
+        print(f"Logged {len(monthly_rows)} month/route fares")
 
     if deals:
         print(f"Found {len(deals)} deal(s), sending email")

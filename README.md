@@ -13,13 +13,49 @@ Runs entirely on free tiers: Travelpayouts Data API, GitHub Actions, Gmail SMTP.
    - **Floor price**: fare ≤ `floor_price_cad` (default $700).
    - **Statistical deal**: fare ≥ 15% below that route's 90-day rolling
      average, once at least 5 historical data points exist for the route.
-2. If any route triggers a deal, an email is sent via Gmail SMTP listing the
+2. For each route it makes one further request to `/v1/prices/monthly`, which
+   returns the cheapest fare for **every departure month** Travelpayouts has
+   cached for that route in a single response, and appends them to
+   `data/fares_by_month.csv`. This is a separate series from `history.csv`:
+   the daily check asks "cheapest fare on any date", which makes its
+   `depart_date` a by-product rather than a dimension you can filter on, so
+   month questions need their own sampling.
+3. If any route triggers a deal, an email is sent via Gmail SMTP listing the
    qualifying routes, prices, dates, and the reason(s) they qualified. No
    email is sent on days with no deals.
-3. `generate_html.py` rebuilds `docs/history.html` — one card per destination
-   with lowest/latest/average price and a full check history table (cheapest
-   row highlighted).
-4. The GitHub Actions workflow commits the updated CSV and HTML back to the
+4. `generate_html.py` rebuilds `docs/history.html` — one card per destination
+   showing a **book-or-wait signal**, an inline sparkline of the price trend,
+   headline stats, and a collapsible check history.
+
+   The signal scores today's fare against *that route's own* recorded history
+   using a percentile rank — the share of past checks that came in cheaper. A
+   rank in the bottom 20% reads "Good time to book", the top 40% reads "Above
+   its usual range", and the middle is "Middle of its range". Routes with
+   fewer than 14 checks say so on the card, since the percentile is thin until
+   history builds up. Tuning lives in the constants at the top of
+   `generate_html.py` (`GOOD_MAX_PCT`, `FAIR_MAX_PCT`, `PROVISIONAL_BELOW`).
+
+   The sparkline is inline SVG — no external assets, so the page stays a single
+   self-contained file. It marks the lowest point (hollow dot), the latest
+   point (filled dot), and the route's average (dashed line).
+
+   Cards are ordered **best signal first** (lowest percentile rank), so the
+   routes most worth booking today sit at the top. A sort bar switches between
+   *Best signal*, *Lowest price*, *Biggest drop* (largest fall since the
+   previous check), and *A–Z*; the choice is remembered in `localStorage`.
+   Sorting is a few lines of inline JavaScript that just reorder existing
+   cards — with JS disabled the page still renders fully, in best-signal
+   order. Routes without enough history to score sort last under every key.
+
+   Where month data exists, each card also gets a **by travel month** bar
+   chart — cheapest fare per departure month, cheapest month highlighted — and
+   *Travel month* and *Season* filters appear above the cards. Picking a month
+   or a season highlights the matching bars on every chart, dims routes with no
+   fare in that range, and reorders the cards by their cheapest fare within it,
+   so "who is cheapest in winter" is one click. The whole month section is
+   omitted when `data/fares_by_month.csv` doesn't exist, so the page is
+   unchanged until the first run that collects it.
+5. The GitHub Actions workflow commits the updated CSV and HTML back to the
    repo after each run, so history persists for free without a database.
 
 ## One-time setup
@@ -80,6 +116,30 @@ trigger a manual run and confirm everything works before waiting for the
 next scheduled run.
 
 ## Configuration
+
+### Month prices
+
+```yaml
+monthly_prices:
+  enabled: true
+  request_delay_seconds: 0.25
+```
+
+`/v1/prices/monthly` returns every month it has for a route in one request, so
+there are no months to choose at collection time — everything available is
+recorded, and the history page filters it. This costs **one extra API call per
+route per day** (about 54 calls a day in total, including the daily
+cheapest-any-date checks).
+
+Two caveats:
+
+- The monthly endpoint has no nonstop-only mode, so for a `direct_only` route
+  such as Delhi the month bars include connecting flights and are not directly
+  comparable to that route's daily nonstop check. The card says so.
+- Month history **cannot be backfilled**: the series starts from the first run
+  after you enable it.
+
+### Everything else
 
 Edit `config.yaml` to change:
 - `origin` — departure airport code
