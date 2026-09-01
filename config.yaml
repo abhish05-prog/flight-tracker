@@ -82,6 +82,11 @@ destinations:
 # by month or season. Nothing needs choosing here.
 monthly_prices:
   enabled: true
+  # Priority routes only: after the bulk call, ask month by month for any of
+  # the next N months it did not return. Costs up to N calls per priority
+  # route. Whether it finds anything depends on the same cache, so this may
+  # legitimately come back empty -- check the run log before trusting it.
+  priority_backfill_months: 12
   # Pause between API calls, in seconds, to stay a polite client.
   request_delay_seconds: 0.25
 

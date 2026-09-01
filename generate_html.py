@@ -975,6 +975,7 @@ def build_monthbar(monthly):
         if present & set(numbers)
     ]
 
+    total_routes = len(monthly)
     month_buttons = [
         '<button type="button" data-month="all" aria-pressed="true">All months</button>'
     ]
@@ -983,9 +984,14 @@ def build_monthbar(monthly):
             label = datetime.strptime(month, "%Y-%m").strftime("%b %Y")
         except ValueError:
             label = month
+        # Travelpayouts' cache thins out the further ahead you look, so show how
+        # many routes a month actually covers before it is clicked.
+        count = sum(1 for route in monthly.values() if month in route)
+        sparse = " sparse" if total_routes and count <= total_routes * 0.25 else ""
         month_buttons.append(
-            f'<button type="button" data-month="{month}" aria-pressed="false">'
-            f"{html.escape(label)}</button>"
+            f'<button type="button" class="month-btn{sparse}" data-month="{month}" '
+            f'aria-pressed="false">{html.escape(label)}'
+            f'<span class="count">{count}</span></button>'
         )
 
     out = (
@@ -1038,6 +1044,15 @@ STYLES += """
   .months-chart .month-group.picked .bar-price,
   .months-chart .month-group.picked .bar-label { fill: var(--accent); font-weight: 600; }
   .monthbar, .seasonbar { margin-top: -1.2rem; }
+  .sortbar .count {
+    display: inline-block; margin-left: 0.4rem; padding: 0 0.32rem;
+    font-size: 0.68rem; font-variant-numeric: tabular-nums;
+    background: var(--hairline-soft); color: var(--ink-faint); border-radius: 4px;
+  }
+  .sortbar button[aria-pressed="true"] .count {
+    background: rgba(255, 255, 255, 0.22); color: inherit;
+  }
+  .sortbar button.sparse { color: var(--ink-faint); border-style: dashed; }
   .card.no-month-data { opacity: 0.4; }
   @media (max-width: 34rem) {
     .months-summary { margin-left: 0; width: 100%; }

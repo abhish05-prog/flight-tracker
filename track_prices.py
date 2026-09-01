@@ -91,13 +91,16 @@ def fetch_monthly_fares(origin, destination, currency, token):
     return fares
 
 
-def fetch_cheapest_fare(origin, destination, currency, token, direct_only=False):
+def fetch_cheapest_fare(origin, destination, currency, token, direct_only=False,
+                        depart_month=None):
     params = {
         "origin": origin,
         "destination": destination,
         "currency": currency,
         "token": token,
     }
+    if depart_month:
+        params["depart_date"] = depart_month
     resp = requests.get(
         DIRECT_API_URL if direct_only else API_URL,
         params=params,
@@ -155,7 +158,41 @@ def append_monthly(rows):
         writer.writerows(rows)
 
 
-def collect_monthly(dest, origin, currency, token, airline_names, now):
+def backfill_months(dest, origin, currency, token, have, wanted, delay):
+    """Ask month by month for gaps the bulk endpoint left, for priority routes.
+
+    /v1/prices/monthly only returns months Travelpayouts happens to have
+    cached, which for YYZ-DEL is about four. This asks explicitly for each
+    missing month; whether that surfaces anything depends on the same cache,
+    so it may legitimately find nothing.
+    """
+    code = dest["code"]
+    found = {}
+    for month in wanted:
+        if month in have:
+            continue
+        try:
+            fare = fetch_cheapest_fare(
+                origin, code, currency, token,
+                direct_only=dest.get("direct_only", False),
+                depart_month=month,
+            )
+        except Exception as e:  # noqa: BLE001 - supplementary, never fatal
+            print(f"  {code} {month}: skipped ({type(e).__name__})", file=sys.stderr)
+            continue
+        finally:
+            time.sleep(delay)
+        if fare:
+            found[month] = {**fare, "transfers": ""}
+    if found:
+        print(f"  {code} backfill: +{len(found)} month(s) ({', '.join(sorted(found))})")
+    else:
+        print(f"  {code} backfill: nothing cached for the missing months")
+    return found
+
+
+def collect_monthly(dest, origin, currency, token, airline_names, now,
+                    backfill_to=0, delay=0.25):
     """Record every departure month Travelpayouts has cached for one route."""
     code, name = dest["code"], dest["name"]
     # Month prices are supplementary. This endpoint's exact response shape is
@@ -166,6 +203,12 @@ def collect_monthly(dest, origin, currency, token, airline_names, now):
     except Exception as e:  # noqa: BLE001 - deliberately broad, see above
         print(f"  {code} months: skipped ({type(e).__name__}: {e})", file=sys.stderr)
         return []
+
+    if backfill_to:
+        fares.update(backfill_months(
+            dest, origin, currency, token, fares,
+            next_months(backfill_to, datetime.now(timezone.utc).date()), delay,
+        ))
 
     if not fares:
         print(f"  {code} months: no data")
@@ -234,6 +277,15 @@ def evaluate_deal(price, destination, history, rules, floor_price_cad=None):
             )
 
     return reasons
+
+
+def next_months(count, today):
+    """The current month plus the next `count - 1` months, as YYYY-MM."""
+    out = []
+    for i in range(count):
+        offset = today.month - 1 + i
+        out.append(f"{today.year + offset // 12:04d}-{offset % 12 + 1:02d}")
+    return out
 
 
 def read_alert_log():
@@ -386,6 +438,7 @@ def main():
     today = datetime.now(timezone.utc).date()
     monthly_cfg = config.get("monthly_prices") or {}
     collect_months = monthly_cfg.get("enabled", True)
+    backfill_months_count = int(monthly_cfg.get("priority_backfill_months", 0))
     delay = float(monthly_cfg.get("request_delay_seconds", 0.25))
 
     alert_log = read_alert_log()
@@ -429,7 +482,11 @@ def main():
         print(f"  {code}: ${fare['price']} {currency.upper()}")
 
         if collect_months:
-            got = collect_monthly(dest, origin, currency, token, airline_names, now)
+            got = collect_monthly(
+                dest, origin, currency, token, airline_names, now,
+                backfill_to=backfill_months_count if dest.get("priority") else 0,
+                delay=delay,
+            )
             monthly_rows.extend(got)
             if got:
                 cheapest = min(got, key=lambda r: r["price"])

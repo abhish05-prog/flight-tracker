@@ -240,6 +240,15 @@
   .months-chart .month-group.picked .bar-price,
   .months-chart .month-group.picked .bar-label { fill: var(--accent); font-weight: 600; }
   .monthbar, .seasonbar { margin-top: -1.2rem; }
+  .sortbar .count {
+    display: inline-block; margin-left: 0.4rem; padding: 0 0.32rem;
+    font-size: 0.68rem; font-variant-numeric: tabular-nums;
+    background: var(--hairline-soft); color: var(--ink-faint); border-radius: 4px;
+  }
+  .sortbar button[aria-pressed="true"] .count {
+    background: rgba(255, 255, 255, 0.22); color: inherit;
+  }
+  .sortbar button.sparse { color: var(--ink-faint); border-style: dashed; }
   .card.no-month-data { opacity: 0.4; }
   @media (max-width: 34rem) {
     .months-summary { margin-left: 0; width: 100%; }
@@ -263,18 +272,18 @@
 <nav class="sortbar monthbar" aria-label="Filter by travel month">
   <span class="label">Travel month</span>
   <button type="button" data-month="all" aria-pressed="true">All months</button>
-  <button type="button" data-month="2026-09" aria-pressed="false">Sep 2026</button>
-  <button type="button" data-month="2026-10" aria-pressed="false">Oct 2026</button>
-  <button type="button" data-month="2026-11" aria-pressed="false">Nov 2026</button>
-  <button type="button" data-month="2026-12" aria-pressed="false">Dec 2026</button>
-  <button type="button" data-month="2027-01" aria-pressed="false">Jan 2027</button>
-  <button type="button" data-month="2027-02" aria-pressed="false">Feb 2027</button>
-  <button type="button" data-month="2027-03" aria-pressed="false">Mar 2027</button>
-  <button type="button" data-month="2027-04" aria-pressed="false">Apr 2027</button>
-  <button type="button" data-month="2027-05" aria-pressed="false">May 2027</button>
-  <button type="button" data-month="2027-06" aria-pressed="false">Jun 2027</button>
-  <button type="button" data-month="2027-07" aria-pressed="false">Jul 2027</button>
-  <button type="button" data-month="2027-08" aria-pressed="false">Aug 2027</button>
+  <button type="button" class="month-btn" data-month="2026-09" aria-pressed="false">Sep 2026<span class="count">21</span></button>
+  <button type="button" class="month-btn" data-month="2026-10" aria-pressed="false">Oct 2026<span class="count">20</span></button>
+  <button type="button" class="month-btn" data-month="2026-11" aria-pressed="false">Nov 2026<span class="count">13</span></button>
+  <button type="button" class="month-btn" data-month="2026-12" aria-pressed="false">Dec 2026<span class="count">16</span></button>
+  <button type="button" class="month-btn" data-month="2027-01" aria-pressed="false">Jan 2027<span class="count">8</span></button>
+  <button type="button" class="month-btn sparse" data-month="2027-02" aria-pressed="false">Feb 2027<span class="count">4</span></button>
+  <button type="button" class="month-btn sparse" data-month="2027-03" aria-pressed="false">Mar 2027<span class="count">4</span></button>
+  <button type="button" class="month-btn sparse" data-month="2027-04" aria-pressed="false">Apr 2027<span class="count">2</span></button>
+  <button type="button" class="month-btn sparse" data-month="2027-05" aria-pressed="false">May 2027<span class="count">3</span></button>
+  <button type="button" class="month-btn sparse" data-month="2027-06" aria-pressed="false">Jun 2027<span class="count">2</span></button>
+  <button type="button" class="month-btn sparse" data-month="2027-07" aria-pressed="false">Jul 2027<span class="count">1</span></button>
+  <button type="button" class="month-btn sparse" data-month="2027-08" aria-pressed="false">Aug 2027<span class="count">2</span></button>
 </nav>
 <nav class="sortbar seasonbar" aria-label="Filter by season">
   <span class="label">Season</span>
