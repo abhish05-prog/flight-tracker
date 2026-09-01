@@ -154,10 +154,13 @@ def append_monthly(rows):
 def collect_monthly(dest, origin, currency, token, airline_names, now):
     """Record every departure month Travelpayouts has cached for one route."""
     code, name = dest["code"], dest["name"]
+    # Month prices are supplementary. This endpoint's exact response shape is
+    # unverified against a live token, so no failure here may take down the
+    # daily check or the deal emails.
     try:
         fares = fetch_monthly_fares(origin, code, currency, token)
-    except requests.RequestException as e:
-        print(f"  {code} months: request failed ({e})", file=sys.stderr)
+    except Exception as e:  # noqa: BLE001 - deliberately broad, see above
+        print(f"  {code} months: skipped ({type(e).__name__}: {e})", file=sys.stderr)
         return []
 
     if not fares:
